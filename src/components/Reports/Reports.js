@@ -2,60 +2,60 @@ import React, { Component } from 'react';
 
 import { AuthUserContext } from '../Session';
 import { withFirebase } from '../Firebase';
-import MessageList from './MessageList';
+import ReportList from './ReportList';
 
-class Messages extends Component {
+class Reports extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       text: '',
       loading: false,
-      messages: [],
+      reports: [],
       limit: 5,
     };
   }
 
   componentDidMount() {
-    this.onListenForMessages();
+    this.onListenForReports();
   }
 
-  onListenForMessages = () => {
+  onListenForReports = () => {
     this.setState({ loading: true });
 
     this.props.firebase
-      .messages()
+      .reports()
       .orderByChild('createdAt')
       .limitToLast(this.state.limit)
-      .on('value', snapshot => {
-        const messageObject = snapshot.val();
+      .on('value', (snapshot) => {
+        const reportObject = snapshot.val();
 
-        if (messageObject) {
-          const messageList = Object.keys(messageObject).map(key => ({
-            ...messageObject[key],
+        if (reportObject) {
+          const reportList = Object.keys(reportObject).map((key) => ({
+            ...reportObject[key],
             uid: key,
           }));
 
           this.setState({
-            messages: messageList,
+            reports: reportList,
             loading: false,
           });
         } else {
-          this.setState({ messages: null, loading: false });
+          this.setState({ reports: null, loading: false });
         }
       });
   };
 
   componentWillUnmount() {
-    this.props.firebase.messages().off();
+    this.props.firebase.reports().off();
   }
 
-  onChangeText = event => {
+  onChangeText = (event) => {
     this.setState({ text: event.target.value });
   };
 
-  onCreateMessage = (event, authUser) => {
-    this.props.firebase.messages().push({
+  onCreateReport = (event, authUser) => {
+    this.props.firebase.reports().push({
       text: this.state.text,
       userId: authUser.uid,
       createdAt: this.props.firebase.serverValue.TIMESTAMP,
@@ -66,35 +66,35 @@ class Messages extends Component {
     event.preventDefault();
   };
 
-  onEditMessage = (message, text) => {
-    const { uid, ...messageSnapshot } = message;
+  onEditReport = (report, text) => {
+    const { uid, ...reportSnapshot } = report;
 
-    this.props.firebase.message(message.uid).set({
-      ...messageSnapshot,
+    this.props.firebase.report(report.uid).set({
+      ...reportSnapshot,
       text,
       editedAt: this.props.firebase.serverValue.TIMESTAMP,
     });
   };
 
-  onRemoveMessage = uid => {
-    this.props.firebase.message(uid).remove();
+  onRemoveReport = (uid) => {
+    this.props.firebase.report(uid).remove();
   };
 
   onNextPage = () => {
     this.setState(
-      state => ({ limit: state.limit + 5 }),
-      this.onListenForMessages,
+      (state) => ({ limit: state.limit + 5 }),
+      this.onListenForReports,
     );
   };
 
   render() {
-    const { text, messages, loading } = this.state;
+    const { text, reports, loading } = this.state;
 
     return (
       <AuthUserContext.Consumer>
-        {authUser => (
+        {(authUser) => (
           <div>
-            {!loading && messages && (
+            {!loading && reports && (
               <button type="button" onClick={this.onNextPage}>
                 More
               </button>
@@ -102,20 +102,20 @@ class Messages extends Component {
 
             {loading && <div>Loading ...</div>}
 
-            {messages && (
-              <MessageList
+            {reports && (
+              <ReportList
                 authUser={authUser}
-                messages={messages}
-                onEditMessage={this.onEditMessage}
-                onRemoveMessage={this.onRemoveMessage}
+                reports={reports}
+                onEditReport={this.onEditReport}
+                onRemoveReport={this.onRemoveReport}
               />
             )}
 
-            {!messages && <div>There are no messages ...</div>}
+            {!reports && <div>There are no reports ...</div>}
 
             <form
-              onSubmit={event =>
-                this.onCreateMessage(event, authUser)
+              onSubmit={(event) =>
+                this.onCreateReport(event, authUser)
               }
             >
               <input
@@ -132,4 +132,4 @@ class Messages extends Component {
   }
 }
 
-export default withFirebase(Messages);
+export default withFirebase(Reports);

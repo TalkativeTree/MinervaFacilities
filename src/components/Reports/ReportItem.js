@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
 
-class MessageItem extends Component {
+class ReportItem extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       editMode: false,
-      editText: this.props.message.text,
+      editText: this.props.report.text,
     };
   }
 
   onToggleEditMode = () => {
-    this.setState(state => ({
+    this.setState((state) => ({
       editMode: !state.editMode,
-      editText: this.props.message.text,
+      editText: this.props.report.text,
     }));
   };
 
-  onChangeEditText = event => {
+  onChangeEditText = (event) => {
     this.setState({ editText: event.target.value });
   };
 
   onSaveEditText = () => {
-    this.props.onEditMessage(this.props.message, this.state.editText);
+    this.props.onEditReport(this.props.report, this.state.editText);
 
     this.setState({ editMode: false });
   };
 
   render() {
-    const { authUser, message, onRemoveMessage } = this.props;
+    const { authUser, report, onRemoveReport } = this.props;
     const { editMode, editText } = this.state;
 
     return (
@@ -41,12 +41,12 @@ class MessageItem extends Component {
           />
         ) : (
           <span>
-            <strong>{message.userId}</strong> {message.text}
-            {message.editedAt && <span>(Edited)</span>}
+            <strong>{report.userId}</strong> {report.text}
+            {report.editedAt && <span>(Edited)</span>}
           </span>
         )}
 
-        {authUser.uid === message.userId && (
+        {authUser.uid === report.userId && (
           <span>
             {editMode ? (
               <span>
@@ -60,7 +60,7 @@ class MessageItem extends Component {
             {!editMode && (
               <button
                 type="button"
-                onClick={() => onRemoveMessage(message.uid)}
+                onClick={() => onRemoveReport(report.uid)}
               >
                 Delete
               </button>
@@ -72,4 +72,4 @@ class MessageItem extends Component {
   }
 }
 
-export default MessageItem;
+export default ReportItem;
