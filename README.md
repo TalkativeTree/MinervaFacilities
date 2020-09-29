@@ -1,135 +1,119 @@
-# react-firebase-authentication
+# [Minerva] by New Harmony Cafe
 
-[![Build Status](https://travis-ci.org/the-road-to-react-with-firebase/react-firebase-authentication.svg?branch=master)](https://travis-ci.org/the-road-to-react-with-firebase/react-firebase-authentication) [![Slack](https://slack-the-road-to-learn-react.wieruch.com/badge.svg)](https://slack-the-road-to-learn-react.wieruch.com/) [![Greenkeeper badge](https://badges.greenkeeper.io/the-road-to-react-with-firebase/react-firebase-authentication.svg)](https://greenkeeper.io/)
+<p align="center">
+    <img width="350" height="350" src="assets/icon.png">
+</p>
 
-- [Tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/)
+<p align="center">
+  <p align="center">
+    <!-- iOS -->
+    <img alt="Supports Expo iOS" longdesc="Supports Expo iOS" src="https://img.shields.io/badge/iOS-000.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" />
+    <!-- Android -->
+    <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-000.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
+    <!-- Web -->
+    <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-000.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
+  </p>
+  <p align="center">
+    <!-- <a href="https://packagephobia.now.sh/result?p=create-react-native-app">
+      <img alt="the best way to bootstrap a react native app" longdesc="the best way to create a react native app" src="https://flat.badgen.net/packagephobia/install/create-react-native-app" />
+    </a> -->
+    <a href="https://GitHub.com/ChrisBarnes7404/new-harmony-cafe/network/">
+      <img alt="GitHub forks" longdesc="GitHub forks" src="https://img.shields.io/github/forks/ChrisBarnes7404/new-harmony-cafe.svg?style=social&label=Forks&maxAge=2592000" />
+    </a>
+    <!-- [![GitHub forks](https://img.shields.io/github/forks/ChrisBarnes7404/new-harmony-cafe.svg?style=social&label=Forks&maxAge=2592000)](https://GitHub.com/ChrisBarnes7404/new-harmony-cafe/network/) -->
+    <a href="https://GitHub.com/ChrisBarnes7404/new-harmony-cafe/issues/">
+      <img alt="GitHub issues" longdesc="GitHub issues" src="https://img.shields.io/github/issues/ChrisBarnes7404/new-harmony-cafe.svg?style=social&label=Issues&maxAge=2592000" />
+    </a>
+    <!-- [![GitHub](https://img.shields.io/github/issues/ChrisBarnes7404/new-harmony-cafe.svg?style=social&label=Issues&maxAge=2592000)](https://github.com/ChrisBarnes7404/new-harmony-cafe/issues) -->
+  </p>
 
-## Variations
+  <br />
 
-- [Redux Version](https://github.com/the-road-to-react-with-firebase/react-redux-firebase-authentication)
-- [MobX Version](https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication)
-- [Gatsby Version](https://github.com/the-road-to-react-with-firebase/react-gatsby-firebase-authentication)
-- [Firestore Version](https://github.com/the-road-to-react-with-firebase/react-firestore-authentication)
-- [Semantic UI Version](https://github.com/the-road-to-react-with-firebase/react-semantic-ui-firebase-authentication)
+  <b>The app will allow building managers, employees, and maintenance workers/contractors to handle repair requests and office issues while providing a central location to track and store repair/request history.</b>
 
-## Features
+</p>
 
-- uses:
-  - only React (create-react-app)
-  - firebase
-  - react-router
-- features:
-  - Sign In
-  - Sign Up
-  - Sign Out
-  - Password Forget
-  - Password Change
-  - Verification Email
-  - Protected Routes with Authorization
-  - Roles-based Authorization
-  - Social Logins with Google, Facebook and Twitter
-  - Linking of Social Logins on Account dashboard
-  - Auth Persistence with Local Storage
-  - Database with Users and Reports
+## 🛠️ Built With
 
-## License
+<!-- - [React-Native](https://reactnative.dev/docs/tutorial.html) - React Native is like React, but it uses native components instead of web components as building blocks. So to understand the basic structure of a React Native app, you need to understand some of the basic React concepts, like JSX, components, `state`, and `props`. -->
+- [Expo](https://docs.expo.io) - Expo is a framework and a platform for universal React applications. It is a set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate on iOS, Android, and web apps from the same JavaScript/TypeScript codebase.
+- [FireBase](https://firebase.google.com/docs?authuser=0) - Firebase gives you the tools to develop high-quality apps, grow your user base, and earn more money. We cover the essentials so you can monetize your business and focus on your users.
+- React Firebase Authentication [Tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial) & [Repo](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication.git) - The example used
 
-### Commercial license
+<!-- - [Expo React-Native-App Tutorial](https://github.com/expo/create-react-native-app) - The example used -->
 
-If you want to use this starter project to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. Purchase an commercial license for different team sizes:
+## Contributing
 
-- [1 Developer](https://gum.co/react-with-firebase-starter-pack-developer)
-- [Team of up to 8 Developers](https://gum.co/react-with-firebase-starter-pack-team)
-- [Unlimited Developers of an Organization](https://gum.co/react-with-firebase-starter-pack-organization)
+For more details on our code of conduct, and the process for submitting pull requests to us, Please read our [CONTRIBUTING.md](CONTRIBUTING.md) .
 
-It grants you also access to the other starter projects in this GitHub organization.
+## :rocket: Deployment
 
-### Open source license
+Add additional notes about how to deploy this on a live system
 
-If you are creating an open source application under a license compatible with the [GNU GPL license v3](https://www.gnu.org/licenses/gpl-3.0.html), you may use this starter project under the terms of the GPLv3.
+### Usage with Expo Client App
 
-## Installation
+Expo Client enables you to work with all of the [Components and APIs](https://facebook.github.io/react-native/docs/getting-started.html) in `react-native`, as well as the [JavaScript APIs](https://docs.expo.io/versions/latest/sdk/index.html) that the are bundled with the Expo App.
 
-- `git clone git@github.com:the-road-to-react-with-firebase/react-firebase-authentication.git`
-- `cd react-firebase-authentication`
-- `npm install`
-- `npm start`
-- visit http://localhost:3000
+Expo Client supports running any project that doesn't have custom native modules added.
 
-Get an overview of Firebase, how to create a project, what kind of features Firebase offers, and how to navigate through the Firebase project dashboard in this [visual tutorial for Firebase](https://www.robinwieruch.de/firebase-tutorial/).
+- Download the "Expo Client" app from the Play Store or App Store.
+- Start your project with Expo
+  - Install the CLI `npm i -g expo-cli`
+  - Start the project `expo start`
+- Open the project:
+  - Sign in to expo and the project will appear in the app.
+  - Or point your phone's camera at the QR code in the terminal (press "c" to view it).
 
-### Firebase Configuration
+## :writing_hand: Authors
 
-- copy/paste your configuration from your Firebase project's dashboard into one of these files
-  - _src/components/Firebase/firebase.js_ file
-  - _.env_ file
-  - _.env.development_ and _.env.production_ files
+- Chris Barnes,
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/chrisbarnes2000/)
+&nbsp;
+[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/ChrisBarnes7404)
 
-The _.env_ or _.env.development_ and _.env.production_ files could look like the following then:
+- Thom d'Olanie,
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) MISSING LinkedIn](https://www.linkedin.com/in/--)
+&nbsp;
+[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/PudgyElderGod)
 
-```
-REACT_APP_API_KEY=AIzaSyBtxZ3phPeXcsZsRTySIXa7n33NtQ
-REACT_APP_AUTH_DOMAIN=react-firebase-s2233d64f8.firebaseapp.com
-REACT_APP_DATABASE_URL=https://react-firebase-s2233d64f8.firebaseio.com
-REACT_APP_PROJECT_ID=react-firebase-s2233d64f8
-REACT_APP_STORAGE_BUCKET=react-firebase-s2233d64f8.appspot.com
-REACT_APP_MESSAGING_SENDER_ID=701928454501
-```
+- Luke Harrison,
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/lukazdane/)
+&nbsp;
+[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/LukazDane)
 
-### Activate Sign-In Methods
+- Angelina Olmedo,
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/angelinaolmedo/)
+&nbsp;
+[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/angelinaolmedo7)
 
-![firebase-enable-google-social-login_640](https://user-images.githubusercontent.com/2479967/49687774-e0a31e80-fb42-11e8-9d8a-4b4c794134e6.jpg)
+- David Evans,
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/david-a-e/)
+&nbsp;
+[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/Evansdava)
 
-- Email/Password
-- [Google](https://www.robinwieruch.de/react-firebase-social-login/)
-- [Facebook](https://www.robinwieruch.de/firebase-facebook-login/)
-- [Twitter](https://www.robinwieruch.de/firebase-twitter-login/)
-- [Troubleshoot](https://www.robinwieruch.de/react-firebase-social-login/)
+<!-- ### [Project Features & Scoring](./PROGRESS.md) -->
 
-### Activate Verification E-Mail
+## :pray: Acknowledgments
 
-- add a redirect URL for redirecting a user after an email verification into one of these files
-  - _src/components/Firebase/firebase.js_ file
-  - _.env_ file
-  - _.env.development_ and _.env.production_ files
+- Ben Angel @[New Harmony Cafe](https://www.newharmonycafe.com/),
 
-The _.env_ or _.env.development_ and _.env.production_ files could look like the following then (excl. the Firebase configuration).
+    [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/bangel/)
+    &nbsp;
+    [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/TalkativeTree)
+    &nbsp;
+    [:e-mail: Email](mailto:ben@newharmonycafe.com)
 
-**Development:**
+<!-- ## :pencil: License
 
-```
-REACT_APP_CONFIRMATION_EMAIL_REDIRECT=http://localhost:3000
-```
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details -->
 
-**Production:**
+## :book: EXTRA RESOURCES
 
-```
-REACT_APP_CONFIRMATION_EMAIL_REDIRECT=https://mydomain.com
-```
-
-### Security Rules
-
-```
-{
-  "rules": {
-    ".read": false,
-    ".write": false,
-    "users": {
-      "$uid": {
-        ".read": "$uid === auth.uid || root.child('users/'+auth.uid).child('roles').hasChildren(['ADMIN'])",
-        ".write": "$uid === auth.uid || root.child('users/'+auth.uid).child('roles').hasChildren(['ADMIN'])"
-      },
-      ".read": "root.child('users/'+auth.uid).child('roles').hasChildren(['ADMIN'])",
-      ".write": "root.child('users/'+auth.uid).child('roles').hasChildren(['ADMIN'])"
-    },
-    "reports": {
-      ".indexOn": ["createdAt"],
-      "$uid": {
-        ".write": "data.exists() ? data.child('userId').val() === auth.uid : newData.child('userId').val() === auth.uid"
-      },
-      ".read": "auth != null",
-      ".write": "auth != null",
-    },
-  }
-}
-```
+- [Pull Request Title Checker](https://github.com/marketplace/actions/pr-title-checker)
+- [Pull Request Labeler](https://github.com/marketplace/actions/labeler)
+- [Emojis Wiki](https://emojis.wiki/) & [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
+- [Markdown Tutorial](https://agea.github.io/tutorial.md/)
+- [Writing A Good Commit](https://chris.beams.io/posts/git-commit/)
+<!-- - [Commit Template](https://thoughtbot.com/blog/better-commit-messages-with-a-gitmessage-template) -->
+<!-- - [Customizing Git Configuration](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration) -->
+<!-- - List of Github Badges [1](https://github.com/ClydeDz/emoji-badges-vscode/blob/master/list-of-badges.md) & [2](https://github.com/Naereen/badges) -->

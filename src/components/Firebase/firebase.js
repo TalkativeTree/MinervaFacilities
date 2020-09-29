@@ -67,7 +67,9 @@ class Firebase {
 
   doSendEmailVerification = () =>
     this.auth.currentUser.sendEmailVerification({
-      url: process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT,
+      url:
+        process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT ||
+        'http://localhost:19006/',
     });
 
   doPasswordUpdate = (password) =>
@@ -115,6 +117,24 @@ class Firebase {
   report = (uid) => this.db.ref(`reports/${uid}`);
 
   reports = () => this.db.ref('reports');
+
+  // **** Building API ***
+
+  building = (uid) => this.db.ref(`buildings/${uid}`);
+
+  buildings = () => this.db.ref('buildings');
+
+  // **** Floors API ***
+
+  floor = (buildingId, uid) =>
+    this.db.ref(`buildings/${buildingId}/floors/${uid}`);
+
+  floors = (buildingId) =>
+    this.db.ref(`buildings/${buildingId}/floors`);
+
+  // floor = (uid) => this.db.ref(`floors/${uid}`);
+
+  // floors = () => this.db.ref('floors');
 }
 
 export default Firebase;

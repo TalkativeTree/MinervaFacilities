@@ -138,7 +138,7 @@ class Reports extends Component {
                 value={serviceType}
                 onChange={this.onChangeServiceType}
               >
-                <option selected value="">Select a Service</option>
+                <option value="">Select a Service</option>
                 <option value="MAINTENANCE">
                   Maintenance / Repair
                 </option>
