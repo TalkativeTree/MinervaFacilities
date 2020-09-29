@@ -35,7 +35,7 @@ class PasswordChangeForm extends Component {
   };
 
   render() {
-    const { passwordOne, passwordTwo, error } = this.state;
+    const { email, passwordOne, passwordTwo, error } = this.state;
 
     const isInvalid =
       passwordOne !== passwordTwo || passwordOne === '';
@@ -43,7 +43,17 @@ class PasswordChangeForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <input
+          hidden={true}
+          name="email"
+          autoComplete="email"
+          value={email}
+          // onChange={this.onChange}
+          type="text"
+          placeholder="Email Address"
+        />
+        <input
           name="passwordOne"
+          autoComplete="new-password"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
@@ -51,6 +61,7 @@ class PasswordChangeForm extends Component {
         />
         <input
           name="passwordTwo"
+          autoComplete="new-password"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"

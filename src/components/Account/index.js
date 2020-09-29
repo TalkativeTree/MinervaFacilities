@@ -34,9 +34,11 @@ const AccountPage = () => (
     {(authUser) => (
       <div>
         <h1>Account: {authUser.email}</h1>
-        <PasswordForgetForm />
-        <PasswordChangeForm />
+        Forgot Your Password?  <PasswordForgetForm />
+        Reset Your Password.   <PasswordChangeForm />
         <LoginManagement authUser={authUser} />
+
+        <SignOutButton />
       </div>
     )}
   </AuthUserContext.Consumer>
@@ -185,7 +187,7 @@ class DefaultLoginToggle extends Component {
       onUnlink,
     } = this.props;
 
-    const { passwordOne, passwordTwo } = this.state;
+    const { email, passwordOne, passwordTwo } = this.state;
 
     const isInvalid =
       passwordOne !== passwordTwo || passwordOne === '';
@@ -202,7 +204,17 @@ class DefaultLoginToggle extends Component {
     ) : (
       <form onSubmit={this.onSubmit}>
         <input
+          hidden={true}
+          name="email"
+          autoComplete="email"
+          value={email}
+          // onChange={this.onChange}
+          type="text"
+          placeholder="Email Address"
+        />
+        <input
           name="passwordOne"
+          autoComplete="new-password"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
@@ -210,6 +222,7 @@ class DefaultLoginToggle extends Component {
         />
         <input
           name="passwordTwo"
+          autoComplete="new-password"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"

@@ -72,12 +72,14 @@ class SignInFormBase extends Component {
         <input
           name="email"
           value={email}
+          autoComplete="email"
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
         />
         <input
           name="password"
+          autoComplete="current-password"
           value={password}
           onChange={this.onChange}
           type="password"

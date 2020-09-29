@@ -51,6 +51,7 @@ class PasswordForgetFormBase extends Component {
       <form onSubmit={this.onSubmit}>
         <input
           name="email"
+          autoComplete="email"
           value={this.state.email}
           onChange={this.onChange}
           type="text"
