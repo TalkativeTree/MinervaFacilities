@@ -71,7 +71,6 @@ class Firebase {
         process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT ||
         'http://localhost:19006/',
     });
-
   doPasswordUpdate = (password) =>
     this.auth.currentUser.updatePassword(password);
 

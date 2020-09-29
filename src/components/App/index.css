@@ -1,0 +1,41 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  color: black !important;
+}
+nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+}
+.nav-item {
+  width: calc(100% / 4);
+  height: 10vh;
+  text-align: center;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.nav-tabs > .nav-link:hover {
+  background-color: #303136 !important;
+  border: medium none;
+  border-radius: 0;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.btn-social {
+  width: 100% !important;
+}
