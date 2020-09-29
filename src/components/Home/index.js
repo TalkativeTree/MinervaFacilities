@@ -1,5 +1,6 @@
 import React from 'react';
 import { compose } from 'recompose';
+import Body from '../App/index';
 
 import { withAuthorization, withEmailVerification } from '../Session';
 import Reports from '../Reports';

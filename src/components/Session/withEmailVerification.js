@@ -2,15 +2,16 @@ import React from 'react';
 
 import AuthUserContext from './context';
 import { withFirebase } from '../Firebase';
+import Button from 'react-bootstrap/Button';
 
-const needsEmailVerification = authUser =>
+const needsEmailVerification = (authUser) =>
   authUser &&
   !authUser.emailVerified &&
   authUser.providerData
-    .map(provider => provider.providerId)
+    .map((provider) => provider.providerId)
     .includes('password');
 
-const withEmailVerification = Component => {
+const withEmailVerification = (Component) => {
   class WithEmailVerification extends React.Component {
     constructor(props) {
       super(props);
@@ -27,7 +28,7 @@ const withEmailVerification = Component => {
     render() {
       return (
         <AuthUserContext.Consumer>
-          {authUser =>
+          {(authUser) =>
             needsEmailVerification(authUser) ? (
               <div>
                 {this.state.isSent ? (
@@ -38,19 +39,19 @@ const withEmailVerification = Component => {
                   </p>
                 ) : (
                   <p>
-                    Verify your E-Mail: Check your E-Mails (Spam folder
-                    included) for a confirmation E-Mail or send
+                    Verify your E-Mail: Check your E-Mails (Spam
+                    folder included) for a confirmation E-Mail or send
                     another confirmation E-Mail.
                   </p>
                 )}
 
-                <button
-                  type="button"
+                <Button
+                  type="button btn-primary"
                   onClick={this.onSendEmailVerification}
                   disabled={this.state.isSent}
                 >
                   Send confirmation E-Mail
-                </button>
+                </Button>
               </div>
             ) : (
               <Component {...this.props} />
