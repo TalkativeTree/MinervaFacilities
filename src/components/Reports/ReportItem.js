@@ -7,6 +7,7 @@ class ReportItem extends Component {
     this.state = {
       editMode: false,
       editText: this.props.report.text,
+      editServiceType: this.props.report.serviceType,
     };
   }
 
@@ -14,6 +15,7 @@ class ReportItem extends Component {
     this.setState((state) => ({
       editMode: !state.editMode,
       editText: this.props.report.text,
+      editServiceType: this.props.report.serviceType,
     }));
   };
 
@@ -21,27 +23,48 @@ class ReportItem extends Component {
     this.setState({ editText: event.target.value });
   };
 
+  onChangeEditServiceType = (event) => {
+    this.setState({ editServiceType: event.target.value });
+  };
+
   onSaveEditText = () => {
-    this.props.onEditReport(this.props.report, this.state.editText);
+    this.props.onEditReport(
+      this.props.report,
+      this.state.editText,
+      this.state.editServiceType,
+    );
 
     this.setState({ editMode: false });
   };
 
   render() {
     const { authUser, report, onRemoveReport } = this.props;
-    const { editMode, editText } = this.state;
+    const { editMode, editText, editServiceType } = this.state;
 
     return (
       <li>
         {editMode ? (
-          <input
-            type="text"
-            value={editText}
-            onChange={this.onChangeEditText}
-          />
+          <span>
+            <input
+              type="text"
+              value={editText}
+              onChange={this.onChangeEditText}
+            />
+
+            <select
+              value={editServiceType}
+              onChange={this.onChangeEditServiceType}
+            >
+              <option value="">Select a Service</option>
+              <option value="MAINTENANCE">Maintenance / Repair</option>
+              <option value="HAZARD">Hazard Report</option>
+              <option value="SERVICE">Service Report</option>
+            </select>
+          </span>
         ) : (
           <span>
-            <strong>{report.userId}</strong> {report.text}
+            <strong>{report.userId}</strong> ({report.serviceType}){' '}
+            {report.text}
             {report.editedAt && <span>(Edited)</span>}
           </span>
         )}

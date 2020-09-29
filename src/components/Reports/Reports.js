@@ -10,6 +10,7 @@ class Reports extends Component {
 
     this.state = {
       text: '',
+      serviceType: '',
       loading: false,
       reports: [],
       limit: 5,
@@ -54,24 +55,33 @@ class Reports extends Component {
     this.setState({ text: event.target.value });
   };
 
+  onChangeServiceType = (event) => {
+    this.setState({ serviceType: event.target.value });
+  };
+
   onCreateReport = (event, authUser) => {
     this.props.firebase.reports().push({
       text: this.state.text,
+      serviceType: this.state.serviceType,
       userId: authUser.uid,
       createdAt: this.props.firebase.serverValue.TIMESTAMP,
     });
 
-    this.setState({ text: '' });
+    this.setState({
+      text: '',
+      serviceType: '',
+    });
 
     event.preventDefault();
   };
 
-  onEditReport = (report, text) => {
+  onEditReport = (report, text, serviceType) => {
     const { uid, ...reportSnapshot } = report;
 
     this.props.firebase.report(report.uid).set({
       ...reportSnapshot,
       text,
+      serviceType,
       editedAt: this.props.firebase.serverValue.TIMESTAMP,
     });
   };
@@ -88,7 +98,7 @@ class Reports extends Component {
   };
 
   render() {
-    const { text, reports, loading } = this.state;
+    const { serviceType, text, reports, loading } = this.state;
 
     return (
       <AuthUserContext.Consumer>
@@ -123,6 +133,19 @@ class Reports extends Component {
                 value={text}
                 onChange={this.onChangeText}
               />
+
+              <select
+                value={serviceType}
+                onChange={this.onChangeServiceType}
+              >
+                <option value="">Select a Service</option>
+                <option value="MAINTENANCE">
+                  Maintenance / Repair
+                </option>
+                <option value="HAZARD">Hazard Report</option>
+                <option value="SERVICE">Service Report</option>
+              </select>
+
               <button type="submit">Send</button>
             </form>
           </div>
