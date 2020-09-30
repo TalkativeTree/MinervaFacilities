@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class FloorItem extends Component {
   constructor(props) {
@@ -6,32 +6,32 @@ class FloorItem extends Component {
 
     this.state = {
       editMode: false,
-      editTitle: this.props.floor.title,
-      editAddress: this.props.floor.address,
+      editFloorTitle: this.props.floor.floorTitle,
+      editFloorAddress: this.props.floor.floorAddress,
     };
   }
 
   onToggleEditMode = () => {
     this.setState((state) => ({
       editMode: !state.editMode,
-      editTitle: this.props.floor.title,
-      editAddress: this.props.floor.address,
+      editFloorTitle: this.props.floor.floorTitle,
+      editFloorAddress: this.props.floor.floorAddress,
     }));
   };
 
-  onChangeEditTitle = (event) => {
-    this.setState({ editTitle: event.target.value });
+  onChangeEditFloorTitle = (event) => {
+    this.setState({ editFloorTitle: event.target.value });
   };
 
-  onChangeEditAddress = (event) => {
-    this.setState({ editAddress: event.target.value });
+  onChangeEditFloorAddress = (event) => {
+    this.setState({ editFloorAddress: event.target.value });
   };
 
   onSaveEditFloor = () => {
     this.props.onEditFloor(
       this.props.floor,
-      this.state.editTitle,
-      this.state.editAddress
+      this.state.editFloorTitle,
+      this.state.editFloorAddress,
     );
 
     this.setState({ editMode: false });
@@ -39,7 +39,7 @@ class FloorItem extends Component {
 
   render() {
     const { authUser, floor, onRemoveFloor } = this.props;
-    const { editMode, editTitle, editAddress } = this.state;
+    const { editMode, editFloorTitle, editFloorAddress } = this.state;
 
     return (
       <li>
@@ -48,22 +48,21 @@ class FloorItem extends Component {
             <input
               type="text"
               placeholder="Floor Name?"
-              value={editTitle}
-              onChange={this.onChangeEditTitle}
+              value={editFloorTitle}
+              onChange={this.onChangeEditFloorTitle}
             />
             <input
-              className="ml10"
               placeholder="Floor Location/Number?"
-              type="address"
-              value={editAddress}
-              onChange={this.onChangeEditAddress}
+              type="text"
+              value={editFloorAddress}
+              onChange={this.onChangeEditFloorAddress}
             />
           </span>
         ) : (
           <span>
             {/* <strong>{floor.userId}</strong> */}
-            {floor.title}
-            {floor.address}
+            {floor.floorTitle}
+            {floor.floorAddress}
             {floor.editedAt && <span>(Edited)</span>}
           </span>
         )}

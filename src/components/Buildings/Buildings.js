@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { AuthUserContext } from "../Session";
-import { withFirebase } from "../Firebase";
-import BuildingList from "./BuildingList";
+import { AuthUserContext } from '../Session';
+import { withFirebase } from '../Firebase';
+import BuildingList from './BuildingList';
 
 class Buildings extends Component {
   constructor(props) {
@@ -11,15 +11,16 @@ class Buildings extends Component {
     this.state = {
       loading: false,
 
+      companyID: this.props.companyID,
       Buildings: [],
       limit: 5,
 
-      title: '',
-      address: '',
+      buildingTitle: '',
+      buildingAddress: '',
       floors: {
         '-MINlfvKbXva1iMa4U_i': {
-          title: 'main-floor',
-          address: 0,
+          floorTitle: 'main-floor',
+          floorAddress: 0,
         },
       },
     };
@@ -33,17 +34,19 @@ class Buildings extends Component {
     this.setState({ loading: true });
 
     this.props.firebase
-      .buildings()
-      .orderByChild("createdAt")
+      .buildings(this.state.companyID)
+      .orderByChild('createdAt')
       .limitToLast(this.state.limit)
-      .on("value", (snapshot) => {
+      .on('value', (snapshot) => {
         const buildingObject = snapshot.val();
 
         if (buildingObject) {
-          const buildingList = Object.keys(buildingObject).map((key) => ({
-            ...buildingObject[key],
-            uid: key,
-          }));
+          const buildingList = Object.keys(buildingObject).map(
+            (key) => ({
+              ...buildingObject[key],
+              uid: key,
+            }),
+          );
 
           this.setState({
             buildings: buildingList,
@@ -59,55 +62,57 @@ class Buildings extends Component {
     this.props.firebase.buildings().off();
   }
 
-  onChangeTitle = (event) => {
-    this.setState({ title: event.target.value });
+  onChangeBuildingTitle = (event) => {
+    this.setState({ buildingTitle: event.target.value });
   };
 
-  onChangeAddress = (event) => {
-    this.setState({ address: event.target.value });
+  onChangeBuildingAddress = (event) => {
+    this.setState({ buildingAddress: event.target.value });
   };
 
   onCreateBuilding = (event, authUser) => {
-    this.props.firebase.buildings().push({
-      title: this.state.title,
-      address: this.state.address,
+    this.props.firebase.buildings(this.state.companyID).push({
+      buildingTitle: this.state.buildingTitle,
+      buildingAddress: this.state.buildingAddress,
       floors: this.state.floors,
       ownerID: authUser.uid,
       createdAt: this.props.firebase.serverValue.TIMESTAMP,
     });
 
     this.setState({
-      title: '',
-      address: '',
+      buildingTitle: '',
+      buildingAddress: '',
     });
 
     event.preventDefault();
   };
 
-  onEditBuilding = (building, title, address, floors) => {
+  onEditBuilding = (building, buildingTitle, buildingAddress) => {
     const { uid, ...buildingSnapshot } = building;
 
-    this.props.firebase.building(building.uid).set({
-      ...buildingSnapshot,
-      title,
-      address,
-      editedAt: this.props.firebase.serverValue.TIMESTAMP,
-    });
+    this.props.firebase
+      .building(this.state.companyID, building.uid)
+      .set({
+        ...buildingSnapshot,
+        buildingTitle,
+        buildingAddress,
+        editedAt: this.props.firebase.serverValue.TIMESTAMP,
+      });
   };
 
   onRemoveBuilding = (uid) => {
-    this.props.firebase.building(uid).remove();
+    this.props.firebase.building(this.state.companyID, uid).remove();
   };
 
   onNextPage = () => {
     this.setState(
       (state) => ({ limit: state.limit + 5 }),
-      this.onListenForBuildings
+      this.onListenForBuildings,
     );
   };
 
   render() {
-    const { title, address, buildings, loading } = this.state;
+    const { companyID, buildingTitle, buildingAddress, buildings, loading } = this.state;
 
     return (
       <AuthUserContext.Consumer>
@@ -124,6 +129,7 @@ class Buildings extends Component {
             {buildings && (
               <BuildingList
                 authUser={authUser}
+                companyID={companyID}
                 buildings={buildings}
                 onEditBuilding={this.onEditBuilding}
                 onRemoveBuilding={this.onRemoveBuilding}
@@ -140,22 +146,18 @@ class Buildings extends Component {
               <input
                 type="text"
                 placeholder="Name Your Building!"
-                value={title}
-                onChange={this.onChangeTitle}
+                value={buildingTitle}
+                onChange={this.onChangeBuildingTitle}
               />
               <input
-                className="ml10"
-                type="address"
+                type="text"
                 placeholder="Where does it live?"
-                value={address}
-                onChange={this.onChangeAddress}
+                value={buildingAddress}
+                onChange={this.onChangeBuildingAddress}
               />
 
-              <button className="ml10" type="submit">
-                Send
-              </button>
+              <button type="submit">Send</button>
             </form>
-
           </div>
         )}
       </AuthUserContext.Consumer>

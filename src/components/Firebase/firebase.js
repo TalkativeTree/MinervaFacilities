@@ -117,23 +117,31 @@ class Firebase {
 
   reports = () => this.db.ref('reports');
 
+  // **** Company API ***
+
+  company = (uid) => this.db.ref(`companies/${uid}`);
+
+  companies = () => this.db.ref('companies');
+
   // **** Building API ***
 
-  building = (uid) => this.db.ref(`buildings/${uid}`);
+  building = (companyId, uid) =>
+    this.db.ref(`companies/${companyId}/buildings/${uid}`);
 
-  buildings = () => this.db.ref('buildings');
+  buildings = (companyId) =>
+    this.db.ref(`companies/${companyId}/buildings`);
 
   // **** Floors API ***
 
-  floor = (buildingId, uid) =>
-    this.db.ref(`buildings/${buildingId}/floors/${uid}`);
+  floor = (companyId, buildingId, uid) =>
+    this.db.ref(
+      `companies/${companyId}/buildings/${buildingId}/floors/${uid}`,
+    );
 
-  floors = (buildingId) =>
-    this.db.ref(`buildings/${buildingId}/floors`);
-
-  // floor = (uid) => this.db.ref(`floors/${uid}`);
-
-  // floors = () => this.db.ref('floors');
+  floors = (companyId, buildingId) =>
+    this.db.ref(
+      `companies/${companyId}/buildings/${buildingId}/floors`,
+    );
 }
 
 export default Firebase;
