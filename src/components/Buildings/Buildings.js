@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { AuthUserContext } from "../Session";
-import { withFirebase } from "../Firebase";
-import BuildingList from "./BuildingList";
+import { AuthUserContext } from '../Session';
+import { withFirebase } from '../Firebase';
+import BuildingList from './BuildingList';
 
 class Buildings extends Component {
   constructor(props) {
@@ -34,16 +34,18 @@ class Buildings extends Component {
 
     this.props.firebase
       .buildings()
-      .orderByChild("createdAt")
+      .orderByChild('createdAt')
       .limitToLast(this.state.limit)
-      .on("value", (snapshot) => {
+      .on('value', (snapshot) => {
         const buildingObject = snapshot.val();
 
         if (buildingObject) {
-          const buildingList = Object.keys(buildingObject).map((key) => ({
-            ...buildingObject[key],
-            uid: key,
-          }));
+          const buildingList = Object.keys(buildingObject).map(
+            (key) => ({
+              ...buildingObject[key],
+              uid: key,
+            }),
+          );
 
           this.setState({
             buildings: buildingList,
@@ -102,7 +104,7 @@ class Buildings extends Component {
   onNextPage = () => {
     this.setState(
       (state) => ({ limit: state.limit + 5 }),
-      this.onListenForBuildings
+      this.onListenForBuildings,
     );
   };
 
@@ -137,25 +139,32 @@ class Buildings extends Component {
                 this.onCreateBuilding(event, authUser)
               }
             >
-              <input
-                type="text"
-                placeholder="Name Your Building!"
-                value={title}
-                onChange={this.onChangeTitle}
-              />
-              <input
-                className="ml10"
-                type="address"
-                placeholder="Where does it live?"
-                value={address}
-                onChange={this.onChangeAddress}
-              />
-
-              <button className="ml10" type="submit">
-                Send
-              </button>
+              <div className="form-row">
+                <div className="form-group col-md-6">
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Building Name..."
+                    value={title}
+                    onChange={this.onChangeTitle}
+                  />
+                </div>
+                <div className="form-group col-md-6">
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Address..."
+                    value={address}
+                    onChange={this.onChangeAddress}
+                  />
+                </div>
+              </div>
+              <div className="text-center">
+                <button className="btn btn-primary" type="submit">
+                  Add Building
+                </button>
+              </div>
             </form>
-
           </div>
         )}
       </AuthUserContext.Consumer>

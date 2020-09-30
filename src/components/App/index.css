@@ -13,6 +13,7 @@ ul {
 a {
   color: black !important;
 }
+/* ------- Navigation -------- */
 nav {
   position: absolute;
   bottom: 0;
@@ -25,8 +26,11 @@ nav {
   height: 10vh;
   text-align: center;
   display: flex !important;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+}
+.nav-tabs > .nav-link {
+  transition: 0.5s ease-in;
 }
 .nav-tabs > .nav-link:hover {
   background-color: #303136 !important;
@@ -34,8 +38,52 @@ nav {
   border-radius: 0;
   color: #fff !important;
   font-weight: bold;
+  /* transition: 0.5s ease-out; */
 }
 
+/* ----------- Account------------- */
 .btn-social {
   width: 100% !important;
+}
+/* Header Parallax Element Style*/
+.paral {
+  min-height: 10vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+/* Heading for Parallax Section */
+.paral h1 {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+/* Image for Parallax Home Section */
+.paralsec {
+  background-image: url('https://img.webnots.com/2017/05/parallax.jpg');
+}
+
+.jumbotron {
+  border-radius: 0 0 0.3rem 0.3rem !important;
+}
+
+.section-divider {
+  width: 100%;
+  border-top: 1px solid black;
+  padding-top: 1rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.non-nav {
+  position: unset;
+  justify-content: space-evenly;
+  border-bottom: 5px solid #303136;
+}
+.non-nav > a.nav-item {
+  border-radius: 25% 25% 0 0;
+}
+.non-nav > a:hover,
+a.active {
+  color: #fff !important;
+  font-weight: bold;
+  background-color: #303136 !important;
 }
