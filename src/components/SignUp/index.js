@@ -103,6 +103,7 @@ class SignUpFormBase extends Component {
       <form onSubmit={this.onSubmit}>
         <input
           name="username"
+          autoComplete="username"
           value={username}
           onChange={this.onChange}
           type="text"
@@ -110,6 +111,7 @@ class SignUpFormBase extends Component {
         />
         <input
           name="email"
+          autoComplete="email"
           value={email}
           onChange={this.onChange}
           type="text"
@@ -117,6 +119,7 @@ class SignUpFormBase extends Component {
         />
         <input
           name="passwordOne"
+          autoComplete="new-password"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
@@ -124,12 +127,13 @@ class SignUpFormBase extends Component {
         />
         <input
           name="passwordTwo"
+          autoComplete="new-password"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
           placeholder="Confirm Password"
         />
-        <label>
+        {/* <label>
           Admin:
           <input
             name="isAdmin"
@@ -137,7 +141,7 @@ class SignUpFormBase extends Component {
             checked={isAdmin}
             onChange={this.onChangeCheckbox}
           />
-        </label>
+        </label> */}
         <button disabled={isInvalid} type="submit">
           Sign Up
         </button>

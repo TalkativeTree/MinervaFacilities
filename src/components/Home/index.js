@@ -2,10 +2,13 @@ import React from 'react';
 import { compose } from 'recompose';
 import Body from '../App/index';
 import { Tabs, Tab } from 'react-bootstrap';
+import '../App/index.css';
+
 import { withAuthorization, withEmailVerification } from '../Session';
 
-import Buildings from '../Buildings';
-import Reports from '../Reports';
+// import Buildings from '../Buildings';
+// import Reports from '../Reports';
+import Companies from '../Companies';
 
 const HomePage = () => (
   <div>

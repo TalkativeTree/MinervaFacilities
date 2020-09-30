@@ -4,6 +4,7 @@ import BuildingItem from './BuildingItem';
 
 const BuildingList = ({
   authUser,
+  companyID,
   buildings,
   onEditBuilding,
   onRemoveBuilding,
@@ -12,6 +13,7 @@ const BuildingList = ({
     {buildings.map((building) => (
       <BuildingItem
         authUser={authUser}
+        companyID={companyID}
         key={building.uid}
         building={building}
         onEditBuilding={onEditBuilding}

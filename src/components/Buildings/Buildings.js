@@ -11,15 +11,16 @@ class Buildings extends Component {
     this.state = {
       loading: false,
 
+      companyID: this.props.companyID,
       Buildings: [],
       limit: 5,
 
-      title: '',
-      address: '',
+      buildingTitle: '',
+      buildingAddress: '',
       floors: {
         '-MINlfvKbXva1iMa4U_i': {
-          title: 'main-floor',
-          address: 0,
+          floorTitle: 'main-floor',
+          floorAddress: 0,
         },
       },
     };
@@ -33,7 +34,7 @@ class Buildings extends Component {
     this.setState({ loading: true });
 
     this.props.firebase
-      .buildings()
+      .buildings(this.state.companyID)
       .orderByChild('createdAt')
       .limitToLast(this.state.limit)
       .on('value', (snapshot) => {
@@ -61,44 +62,46 @@ class Buildings extends Component {
     this.props.firebase.buildings().off();
   }
 
-  onChangeTitle = (event) => {
-    this.setState({ title: event.target.value });
+  onChangeBuildingTitle = (event) => {
+    this.setState({ buildingTitle: event.target.value });
   };
 
-  onChangeAddress = (event) => {
-    this.setState({ address: event.target.value });
+  onChangeBuildingAddress = (event) => {
+    this.setState({ buildingAddress: event.target.value });
   };
 
   onCreateBuilding = (event, authUser) => {
-    this.props.firebase.buildings().push({
-      title: this.state.title,
-      address: this.state.address,
+    this.props.firebase.buildings(this.state.companyID).push({
+      buildingTitle: this.state.buildingTitle,
+      buildingAddress: this.state.buildingAddress,
       floors: this.state.floors,
       ownerID: authUser.uid,
       createdAt: this.props.firebase.serverValue.TIMESTAMP,
     });
 
     this.setState({
-      title: '',
-      address: '',
+      buildingTitle: '',
+      buildingAddress: '',
     });
 
     event.preventDefault();
   };
 
-  onEditBuilding = (building, title, address, floors) => {
+  onEditBuilding = (building, buildingTitle, buildingAddress) => {
     const { uid, ...buildingSnapshot } = building;
 
-    this.props.firebase.building(building.uid).set({
-      ...buildingSnapshot,
-      title,
-      address,
-      editedAt: this.props.firebase.serverValue.TIMESTAMP,
-    });
+    this.props.firebase
+      .building(this.state.companyID, building.uid)
+      .set({
+        ...buildingSnapshot,
+        buildingTitle,
+        buildingAddress,
+        editedAt: this.props.firebase.serverValue.TIMESTAMP,
+      });
   };
 
   onRemoveBuilding = (uid) => {
-    this.props.firebase.building(uid).remove();
+    this.props.firebase.building(this.state.companyID, uid).remove();
   };
 
   onNextPage = () => {
@@ -109,7 +112,13 @@ class Buildings extends Component {
   };
 
   render() {
-    const { title, address, buildings, loading } = this.state;
+    const {
+      companyID,
+      buildingTitle,
+      buildingAddress,
+      buildings,
+      loading,
+    } = this.state;
 
     return (
       <AuthUserContext.Consumer>
@@ -126,6 +135,7 @@ class Buildings extends Component {
             {buildings && (
               <BuildingList
                 authUser={authUser}
+                companyID={companyID}
                 buildings={buildings}
                 onEditBuilding={this.onEditBuilding}
                 onRemoveBuilding={this.onRemoveBuilding}

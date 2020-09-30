@@ -1,5 +1,5 @@
 {
-  "name": "Minerva by New Harmony Cafe",
+  "name": "minerva",
   "version": "0.2.0",
   "private": true,
   "dependencies": {
@@ -7,7 +7,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-regular-svg-icons": "^5.14.0",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.15.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@react-native-community/async-storage": "^1.12.0",
     "@react-native-community/masked-view": "0.1.10",

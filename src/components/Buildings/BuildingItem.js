@@ -6,33 +6,35 @@ class BuildingItem extends Component {
     super(props);
 
     this.state = {
+      companyID: this.props.companyID,
       editMode: false,
-      editTitle: this.props.building.title,
-      editAddress: this.props.building.address,
+      editBuildingTitle: this.props.building.buildingTitle,
+      editBuildingAddress: this.props.building.buildingAddress,
     };
   }
 
   onToggleEditMode = () => {
     this.setState((state) => ({
       editMode: !state.editMode,
-      editTitle: this.props.building.title,
-      editAddress: this.props.building.address,
+      companyID: this.props.companyID,
+      editBuildingTitle: this.props.building.buildingTitle,
+      editBuildingAddress: this.props.building.buildingAddress,
     }));
   };
 
-  onChangeEditTitle = (event) => {
-    this.setState({ editTitle: event.target.value });
+  onChangeEditBuildingTitle = (event) => {
+    this.setState({ editBuildingTitle: event.target.value });
   };
 
-  onChangeEditAddress = (event) => {
-    this.setState({ editAddress: event.target.value });
+  onChangeEditBuildingAddress = (event) => {
+    this.setState({ editBuildingAddress: event.target.value });
   };
 
   onSaveEditText = () => {
     this.props.onEditBuilding(
       this.props.building,
-      this.state.editTitle,
-      this.state.editAddress,
+      this.state.editBuildingTitle,
+      this.state.editBuildingAddress,
     );
 
     this.setState({ editMode: false });
@@ -40,7 +42,7 @@ class BuildingItem extends Component {
 
   render() {
     const { authUser, building, onRemoveBuilding } = this.props;
-    const { editMode, editTitle, editAddress } = this.state;
+    const { companyID, editMode, editBuildingTitle, editBuildingAddress } = this.state;
 
     return (
       <li>
@@ -49,25 +51,27 @@ class BuildingItem extends Component {
             <input
               type="text"
               placeholder="Name Your Building!"
-              value={editTitle}
-              onChange={this.onChangeEditTitle}
+              value={editBuildingTitle}
+              onChange={this.onChangeEditBuildingTitle}
             />
             <input
-              className="ml10"
-              type="address"
+              type="text"
               placeholder="Where does it live?"
-              value={editAddress}
-              onChange={this.onChangeEditAddress}
+              value={editBuildingAddress}
+              onChange={this.onChangeEditBuildingAddress}
             />
 
             <h3>Floors</h3>
-            <Floors buildingID={building.uid} />
+            <Floors
+              companyID={companyID}
+              buildingID={building.uid}
+            />
           </span>
         ) : (
           <span>
             {/* {building.ownerID} */}
-            <strong>{building.title}</strong>
-            {building.address}
+            <strong>{building.buildingTitle}</strong>
+            {building.buildingAddress}
             {building.editedAt && <span>(Edited)</span>}
           </span>
         )}

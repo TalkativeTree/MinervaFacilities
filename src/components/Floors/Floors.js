@@ -11,12 +11,13 @@ class Floors extends Component {
     this.state = {
       loading: false,
 
+      companyID: this.props.companyID,
       buildingID: this.props.buildingID,
       floors: [],
       limit: 5,
 
-      title: '',
-      address: '',
+      floorTitle: '',
+      floorAddress: '',
       rooms: { r1: 'main-room' },
       members: [],
     };
@@ -30,7 +31,7 @@ class Floors extends Component {
     this.setState({ loading: true });
 
     this.props.firebase
-      .floors(this.state.buildingID)
+      .floors(this.state.companyID, this.state.buildingID)
       .orderByChild('createdAt')
       .limitToLast(this.state.limit)
       .on('value', (snapshot) => {
@@ -56,43 +57,49 @@ class Floors extends Component {
     this.props.firebase.floors().off();
   }
 
-  onChangeTitle = (event) => {
-    this.setState({ title: event.target.value });
+  onChangeFloorTitle = (event) => {
+    this.setState({ floorTitle: event.target.value });
   };
 
-  onChangeAddress = (event) => {
-    this.setState({ address: event.target.value });
+  onChangeFloorAddress = (event) => {
+    this.setState({ floorAddress: event.target.value });
   };
 
   onCreateFloor = (event, authUser) => {
-    this.props.firebase.floors(this.state.buildingID).push({
-      title: this.state.title,
-      address: this.state.address,
-      userId: authUser.uid,
-      createdAt: this.props.firebase.serverValue.TIMESTAMP,
-    });
+    this.props.firebase
+      .floors(this.state.companyID, this.state.buildingID)
+      .push({
+        floorTitle: this.state.floorTitle,
+        floorAddress: this.state.floorAddress,
+        userId: authUser.uid,
+        createdAt: this.props.firebase.serverValue.TIMESTAMP,
+      });
 
     this.setState({
-      title: '',
-      address: '',
+      floorTitle: '',
+      floorAddress: '',
     });
 
     event.preventDefault();
   };
 
-  onEditFloor = (floor, title, address) => {
+  onEditFloor = (floor, floorTitle, floorAddress) => {
     const { uid, ...floorSnapshot } = floor;
 
-    this.props.firebase.floor(this.state.buildingID, floor.uid).set({
-      ...floorSnapshot,
-      title,
-      address,
-      editedAt: this.props.firebase.serverValue.TIMESTAMP,
-    });
+    this.props.firebase
+      .floor(this.state.companyID, this.state.buildingID, floor.uid)
+      .set({
+        ...floorSnapshot,
+        floorTitle,
+        floorAddress,
+        editedAt: this.props.firebase.serverValue.TIMESTAMP,
+      });
   };
 
   onRemoveFloor = (uid) => {
-    this.props.firebase.floor(this.state.buildingID, uid).remove();
+    this.props.firebase
+      .floor(this.state.companyID, this.state.buildingID, uid)
+      .remove();
   };
 
   onNextPage = () => {
@@ -103,7 +110,7 @@ class Floors extends Component {
   };
 
   render() {
-    const { title, address, floors, loading } = this.state;
+    const { floorTitle, floorAddress, floors, loading } = this.state;
 
     return (
       <AuthUserContext.Consumer>
@@ -136,15 +143,14 @@ class Floors extends Component {
               <input
                 type="text"
                 placeholder="Floor Name?"
-                value={title}
-                onChange={this.onChangeTitle}
+                value={floorTitle}
+                onChange={this.onChangeFloorTitle}
               />
               <input
-                className="ml10"
                 placeholder="Floor Location/Number?"
-                type="address"
-                value={address}
-                onChange={this.onChangeAddress}
+                type="text"
+                value={floorAddress}
+                onChange={this.onChangeFloorAddress}
               />
 
               <button type="submit">Send</button>
