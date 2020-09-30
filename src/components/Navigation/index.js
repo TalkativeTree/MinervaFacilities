@@ -27,7 +27,7 @@ const NavigationAuth = ({ authUser }) => (
   <div className="tab-wrapper">
     <div className="container">
       <div className="row">
-        <nav defaultActiveKey="/">
+        <nav defaultactivekey="/">
           <div className="nav nav-tabs" id="nav-tab" role="tablist">
             <Link
               className="nav-item nav-link "

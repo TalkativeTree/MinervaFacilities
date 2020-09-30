@@ -6,8 +6,8 @@ import '../App/index.css';
 
 import { withAuthorization, withEmailVerification } from '../Session';
 
-// import Buildings from '../Buildings';
-// import Reports from '../Reports';
+import Buildings from '../Buildings';
+import Reports from '../Reports';
 import Companies from '../Companies';
 
 const HomePage = () => (
@@ -19,14 +19,15 @@ const HomePage = () => (
       <div className="container">
         <div className="row">
           <Tabs
-            defaultActiveKey="buildings"
+            defaultActiveKey="companies"
             className="non-nav"
             variant="pills"
           >
-            <Tab eventKey="buildings" title="Buildings">
+            <Tab eventKey="companies" title="Companies">
               <div className="tab-item-wrapper">
-                <h4 className="text-center">Facilities List</h4>
-                <Buildings />
+                <h4 className="text-center">Companies List</h4>
+                <Companies />
+                {/* <Buildings /> */}
               </div>
             </Tab>
             <Tab eventKey="reports" title="Reports">

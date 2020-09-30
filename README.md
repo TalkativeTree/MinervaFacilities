@@ -1,7 +1,7 @@
 # [Minerva] by New Harmony Cafe
 
 <p align="center">
-    <img width="350" height="350" src="assets/icon.png">
+    <img width="350" height="350" src="./icon.png">
 </p>
 
 <p align="center">

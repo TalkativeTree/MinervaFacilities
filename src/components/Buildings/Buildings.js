@@ -155,8 +155,8 @@ class Buildings extends Component {
                     className="form-control"
                     type="text"
                     placeholder="Building Name..."
-                    value={title}
-                    onChange={this.onChangeTitle}
+                    value={buildingTitle}
+                    onChange={this.onChangeBuildingTitle}
                   />
                 </div>
                 <div className="form-group col-md-6">
@@ -164,8 +164,8 @@ class Buildings extends Component {
                     className="form-control"
                     type="text"
                     placeholder="Address..."
-                    value={address}
-                    onChange={this.onChangeAddress}
+                    value={buildingAddress}
+                    onChange={this.onChangeBuildingAddress}
                   />
                 </div>
               </div>
