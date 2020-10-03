@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const SignOutButton = ({ firebase }) => (
   <button
     type="button"
-    className="btn btn-primary nav-item nav-link"
+    className="btn btn-secondary "
     onClick={firebase.doSignOut}
   >
-    <FontAwesomeIcon icon={faSignOutAlt} />
+    Logout <FontAwesomeIcon icon={faSignOutAlt} />
   </button>
 );
 

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import CompanyItem from "./CompanyItem";
+import CompanyItem from './CompanyItem';
 
 const CompanyList = ({
   authUser,
@@ -8,7 +8,7 @@ const CompanyList = ({
   onEditCompany,
   onRemoveCompany,
 }) => (
-  <ul>
+  <ul className="company-list">
     {companies.map((company) => (
       <CompanyItem
         authUser={authUser}

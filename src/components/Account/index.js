@@ -32,12 +32,11 @@ const SIGN_IN_METHODS = [
 const AccountPage = () => (
   <AuthUserContext.Consumer>
     {(authUser) => (
-      <div>
-        <h1>Account: {authUser.email}</h1>
-        Forgot Your Password?  <PasswordForgetForm />
-        Reset Your Password.   <PasswordChangeForm />
+      <div className="container text-center">
+        <h3>Account: {authUser.email}</h3>
+        Forgot Your Password? <PasswordForgetForm />
+        Reset Your Password. <PasswordChangeForm />
         <LoginManagement authUser={authUser} />
-
         <SignOutButton />
       </div>
     )}
@@ -99,7 +98,7 @@ class LoginManagementBase extends Component {
     return (
       <div>
         Sign In Methods:
-        <ul>
+        <ul className="social-links">
           {SIGN_IN_METHODS.map((signInMethod) => {
             const onlyOneLeft = activeSignInMethods.length === 1;
             const isEnabled = activeSignInMethods.includes(

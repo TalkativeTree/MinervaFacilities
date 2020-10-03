@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { AuthUserContext } from '../Session';
 import { withFirebase } from '../Firebase';
 import CompanyList from './CompanyList';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 class Companies extends Component {
   constructor(props) {
@@ -119,10 +120,14 @@ class Companies extends Component {
     return (
       <AuthUserContext.Consumer>
         {(authUser) => (
-          <div>
+          <div className="text-center">
             {!loading && companies && (
-              <button type="button" onClick={this.onNextPage}>
-                More
+              <button
+                className="btn btn-secondary"
+                type="button"
+                onClick={this.onNextPage}
+              >
+                Show More
               </button>
             )}
 
@@ -144,20 +149,26 @@ class Companies extends Component {
                 this.onCreateCompany(event, authUser)
               }
             >
-              <input
-                type="text"
-                placeholder="Name Your Company!"
-                value={companyTitle}
-                onChange={this.onChangeCompanyTitle}
-              />
-              <input
-                type="text"
-                placeholder="Where does it live?"
-                value={companyAddress}
-                onChange={this.onChangeCompanyAddress}
-              />
+              <div className="row">
+                <input
+                  className="col-6"
+                  type="text"
+                  placeholder="Name Your Company!"
+                  value={companyTitle}
+                  onChange={this.onChangeCompanyTitle}
+                />
+                <input
+                  className="col-6"
+                  type="text"
+                  placeholder="Where does it live?"
+                  value={companyAddress}
+                  onChange={this.onChangeCompanyAddress}
+                />
+              </div>
 
-              <button type="submit">Send</button>
+              <button className="btn btn-primary" type="submit">
+                Submit
+              </button>
             </form>
           </div>
         )}

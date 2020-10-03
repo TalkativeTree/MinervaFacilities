@@ -5,6 +5,7 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  background-color: #ecf3f9;
 }
 ul {
   list-style: none;
@@ -43,7 +44,15 @@ nav {
 
 /* ----------- Account------------- */
 .btn-social {
-  width: 100% !important;
+  min-width: 50vw !important;
+  /* margin: auto; */
+  padding: 0.3rem;
+  margin: 0.3rem 0;
+}
+.social-links {
+  /* border: 1px solid black; */
+  padding: 0;
+  text-align: center;
 }
 /* Header Parallax Element Style*/
 .paral {
@@ -63,7 +72,8 @@ nav {
 }
 
 .jumbotron {
-  border-radius: 0 0 0.3rem 0.3rem !important;
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .section-divider {
@@ -79,11 +89,16 @@ nav {
   border-bottom: 5px solid #303136;
 }
 .non-nav > a.nav-item {
-  border-radius: 25% 25% 0 0;
+  border-radius: 0;
+  width: calc(100vw / 2) !important;
 }
 .non-nav > a:hover,
 a.active {
   color: #fff !important;
   font-weight: bold;
   background-color: #303136 !important;
+}
+
+.company-list {
+  padding: 1rem;
 }
