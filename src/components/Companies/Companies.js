@@ -4,6 +4,9 @@ import { AuthUserContext } from '../Session';
 import { withFirebase } from '../Firebase';
 import CompanyList from './CompanyList';
 
+import AddressForm from '../AddressForm';
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+
 class Companies extends Component {
   constructor(props) {
     super(props);
@@ -65,8 +68,8 @@ class Companies extends Component {
     this.setState({ companyTitle: event.target.value });
   };
 
-  onChangeCompanyAddress = (event) => {
-    this.setState({ companyAddress: event.target.value });
+  onChangeCompanyAddress = (childData) => {
+    this.setState({ companyAddress: childData });
   };
 
   onCreateCompany = (event, authUser) => {
@@ -150,12 +153,27 @@ class Companies extends Component {
                 value={companyTitle}
                 onChange={this.onChangeCompanyTitle}
               />
-              <input
+              {/* <input
                 type="text"
                 placeholder="Where does it live?"
                 value={companyAddress}
                 onChange={this.onChangeCompanyAddress}
-              />
+              /> */}
+              <AddressForm parentCallBack = {this.onChangeCompanyAddress}/>
+              {/* <GooglePlacesAutocomplete
+                apiKey="AIzaSyDJ1foA09dKFjq-_KfWg2K822qClFUDaAc"
+                onLoadFailed={(error) =>
+                  console.error(
+                    'Could not inject Google script',
+                    error,
+                  )
+                }
+                selectProps={{
+                  companyAddress,
+                  onChange: this.onChangeCompanyAddress,
+                  placeholder: 'Enter A Location...',
+                }}
+              /> */}
 
               <button type="submit">Send</button>
             </form>

@@ -51,12 +51,15 @@ class UserItem extends Component {
             <span>
               <strong>ID:</strong> {user.uid}
             </span>
+            <br />
             <span>
               <strong>E-Mail:</strong> {user.email}
             </span>
+            <br />
             <span>
               <strong>Username:</strong> {user.username}
             </span>
+            <br />
             <span>
               <button
                 type="button"
