@@ -68,7 +68,7 @@ class ReportItem extends Component {
           <div>
             <strong>{report.uid}</strong>({report.serviceType}){' '}
             {report.text}
-            {report.editedAt && <span>(Edited)</span>}
+            {report.editedAt && <span> (Edited)</span>}
           </div>
         )}
         {authUser.uid === report.userId && (
