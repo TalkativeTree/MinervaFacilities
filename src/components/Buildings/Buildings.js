@@ -123,7 +123,7 @@ class Buildings extends Component {
     return (
       <AuthUserContext.Consumer>
         {(authUser) => (
-          <div>
+          <div className="text-center">
             {!loading && buildings && (
               <button type="button" onClick={this.onNextPage}>
                 More
@@ -149,19 +149,19 @@ class Buildings extends Component {
                 this.onCreateBuilding(event, authUser)
               }
             >
-              <div className="form-row">
-                <div className="form-group col-md-6">
+              <div className="">
+                <div className="form-group col-10">
                   <input
-                    className="form-control"
+                    className="form-control form-input"
                     type="text"
                     placeholder="Building Name..."
                     value={buildingTitle}
                     onChange={this.onChangeBuildingTitle}
                   />
                 </div>
-                <div className="form-group col-md-6">
+                <div className="form-group col-10">
                   <input
-                    className="form-control"
+                    className="form-control form-input"
                     type="text"
                     placeholder="Address..."
                     value={buildingAddress}

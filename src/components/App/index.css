@@ -103,6 +103,8 @@ a.active {
 
 .company-list {
   padding: 1rem;
+  width: 100vw;
+  text-align: left;
 }
 
 .form-input {
@@ -115,4 +117,21 @@ a.active {
 
 ::placeholder {
   color: rgba(0, 0, 0, 0.4) !important;
+}
+
+p.comp-item {
+  margin-bottom: 0 !important;
+}
+
+.comp-container {
+  border: 1px solid black;
+}
+
+.btn-li {
+  border: none;
+}
+
+li.row {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  border-style: ridge;
 }

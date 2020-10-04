@@ -50,36 +50,42 @@ class CompanyItem extends Component {
     } = this.state;
 
     return (
-      <li>
+      <li className="row">
         {editMode ? (
-          <span>
+          <div className="container">
             <input
               type="text"
-              placeholder="Name Your Company..."
+              className="form-input form-control"
+              placeholder="Company name..."
               value={editCompanyTitle}
               onChange={this.onChangeEditCompanyTitle}
             />
             <input
               type="text"
-              placeholder="Where does it live?"
+              className="form-input form-control"
+              placeholder="Address..."
               value={editCompanyAddress}
               onChange={this.onChangeEditCompanyAddress}
             />
 
-            <h3>Buildings/Facilities</h3>
+            <h4 className="text-center">Buildings/Facilities</h4>
             <Buildings companyID={company.uid} />
-          </span>
+          </div>
         ) : (
-          <span>
+          <div className="col-10">
             {/* {company.ownerID} */}
-            <strong>{company.companyTitle}</strong>
-            {company.companyAddress}
-            {company.editedAt && <span>(Edited)</span>}
-          </span>
+            <p className="comp-item">
+              <strong>{company.companyTitle}</strong>
+            </p>
+            <p className="comp-item">{company.companyAddress}</p>
+            <sub className="comp-item">
+              {company.editedAt && <span>(Edited)</span>}
+            </sub>
+          </div>
         )}
 
         {authUser.uid === company.ownerID && (
-          <span>
+          <span className="col-2">
             {editMode ? (
               <span>
                 <button
@@ -97,7 +103,7 @@ class CompanyItem extends Component {
               </span>
             ) : (
               <button
-                className="btn btn-secondary"
+                className="btn-li"
                 onClick={this.onToggleEditMode}
               >
                 <FontAwesomeIcon icon={faEdit} />
@@ -106,7 +112,7 @@ class CompanyItem extends Component {
 
             {!editMode && (
               <button
-                className="btn btn-secondary"
+                className="btn-li"
                 type="button"
                 onClick={() => onRemoveCompany(company.uid)}
               >
