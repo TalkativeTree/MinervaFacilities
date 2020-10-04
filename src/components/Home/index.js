@@ -27,7 +27,7 @@ const HomePage = () => (
 const EmployeeHomePage = () => (
   <div>
     <div className="jumbotron paral paralsec">
-      <h1 className="display-8 text-center">Employee HomePage</h1>
+      <h1 className="display-8 text-center">Employee Homepage</h1>
     </div>
     <div className="tab-wrapper">
       <div className="container">
@@ -59,7 +59,7 @@ const EmployeeHomePage = () => (
 const ManagerHomePage = () => (
   <div>
     <div className="jumbotron paral paralsec">
-      <h1 className="display-8 text-center">Manager HomePage</h1>
+      <h1 className="display-8 text-center">Manager Homepage</h1>
     </div>
     <div className="tab-wrapper">
       <div className="container">
@@ -91,7 +91,7 @@ const ManagerHomePage = () => (
 const AdminHomePage = () => (
   <div>
     <div className="jumbotron paral paralsec">
-      <h1 className="display-8 text-center">Admin HomePage</h1>
+      <h1 className="display-8 text-center">Admin Homepage</h1>
     </div>
     <div className="tab-wrapper">
       <div className="container">
