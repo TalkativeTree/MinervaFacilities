@@ -43,7 +43,7 @@ class UserItem extends Component {
 
     return (
       <div>
-        <h2>User ({this.props.match.params.id})</h2>
+        <h5>User ({this.props.match.params.id})</h5>
         {loading && <div>Loading ...</div>}
 
         {user && (

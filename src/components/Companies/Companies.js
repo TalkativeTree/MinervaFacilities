@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { AuthUserContext } from '../Session';
 import { withFirebase } from '../Firebase';
 import CompanyList from './CompanyList';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 import AddressForm from '../AddressForm';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
@@ -68,18 +69,23 @@ class Companies extends Component {
     this.setState({ companyTitle: event.target.value });
   };
 
-  onChangeCompanyAddress = (childData) => {
-    this.setState({ companyAddress: childData });
+  onChangeCompanyAddress = (event) => {
+    this.setState({ companyAddress: event.target.value });
   };
+  // onChangeCompanyAddress = (childData) => {
+  //   this.setState({ companyAddress: childData });
+  // };
 
   onCreateCompany = (event, authUser) => {
-    this.props.firebase.companies().push({
+    var companyData = {
       companyTitle: this.state.companyTitle,
       companyAddress: this.state.companyAddress,
       buildings: this.state.buildings,
       ownerID: authUser.uid,
       createdAt: this.props.firebase.serverValue.TIMESTAMP,
-    });
+    };
+
+    this.props.firebase.createCompany(companyData);
 
     this.setState({
       companyTitle: '',
@@ -121,11 +127,38 @@ class Companies extends Component {
 
     return (
       <AuthUserContext.Consumer>
-        {(authUser) => (
-          <div>
+        {(authUser) => authUser.companies ? (
+          <div className="text-center">
             {!loading && companies && (
-              <button type="button" onClick={this.onNextPage}>
-                More
+              <button
+                className="btn btn-secondary"
+                type="button"
+                onClick={this.onNextPage}
+              >
+                Show More
+              </button>
+            )}
+
+            {loading && <div>Loading ...</div>}
+
+            {companies && (
+              <CompanyList
+                authUser={authUser}
+                companies={companies}
+                onEditCompany={this.onEditCompany}
+                onRemoveCompany={this.onRemoveCompany}
+              />
+            )}
+          </div>
+        ) : (
+          <div className="text-center">
+            {!loading && companies && (
+              <button
+                className="btn btn-secondary"
+                type="button"
+                onClick={this.onNextPage}
+              >
+                Show More
               </button>
             )}
 
@@ -147,35 +180,30 @@ class Companies extends Component {
                 this.onCreateCompany(event, authUser)
               }
             >
-              <input
-                type="text"
-                placeholder="Name Your Company!"
-                value={companyTitle}
-                onChange={this.onChangeCompanyTitle}
-              />
-              {/* <input
-                type="text"
-                placeholder="Where does it live?"
-                value={companyAddress}
-                onChange={this.onChangeCompanyAddress}
-              /> */}
-              <AddressForm parentCallBack = {this.onChangeCompanyAddress}/>
-              {/* <GooglePlacesAutocomplete
-                apiKey="AIzaSyDJ1foA09dKFjq-_KfWg2K822qClFUDaAc"
-                onLoadFailed={(error) =>
-                  console.error(
-                    'Could not inject Google script',
-                    error,
-                  )
-                }
-                selectProps={{
-                  companyAddress,
-                  onChange: this.onChangeCompanyAddress,
-                  placeholder: 'Enter A Location...',
-                }}
+              <div className="row">
+                <input
+                  className="col-6"
+                  type="text"
+                  placeholder="Name Your Company!"
+                  value={companyTitle}
+                  onChange={this.onChangeCompanyTitle}
+                />
+                <input
+                  className="col-6"
+                  type="text"
+                  placeholder="Where does it live?"
+                  value={companyAddress}
+                  onChange={this.onChangeCompanyAddress}
+                />
+              </div>
+
+              {/* <AddressForm
+                parentCallBack={this.onChangeCompanyAddress}
               /> */}
 
-              <button type="submit">Send</button>
+              <button className="btn btn-primary" type="submit">
+                Submit
+              </button>
             </form>
           </div>
         )}

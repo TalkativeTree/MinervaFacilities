@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Buildings from '../Buildings';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 class CompanyItem extends Component {
   constructor(props) {
@@ -52,7 +55,7 @@ class CompanyItem extends Component {
           <span>
             <input
               type="text"
-              placeholder="Name Your Company!"
+              placeholder="Name Your Company..."
               value={editCompanyTitle}
               onChange={this.onChangeEditCompanyTitle}
             />
@@ -79,19 +82,35 @@ class CompanyItem extends Component {
           <span>
             {editMode ? (
               <span>
-                <button onClick={this.onSaveEditText}>Save</button>
-                <button onClick={this.onToggleEditMode}>Reset</button>
+                <button
+                  className="btn btn-secondary"
+                  onClick={this.onSaveEditText}
+                >
+                  Save
+                </button>
+                <button
+                  className="btn btn-secondary"
+                  onClick={this.onToggleEditMode}
+                >
+                  Reset
+                </button>
               </span>
             ) : (
-              <button onClick={this.onToggleEditMode}>Edit</button>
+              <button
+                className="btn btn-secondary"
+                onClick={this.onToggleEditMode}
+              >
+                <FontAwesomeIcon icon={faEdit} />
+              </button>
             )}
 
             {!editMode && (
               <button
+                className="btn btn-secondary"
                 type="button"
                 onClick={() => onRemoveCompany(company.uid)}
               >
-                Delete
+                <FontAwesomeIcon icon={faTrash} />
               </button>
             )}
           </span>

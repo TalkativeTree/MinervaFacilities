@@ -114,7 +114,7 @@ class Floors extends Component {
 
     return (
       <AuthUserContext.Consumer>
-        {(authUser) => (
+        {(authUser) => authUser.roles.companyRole === "ADMIN" || "MANAGER" ? (
           <div>
             {!loading && floors && (
               <button type="button" onClick={this.onNextPage}>
@@ -133,7 +133,7 @@ class Floors extends Component {
               />
             )}
 
-            {!floors && <div>There are no floors ...</div>}
+            {!floors && <div>There are no floors yet...</div>}
 
             <form
               onSubmit={(event) =>
@@ -155,6 +155,28 @@ class Floors extends Component {
 
               <button type="submit">Send</button>
             </form>
+          </div>
+        ) : (
+          <div>
+            {!loading && floors && (
+              <button type="button" onClick={this.onNextPage}>
+                More
+              </button>
+            )}
+
+            {loading && <div>Loading ...</div>}
+
+            {floors && (
+              <FloorList
+                authUser={authUser}
+                floors={floors}
+                onEditFloor={this.onEditFloor}
+                onRemoveFloor={this.onRemoveFloor}
+              />
+            )}
+
+            {!floors && <div>There are no floors for your Company/Building...</div>}
+
           </div>
         )}
       </AuthUserContext.Consumer>
