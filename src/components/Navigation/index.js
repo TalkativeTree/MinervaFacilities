@@ -85,10 +85,12 @@ const NavigationAuth = ({ authUser }) => (
 
 const NavigationNonAuth = () => (
   <ul>
-    <li>
+    <li className="row">
+      {' '}
       <Link to={ROUTES.LANDING}>Landing</Link>
     </li>
-    <li>
+    <li className="row">
+      {' '}
       <Link to={ROUTES.SIGN_IN}>Sign In</Link>
     </li>
   </ul>

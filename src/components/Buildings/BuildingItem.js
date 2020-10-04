@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Floors from '../Floors';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 class BuildingItem extends Component {
   constructor(props) {
     super(props);
@@ -42,10 +44,16 @@ class BuildingItem extends Component {
 
   render() {
     const { authUser, building, onRemoveBuilding } = this.props;
-    const { companyID, editMode, editBuildingTitle, editBuildingAddress } = this.state;
+    const {
+      companyID,
+      editMode,
+      editBuildingTitle,
+      editBuildingAddress,
+    } = this.state;
 
     return (
-      <li>
+      <li className="row">
+        {' '}
         {editMode ? (
           <span>
             <input
@@ -62,40 +70,46 @@ class BuildingItem extends Component {
             />
 
             <h3>Floors</h3>
-            <Floors
-              companyID={companyID}
-              buildingID={building.uid}
-            />
+            <Floors companyID={companyID} buildingID={building.uid} />
           </span>
         ) : (
-          <span>
+          <div className="col-10">
             {/* {building.ownerID} */}
-            <strong>{building.buildingTitle}</strong>
-            {building.buildingAddress}
-            {building.editedAt && <span>(Edited)</span>}
-          </span>
+            <p className="comp-item">
+              <strong>{building.buildingTitle}</strong>
+            </p>
+            <p className="comp-item">{building.buildingAddress}</p>
+            <p className="comp-item">
+              {building.editedAt && <span>(Edited)</span>}
+            </p>
+          </div>
         )}
-
         {authUser.uid === building.ownerID && (
-          <span>
+          <div className="col-2">
             {editMode ? (
               <span>
                 <button onClick={this.onSaveEditText}>Save</button>
                 <button onClick={this.onToggleEditMode}>Reset</button>
               </span>
             ) : (
-              <button onClick={this.onToggleEditMode}>Edit</button>
+              <button
+                className="btn-li"
+                onClick={this.onToggleEditMode}
+              >
+                <FontAwesomeIcon icon={faEdit} />
+              </button>
             )}
 
             {!editMode && (
               <button
+                className="btn-li"
                 type="button"
                 onClick={() => onRemoveBuilding(building.uid)}
               >
-                Delete
+                <FontAwesomeIcon icon={faTrash} />
               </button>
             )}
-          </span>
+          </div>
         )}
       </li>
     );

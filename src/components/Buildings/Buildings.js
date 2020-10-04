@@ -125,8 +125,12 @@ class Buildings extends Component {
         {(authUser) => (
           <div className="text-center">
             {!loading && buildings && (
-              <button type="button" onClick={this.onNextPage}>
-                More
+              <button
+                className="btn btn-secondary"
+                type="button"
+                onClick={this.onNextPage}
+              >
+                Show More
               </button>
             )}
 

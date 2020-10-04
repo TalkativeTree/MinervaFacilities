@@ -129,9 +129,30 @@ p.comp-item {
 
 .btn-li {
   border: none;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 li.row {
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  border-style: ridge;
+  border-bottom-style: ridge;
+  text-align: left;
+  margin-bottom: 0.3em;
+}
+
+.form-group.col-10 {
+  margin: auto;
+}
+.justify-me {
+  margin: 0.3em auto;
+  justify-content: space-evenly;
+  display: flex;
+  /* flex-grow: inherit; */
+  /* align-content: center; */
+  /* text-align: center; */
+  width: 100vw;
+  /* border: 1px solid black; */
+}
+
+.btn-bot {
+  width: 45vw;
 }

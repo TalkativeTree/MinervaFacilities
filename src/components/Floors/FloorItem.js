@@ -42,7 +42,8 @@ class FloorItem extends Component {
     const { editMode, editFloorTitle, editFloorAddress } = this.state;
 
     return (
-      <li>
+      <li className="row">
+        {' '}
         {editMode ? (
           <span>
             <input
@@ -66,7 +67,6 @@ class FloorItem extends Component {
             {floor.editedAt && <span>(Edited)</span>}
           </span>
         )}
-
         {authUser.uid === floor.userId && (
           <span>
             {editMode ? (

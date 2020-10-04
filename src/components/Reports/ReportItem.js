@@ -42,9 +42,10 @@ class ReportItem extends Component {
     const { editMode, editText, editServiceType } = this.state;
 
     return (
-      <li>
+      <li className="row">
+        {' '}
         {editMode ? (
-          <span>
+          <div>
             <input
               type="text"
               value={editText}
@@ -56,21 +57,22 @@ class ReportItem extends Component {
               onChange={this.onChangeEditServiceType}
             >
               <option value="">Select a Service</option>
-              <option value="MAINTENANCE">Maintenance / Repair</option>
+              <option value="MAINTENANCE">
+                Maintenance / Repair
+              </option>
               <option value="HAZARD">Hazard Report</option>
               <option value="SERVICE">Service Report</option>
             </select>
-          </span>
+          </div>
         ) : (
-          <span>
-            <strong>{report.userId}</strong> ({report.serviceType}){' '}
+          <div>
+            <strong>{report.uid}</strong>({report.serviceType}){' '}
             {report.text}
             {report.editedAt && <span>(Edited)</span>}
-          </span>
+          </div>
         )}
-
         {authUser.uid === report.userId && (
-          <span>
+          <div>
             {editMode ? (
               <span>
                 <button onClick={this.onSaveEditText}>Save</button>
@@ -88,7 +90,7 @@ class ReportItem extends Component {
                 Delete
               </button>
             )}
-          </span>
+          </div>
         )}
       </li>
     );

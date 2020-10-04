@@ -85,22 +85,22 @@ class CompanyItem extends Component {
         )}
 
         {authUser.uid === company.ownerID && (
-          <span className="col-2">
+          <div>
             {editMode ? (
-              <span>
+              <div className="justify-me">
                 <button
-                  className="btn btn-secondary"
+                  className="btn btn-secondary btn-bot"
                   onClick={this.onSaveEditText}
                 >
-                  Save
+                  Save Changes
                 </button>
                 <button
-                  className="btn btn-secondary"
+                  className="btn btn-secondary btn-bot"
                   onClick={this.onToggleEditMode}
                 >
-                  Reset
+                  Cancel Edit
                 </button>
-              </span>
+              </div>
             ) : (
               <button
                 className="btn-li"
@@ -119,7 +119,7 @@ class CompanyItem extends Component {
                 <FontAwesomeIcon icon={faTrash} />
               </button>
             )}
-          </span>
+          </div>
         )}
       </li>
     );
