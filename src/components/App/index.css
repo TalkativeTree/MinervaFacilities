@@ -194,7 +194,9 @@ li.row {
 }
 
 .title {
-  font-size: larger;
+  font-size: 2em;
+  color: #fff;
+  font-weight: bolder;
 }
 
 .fade-in {
