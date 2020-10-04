@@ -156,3 +156,77 @@ li.row {
 .btn-bot {
   width: 45vw;
 }
+
+/* ------- Landing ---------- */
+.landing-container {
+  height: 90vh;
+  width: 100vw;
+  background-image: url('https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/BetterGIFs/7c17f0c64b977875a2c0625b406bb0d2.gif?raw=true');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* .landing-logo {
+  height: 10vh;
+  width: 10vw;
+} */
+
+.square {
+  width: 90%;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+}
+
+.square:after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+.title {
+  font-size: larger;
+}
+
+.fade-in {
+  animation: fadeIn ease 05s;
+  -webkit-animation: fadeIn ease 05s;
+  -moz-animation: fadeIn ease 05s;
+  -o-animation: fadeIn ease 05s;
+  -ms-animation: fadeIn ease 05s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
