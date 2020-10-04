@@ -149,16 +149,16 @@ class Companies extends Component {
                 this.onCreateCompany(event, authUser)
               }
             >
-              <div className="row">
+              <div className="">
                 <input
-                  className="col-6"
+                  className="col-10 form-input"
                   type="text"
                   placeholder="Name Your Company!"
                   value={companyTitle}
                   onChange={this.onChangeCompanyTitle}
                 />
                 <input
-                  className="col-6"
+                  className="col-10 form-input"
                   type="text"
                   placeholder="Where does it live?"
                   value={companyAddress}

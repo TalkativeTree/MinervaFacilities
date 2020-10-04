@@ -6,6 +6,7 @@ body {
   padding: 0px;
   overflow-x: hidden;
   background-color: #ecf3f9;
+  padding-bottom: 10vh;
 }
 ul {
   list-style: none;
@@ -54,6 +55,7 @@ nav {
   padding: 0;
   text-align: center;
 }
+/* --------- Home ------------------ */
 /* Header Parallax Element Style*/
 .paral {
   min-height: 10vh;
@@ -101,4 +103,16 @@ a.active {
 
 .company-list {
   padding: 1rem;
+}
+
+.form-input {
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  border-style: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.4) !important;
 }
