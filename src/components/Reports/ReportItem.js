@@ -79,7 +79,10 @@ class ReportItem extends Component {
                 <button onClick={this.onToggleEditMode}>Reset</button>
               </span>
             ) : (
-              <button onClick={this.onToggleEditMode}>Edit</button>
+              <span>
+                &nbsp;
+                <button onClick={this.onToggleEditMode}>Edit</button>
+              </span>
             )}
 
             {!editMode && (
