@@ -123,6 +123,17 @@ class Firebase {
 
   companies = () => this.db.ref('companies');
 
+  createCompany = (companyData) => {
+    // Get a key for a new Company.
+    var newCompanyKey = this.db.ref('companies').push().key;
+    // Write the new company's data simultaneously in the compnay list and the user's companies list.
+    var updates = {};
+    updates['/companies/' + newCompanyKey] = companyData;
+    updates['/users/' + companyData.ownerID + '/companies/' + newCompanyKey] = companyData;
+    
+    this.db.ref().update(updates);
+  }
+
   // **** Building API ***
 
   building = (companyId, uid) =>

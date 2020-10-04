@@ -74,5 +74,5 @@ buck-out/
 .expo/*
 web-build/
 
-
-.env
+# vscode 
+.vscode/
