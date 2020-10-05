@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App/index.css';
+// import '../App/index.css';
 
 const LandingPage = () => (
   <div className="container landing-container">

@@ -28,17 +28,43 @@
     "recompose": "^0.30.0",
     "storage": "^0.2.0"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-syntax-class-properties"
+    ]
+  },
+  "jest": {
+    "preset": "react-native",
+    "transform": {
+      "node_modules/react-native/.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    }
+  },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-syntax-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-jest": "^26.3.0",
+    "react-test-renderer": "^16.13.1"
+  }
 }
