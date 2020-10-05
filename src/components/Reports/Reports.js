@@ -104,13 +104,6 @@ class Reports extends Component {
       <AuthUserContext.Consumer>
         {(authUser) => (
           <div>
-            {!loading && reports && (
-              <button type="button" onClick={this.onNextPage}>
-                More
-              </button>
-            )}
-
-            {loading && <div>Loading ...</div>}
 
             {reports && (
               <ReportList
@@ -121,7 +114,15 @@ class Reports extends Component {
               />
             )}
 
-            {!reports && <div>There are no reports ...</div>}
+            {!loading && reports && (
+              <button type="button" onClick={this.onNextPage}>
+                Load More
+              </button>
+            )}
+
+            {loading && <div>Loading...</div>}
+
+            {!reports && <div>There are no reports...</div>}
 
             <form
               onSubmit={(event) =>
