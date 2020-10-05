@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'recompose';
 import { Tabs, Tab } from 'react-bootstrap';
-import '../App/index.css';
+// import '../App/index.css';
 
 import { AuthUserContext, withAuthorization, withEmailVerification } from '../Session';
 
@@ -15,7 +15,7 @@ const HomePage = () => (
     {(authUser) =>
       authUser.roles.ADMIN ? (
         <AdminHomePage />
-      ) : authUser.roles.companyRole === "ADMIN" || "MANAGER" ? (
+      ) : authUser.roles.companyRole === "ADMIN" || authUser.roles.companyRole === "MANAGER" ? (
         <ManagerHomePage />
       ) : (
         <EmployeeHomePage />
