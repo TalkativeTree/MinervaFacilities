@@ -9,7 +9,7 @@ const BuildingList = ({
   onEditBuilding,
   onRemoveBuilding,
 }) => (
-  <ul>
+  <ul className="building-list">
     {buildings.map((building) => (
       <BuildingItem
         authUser={authUser}

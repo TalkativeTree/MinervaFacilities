@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 class ReportItem extends Component {
   constructor(props) {
@@ -51,7 +54,7 @@ class ReportItem extends Component {
               value={editText}
               onChange={this.onChangeEditText}
             />
-
+            &nbsp;
             <select
               value={editServiceType}
               onChange={this.onChangeEditServiceType}
@@ -63,12 +66,23 @@ class ReportItem extends Component {
               <option value="HAZARD">Hazard Report</option>
               <option value="SERVICE">Service Report</option>
             </select>
+            &nbsp;
           </div>
         ) : (
-          <div>
-            <strong>{report.uid}</strong>({report.serviceType}){' '}
-            {report.text}
-            {report.editedAt && <span>(Edited)</span>}
+          <div className="col-10">
+            <p className="comp-item">
+              <strong>Ticket Id:</strong> {report.uid}
+            </p>
+            <p className="comp-item">
+              <strong>Request Type: </strong>({report.serviceType}){' '}
+            </p>
+            <p className="comp-item report-desc">
+              <strong>Desc: </strong>
+              {report.text}
+            </p>
+            <p className="comp-item">
+              <sub>{report.editedAt && <span> (Edited)</span>}</sub>
+            </p>
           </div>
         )}
         {authUser.uid === report.userId && (
@@ -79,15 +93,25 @@ class ReportItem extends Component {
                 <button onClick={this.onToggleEditMode}>Reset</button>
               </span>
             ) : (
-              <button onClick={this.onToggleEditMode}>Edit</button>
+              <span>
+                &nbsp;
+                <button
+                  className="btn-li"
+                  onClick={this.onToggleEditMode}
+                >
+                  {' '}
+                  <FontAwesomeIcon icon={faEdit} />
+                </button>
+              </span>
             )}
 
             {!editMode && (
               <button
+                className="btn-li"
                 type="button"
                 onClick={() => onRemoveReport(report.uid)}
               >
-                Delete
+                <FontAwesomeIcon icon={faTrash} />
               </button>
             )}
           </div>

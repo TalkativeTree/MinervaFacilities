@@ -33,15 +33,24 @@ const AccountPage = () => (
   <AuthUserContext.Consumer>
     {(authUser) => (
       <div className="container text-center">
+        <div>
+          <img
+            src={authUser.photoURL}
+            width="100"
+            height="100"
+            alt="Profile"
+          />
+        </div>
         <h3>{authUser.username}'s Account</h3>
         <p>
-          <strong>Email: </strong>{authUser.email}
+          <strong>Email: </strong>
+          {authUser.email}
           <br />
-          <strong>Company: </strong>{authUser.company}
+          <strong>Company: </strong>
+          {authUser.company}
         </p>
-        <h5>Roles:</h5> 
+        <h5>Roles:</h5>
         <p>{JSON.stringify(authUser.roles)}</p>
-        <img src={authUser.photoURL} width="100" height="100" alt="Profile" />
         <hr />
         {/* Forgot Your Password? <PasswordForgetForm /> */}
         Reset Your Password. <PasswordChangeForm />

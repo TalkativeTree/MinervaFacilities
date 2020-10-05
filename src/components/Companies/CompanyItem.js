@@ -85,7 +85,7 @@ class CompanyItem extends Component {
         )}
 
         {authUser.uid === company.ownerID && (
-          <div>
+          <div className="">
             {editMode ? (
               <div className="justify-me">
                 <button

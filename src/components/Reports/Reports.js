@@ -104,14 +104,6 @@ class Reports extends Component {
       <AuthUserContext.Consumer>
         {(authUser) => (
           <div>
-            {!loading && reports && (
-              <button type="button" onClick={this.onNextPage}>
-                More
-              </button>
-            )}
-
-            {loading && <div>Loading ...</div>}
-
             {reports && (
               <ReportList
                 authUser={authUser}
@@ -121,7 +113,21 @@ class Reports extends Component {
               />
             )}
 
-            {!reports && <div>There are no reports ...</div>}
+            {!loading && reports && (
+              <button
+                className="btn btn-secondary"
+                type="button"
+                onClick={this.onNextPage}
+              >
+                Load More
+              </button>
+            )}
+
+            {loading && <div>Loading...</div>}
+
+            {!reports && <div>There are no reports...</div>}
+
+            <h4 className="text-center">Create new report</h4>
 
             <form
               onSubmit={(event) =>
@@ -133,7 +139,7 @@ class Reports extends Component {
                 value={text}
                 onChange={this.onChangeText}
               />
-
+              &nbsp;
               <select
                 value={serviceType}
                 onChange={this.onChangeServiceType}
@@ -145,7 +151,7 @@ class Reports extends Component {
                 <option value="HAZARD">Hazard Report</option>
                 <option value="SERVICE">Service Report</option>
               </select>
-
+              &nbsp;
               <button type="submit">Send</button>
             </form>
           </div>

@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { AuthUserContext } from "../Session";
-import { withFirebase } from "../Firebase";
-import FloorList from "./FloorList";
+import { AuthUserContext } from '../Session';
+import { withFirebase } from '../Firebase';
+import FloorList from './FloorList';
 
 class Floors extends Component {
   constructor(props) {
@@ -114,71 +114,91 @@ class Floors extends Component {
 
     return (
       <AuthUserContext.Consumer>
-        {(authUser) => authUser.roles.companyRole === "ADMIN" || "MANAGER" ? (
-          <div>
-            {!loading && floors && (
-              <button type="button" onClick={this.onNextPage}>
-                More
-              </button>
-            )}
+        {(authUser) =>
+          authUser.roles.companyRole === 'ADMIN' || 'MANAGER' ? (
+            <div className="text-center">
+              {!loading && floors && (
+                <button
+                  className="btn btn-secondary"
+                  type="button"
+                  onClick={this.onNextPage}
+                >
+                  Show More
+                </button>
+              )}
 
-            {loading && <div>Loading ...</div>}
+              {loading && <div>Loading ...</div>}
 
-            {floors && (
-              <FloorList
-                authUser={authUser}
-                floors={floors}
-                onEditFloor={this.onEditFloor}
-                onRemoveFloor={this.onRemoveFloor}
-              />
-            )}
+              {floors && (
+                <FloorList
+                  authUser={authUser}
+                  floors={floors}
+                  onEditFloor={this.onEditFloor}
+                  onRemoveFloor={this.onRemoveFloor}
+                />
+              )}
 
-            {!floors && <div>There are no floors yet...</div>}
+              {!floors && <div>There are no floors yet...</div>}
 
-            <form
-              onSubmit={(event) =>
-                this.onCreateFloor(event, authUser)
-              }
-            >
-              <input
-                type="text"
-                placeholder="Floor Name?"
-                value={floorTitle}
-                onChange={this.onChangeFloorTitle}
-              />
-              <input
-                placeholder="Floor Location/Number?"
-                type="text"
-                value={floorAddress}
-                onChange={this.onChangeFloorAddress}
-              />
+              <form
+                onSubmit={(event) =>
+                  this.onCreateFloor(event, authUser)
+                }
+              >
+                <div className="container">
+                  <input
+                    type="text"
+                    className="col-10 form-input"
+                    placeholder="Floor Name?"
+                    value={floorTitle}
+                    onChange={this.onChangeFloorTitle}
+                  />
+                  <input
+                    className="col-10 form-input"
+                    placeholder="Floor Location/Number?"
+                    type="text"
+                    value={floorAddress}
+                    onChange={this.onChangeFloorAddress}
+                  />
+                </div>
+                <div className="text-center">
+                  <button className="btn btn-primary" type="submit">
+                    Add Floor
+                  </button>
+                </div>
+              </form>
+            </div>
+          ) : (
+            <div>
+              {!loading && floors && (
+                <button
+                  className="btn btn-secondary btn-bot"
+                  type="button"
+                  onClick={this.onNextPage}
+                >
+                  More
+                </button>
+              )}
 
-              <button type="submit">Send</button>
-            </form>
-          </div>
-        ) : (
-          <div>
-            {!loading && floors && (
-              <button type="button" onClick={this.onNextPage}>
-                More
-              </button>
-            )}
+              {loading && <div>Loading ...</div>}
 
-            {loading && <div>Loading ...</div>}
+              {floors && (
+                <FloorList
+                  authUser={authUser}
+                  floors={floors}
+                  onEditFloor={this.onEditFloor}
+                  onRemoveFloor={this.onRemoveFloor}
+                />
+              )}
 
-            {floors && (
-              <FloorList
-                authUser={authUser}
-                floors={floors}
-                onEditFloor={this.onEditFloor}
-                onRemoveFloor={this.onRemoveFloor}
-              />
-            )}
-
-            {!floors && <div>There are no floors for your Company/Building...</div>}
-
-          </div>
-        )}
+              {!floors && (
+                <div>
+                  There are no floors for your Company/Building...
+                </div>
+              )}
+            </div>
+          )
+        }
       </AuthUserContext.Consumer>
     );
   }

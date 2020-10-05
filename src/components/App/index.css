@@ -121,6 +121,7 @@ a.active {
 
 p.comp-item {
   margin-bottom: 0 !important;
+  line-height: 1.3;
 }
 
 .comp-container {
@@ -156,7 +157,27 @@ li.row {
 .btn-bot {
   width: 45vw;
 }
+ul.building-list {
+  padding-inline-start: unset;
+  /* padding: 1rem; */
+  width: 100vw;
+  text-align: left;
+}
 
+ul.report-list {
+  padding-inline-start: unset;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100vw;
+  text-align: left;
+}
+
+p.comp-item.report-desc {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 80vw;
+}
 /* ------- Landing ---------- */
 .landing-container {
   height: 90vh;
@@ -194,7 +215,9 @@ li.row {
 }
 
 .title {
-  font-size: larger;
+  font-size: 2em;
+  color: #fff;
+  font-weight: bolder;
 }
 
 .fade-in {
