@@ -32,7 +32,7 @@ const SIGN_IN_METHODS = [
 const AccountPage = () => (
   <AuthUserContext.Consumer>
     {(authUser) => (
-      <div className="container text-center">
+      <div className="container text-center add-padding-bottom">
         <div>
           <img
             src={authUser.photoURL}

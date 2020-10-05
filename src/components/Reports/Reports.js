@@ -103,7 +103,7 @@ class Reports extends Component {
     return (
       <AuthUserContext.Consumer>
         {(authUser) => (
-          <div>
+          <div className="add-padding-bottom">
             {reports && (
               <ReportList
                 authUser={authUser}

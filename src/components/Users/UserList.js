@@ -40,7 +40,7 @@ class UserList extends Component {
     const { users, loading } = this.state;
 
     return (
-      <div>
+      <div className="add-padding-bottom">
         <h2>Users</h2>
         {loading && <div>Loading ...</div>}
         <ul>
