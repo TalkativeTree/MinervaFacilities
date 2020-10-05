@@ -51,7 +51,7 @@ class ReportItem extends Component {
               value={editText}
               onChange={this.onChangeEditText}
             />
-
+            &nbsp;
             <select
               value={editServiceType}
               onChange={this.onChangeEditServiceType}
@@ -63,12 +63,13 @@ class ReportItem extends Component {
               <option value="HAZARD">Hazard Report</option>
               <option value="SERVICE">Service Report</option>
             </select>
+            &nbsp;
           </div>
         ) : (
           <div>
             <strong>{report.uid}</strong>({report.serviceType}){' '}
             {report.text}
-            {report.editedAt && <span>(Edited)</span>}
+            {report.editedAt && <span> (Edited)</span>}
           </div>
         )}
         {authUser.uid === report.userId && (
@@ -79,7 +80,10 @@ class ReportItem extends Component {
                 <button onClick={this.onToggleEditMode}>Reset</button>
               </span>
             ) : (
-              <button onClick={this.onToggleEditMode}>Edit</button>
+              <span>
+                &nbsp;
+                <button onClick={this.onToggleEditMode}>Edit</button>
+              </span>
             )}
 
             {!editMode && (
