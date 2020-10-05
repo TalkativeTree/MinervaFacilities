@@ -55,6 +55,53 @@ nav {
   padding: 0;
   text-align: center;
 }
+
+/* ----------- Sign in------------- */
+/* Uses Chris' colors */
+
+.page-bg {
+  background-color: #0d4062;
+  height: 90vh;
+  width: 100vw;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  overflow: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.page-inner {
+  background-color: #F5F6F8;
+  margin: 10vw;
+  padding: 10vw;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  overflow: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-signin {
+  padding: 0.3rem;
+  margin: 0.3rem 0;
+  text-align: center;
+  background-color: #087cb8;
+  color: #F5F6F8
+}
+
+.signin-logo {
+  width: 30vw;
+  margin: 0vw;
+}
+
 /* --------- Home ------------------ */
 /* Header Parallax Element Style*/
 .paral {

@@ -8,14 +8,21 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
-  <div>
-    <h1>SignIn</h1>
-    <SignInForm />
-    <SignInGoogle />
-    <SignInFacebook />
-    <SignInTwitter />
-    <PasswordForgetLink />
-    <SignUpLink />
+  <div className='page-bg'>
+    <div className='page-inner'>
+    <img
+      className="signin-logo fade-in"
+      src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
+    />
+      <h1>Sign in</h1>
+      <SignInForm />
+      <PasswordForgetLink />
+      <h4>Or sign in with social:</h4>
+      <SignInGoogle />
+      <SignInFacebook />
+      <SignInTwitter />
+      <SignUpLink />
+    </div>
   </div>
 );
 
@@ -29,7 +36,7 @@ const ERROR_CODE_ACCOUNT_EXISTS =
   'auth/account-exists-with-different-credential';
 
 const ERROR_MSG_ACCOUNT_EXISTS = `
-  An account with an E-Mail address to
+  An account with an email address to
   this social account already exists. Try to login from
   this account instead and associate your social accounts on
   your personal account page.
@@ -76,7 +83,7 @@ class SignInFormBase extends Component {
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
-        />
+        />&nbsp;
         <input
           name="password"
           autoComplete="current-password"
@@ -84,9 +91,9 @@ class SignInFormBase extends Component {
           onChange={this.onChange}
           type="password"
           placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
+        />&nbsp;
+        <button className="btn btn-signin" disabled={isInvalid} type="submit">
+          Sign in
         </button>
 
         {error && <p>{error.message}</p>}
@@ -133,7 +140,7 @@ class SignInGoogleBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button type="submit">Sign In with Google</button>
+        <button className="btn btn-signin" type="submit">Sign in with Google</button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -179,7 +186,7 @@ class SignInFacebookBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button type="submit">Sign In with Facebook</button>
+        <button className="btn btn-signin" type="submit">Sign in with Facebook</button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -225,7 +232,7 @@ class SignInTwitterBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button type="submit">Sign In with Twitter</button>
+        <button className="btn btn-signin" type="submit">Sign in with Twitter</button>
 
         {error && <p>{error.message}</p>}
       </form>
