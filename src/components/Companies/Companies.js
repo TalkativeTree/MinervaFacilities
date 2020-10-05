@@ -128,7 +128,7 @@ class Companies extends Component {
     return (
       <AuthUserContext.Consumer>
         {(authUser) => authUser.companies ? (
-          <div className="text-center">
+          <div className="text-center add-padding-bottom">
             {!loading && companies && (
               <button
                 className="btn btn-secondary"
