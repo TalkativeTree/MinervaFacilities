@@ -1,9 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import FloorItem from "./FloorItem";
+import FloorItem from './FloorItem';
 
-const FloorList = ({ authUser, floors, onEditFloor, onRemoveFloor }) => (
-  <ul>
+const FloorList = ({
+  authUser,
+  floors,
+  onEditFloor,
+  onRemoveFloor,
+}) => (
+  <ul className="comp-list">
     {floors.map((floor) => (
       <FloorItem
         authUser={authUser}

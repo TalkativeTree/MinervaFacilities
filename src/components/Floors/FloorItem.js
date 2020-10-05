@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 class FloorItem extends Component {
   constructor(props) {
@@ -45,9 +48,10 @@ class FloorItem extends Component {
       <li className="row">
         {' '}
         {editMode ? (
-          <span>
+          <div>
             <input
               type="text"
+              className="col-10 form-input"
               placeholder="Floor Name?"
               value={editFloorTitle}
               onChange={this.onChangeEditFloorTitle}
@@ -55,38 +59,55 @@ class FloorItem extends Component {
             <input
               placeholder="Floor Location/Number?"
               type="text"
+              className="col-10 form-input"
               value={editFloorAddress}
               onChange={this.onChangeEditFloorAddress}
             />
-          </span>
+          </div>
         ) : (
-          <span>
+          <div className="col-8">
             {/* <strong>{floor.userId}</strong> */}
             {floor.floorTitle}
             {floor.floorAddress}
             {floor.editedAt && <span>(Edited)</span>}
-          </span>
+          </div>
         )}
         {authUser.uid === floor.userId && (
-          <span>
+          <div>
             {editMode ? (
-              <span>
-                <button onClick={this.onSaveEditFloor}>Save</button>
-                <button onClick={this.onToggleEditMode}>Reset</button>
-              </span>
+              <div className="justify-me col-2">
+                <button
+                  className="btn btn-secondary btn-bot"
+                  onClick={this.onSaveEditFloor}
+                >
+                  Save
+                </button>
+                <button
+                  className="btn btn-secondary btn-bot"
+                  onClick={this.onToggleEditMode}
+                >
+                  Reset
+                </button>
+              </div>
             ) : (
-              <button onClick={this.onToggleEditMode}>Edit</button>
+              <button
+                className="btn-li"
+                onClick={this.onToggleEditMode}
+              >
+                <FontAwesomeIcon icon={faEdit} />
+              </button>
             )}
 
             {!editMode && (
               <button
                 type="button"
+                className="btn-li"
                 onClick={() => onRemoveFloor(floor.uid)}
               >
-                Delete
+                <FontAwesomeIcon icon={faTrash} />
               </button>
             )}
-          </span>
+          </div>
         )}
       </li>
     );

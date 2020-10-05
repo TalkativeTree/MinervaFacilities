@@ -55,23 +55,25 @@ class BuildingItem extends Component {
       <li className="row">
         {' '}
         {editMode ? (
-          <span>
+          <div className="text-center">
             <input
               type="text"
+              className="col-10 form-input"
               placeholder="Name Your Building!"
               value={editBuildingTitle}
               onChange={this.onChangeEditBuildingTitle}
             />
             <input
               type="text"
+              className="col-10 form-input"
               placeholder="Where does it live?"
               value={editBuildingAddress}
               onChange={this.onChangeEditBuildingAddress}
             />
 
-            <h3>Floors</h3>
+            <h4>Floors:</h4>
             <Floors companyID={companyID} buildingID={building.uid} />
-          </span>
+          </div>
         ) : (
           <div className="col-10">
             {/* {building.ownerID} */}
@@ -85,12 +87,22 @@ class BuildingItem extends Component {
           </div>
         )}
         {authUser.uid === building.ownerID && (
-          <div className="col-2">
+          <div className="">
             {editMode ? (
-              <span>
-                <button onClick={this.onSaveEditText}>Save</button>
-                <button onClick={this.onToggleEditMode}>Reset</button>
-              </span>
+              <div className="justify-me">
+                <button
+                  className="btn btn-secondary btn-bot"
+                  onClick={this.onSaveEditText}
+                >
+                  Save Changes
+                </button>
+                <button
+                  className="btn btn-secondary btn-bot"
+                  onClick={this.onToggleEditMode}
+                >
+                  Cancel Edit
+                </button>
+              </div>
             ) : (
               <button
                 className="btn-li"

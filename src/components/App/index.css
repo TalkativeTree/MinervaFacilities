@@ -156,6 +156,12 @@ li.row {
 .btn-bot {
   width: 45vw;
 }
+ul.building-list {
+  padding-inline-start: unset;
+  /* padding: 1rem; */
+  width: 100vw;
+  text-align: left;
+}
 
 /* ------- Landing ---------- */
 .landing-container {

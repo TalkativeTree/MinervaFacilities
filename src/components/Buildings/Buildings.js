@@ -154,18 +154,18 @@ class Buildings extends Component {
               }
             >
               <div className="">
-                <div className="form-group col-10">
+                <div className="form-group ">
                   <input
-                    className="form-control form-input"
+                    className="form-control form-input col-10"
                     type="text"
                     placeholder="Building Name..."
                     value={buildingTitle}
                     onChange={this.onChangeBuildingTitle}
                   />
                 </div>
-                <div className="form-group col-10">
+                <div className="form-group">
                   <input
-                    className="form-control form-input"
+                    className="form-control form-input col-10"
                     type="text"
                     placeholder="Address..."
                     value={buildingAddress}
