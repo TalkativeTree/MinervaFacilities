@@ -39,12 +39,14 @@ const EmployeeHomePage = () => (
           >
             <Tab eventKey="floors" title="Floors">
               <div className="tab-item-wrapper">
+                <br></br>
                 <h4 className="text-center">Floors List</h4>
                 <Floors />
               </div>
             </Tab>
             <Tab eventKey="reports" title="Reports">
               <div className="tab-item-wrapper">
+                <br></br>
                 <h4 className="text-center">Reports List</h4>
                 <Reports />
               </div>
@@ -71,12 +73,14 @@ const ManagerHomePage = () => (
           >
             <Tab eventKey="buildings" title="Buildings">
               <div className="tab-item-wrapper">
+                <br></br>
                 <h4 className="text-center">Buildings List</h4>
                 <Buildings />
               </div>
             </Tab>
             <Tab eventKey="reports" title="Reports">
               <div className="tab-item-wrapper">
+                <br></br>
                 <h4 className="text-center">Reports List</h4>
                 <Reports />
               </div>
@@ -103,12 +107,14 @@ const AdminHomePage = () => (
           >
             <Tab eventKey="companies" title="Companies">
               <div className="tab-item-wrapper">
+                <br></br>
                 <h4 className="text-center">Companies List</h4>
                 <Companies />
               </div>
             </Tab>
             <Tab eventKey="reports" title="Reports">
               <div className="tab-item-wrapper">
+                <br></br>
                 <h4 className="text-center">Reports List</h4>
                 <Reports />
               </div>
