@@ -104,7 +104,6 @@ class Reports extends Component {
       <AuthUserContext.Consumer>
         {(authUser) => (
           <div>
-
             {reports && (
               <ReportList
                 authUser={authUser}
@@ -115,7 +114,11 @@ class Reports extends Component {
             )}
 
             {!loading && reports && (
-              <button type="button" onClick={this.onNextPage}>
+              <button
+                className="btn btn-secondary"
+                type="button"
+                onClick={this.onNextPage}
+              >
                 Load More
               </button>
             )}

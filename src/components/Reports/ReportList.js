@@ -8,7 +8,7 @@ const ReportList = ({
   onEditReport,
   onRemoveReport,
 }) => (
-  <ul>
+  <ul className="report-list">
     {reports.map((report) => (
       <ReportItem
         authUser={authUser}

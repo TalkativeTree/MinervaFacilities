@@ -82,7 +82,7 @@ class BuildingItem extends Component {
             </p>
             <p className="comp-item">{building.buildingAddress}</p>
             <p className="comp-item">
-              {building.editedAt && <span>(Edited)</span>}
+              <sub>{building.editedAt && <span>(Edited)</span>}</sub>
             </p>
           </div>
         )}
