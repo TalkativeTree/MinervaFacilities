@@ -51,7 +51,7 @@ class ReportItem extends Component {
               value={editText}
               onChange={this.onChangeEditText}
             />
-
+            &nbsp;
             <select
               value={editServiceType}
               onChange={this.onChangeEditServiceType}
@@ -63,6 +63,7 @@ class ReportItem extends Component {
               <option value="HAZARD">Hazard Report</option>
               <option value="SERVICE">Service Report</option>
             </select>
+            &nbsp;
           </div>
         ) : (
           <div>

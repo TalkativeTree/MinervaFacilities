@@ -124,6 +124,8 @@ class Reports extends Component {
 
             {!reports && <div>There are no reports...</div>}
 
+            <h4 className="text-center">Create new report</h4>
+
             <form
               onSubmit={(event) =>
                 this.onCreateReport(event, authUser)
@@ -134,7 +136,7 @@ class Reports extends Component {
                 value={text}
                 onChange={this.onChangeText}
               />
-
+              &nbsp;
               <select
                 value={serviceType}
                 onChange={this.onChangeServiceType}
@@ -146,7 +148,7 @@ class Reports extends Component {
                 <option value="HAZARD">Hazard Report</option>
                 <option value="SERVICE">Service Report</option>
               </select>
-
+              &nbsp;
               <button type="submit">Send</button>
             </form>
           </div>
