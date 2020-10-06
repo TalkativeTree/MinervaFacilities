@@ -76,3 +76,6 @@ web-build/
 
 # vscode 
 .vscode/
+
+# Environment
+.env
