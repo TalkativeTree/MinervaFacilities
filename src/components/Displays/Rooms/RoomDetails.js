@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { withFirebase } from '../Firebase';
-import * as ROUTES from '../../constants/routes';
+import { withFirebase } from '../../Firebase';
+import * as ROUTES from '../../../constants/routes';
 
-class RoomItem extends Component {
+class RoomDetails extends Component {
   constructor(props) {
     super(props);
 
@@ -41,7 +41,7 @@ class RoomItem extends Component {
 
     return (
       <div>
-        <h5>Room ({this.props.match.params.room_id})</h5>
+        <h5>Room ({room.roomName})</h5>
         {loading && <div>Loading ...</div>}
 
         {room && (
@@ -64,4 +64,4 @@ class RoomItem extends Component {
   }
 }
 
-export default withFirebase(RoomItem);
+export default withFirebase(RoomDetails);

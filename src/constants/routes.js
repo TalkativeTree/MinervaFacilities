@@ -7,8 +7,14 @@ export const PASSWORD_FORGET = '/pw-forget';
 export const ADMIN = '/admin';
 export const ADMIN_DETAILS = '/admin/:id';
 
-export const FLOORS = '/floor';
-export const ROOMS = '/room';
 
-export const FLOOR_DETAILS = '/home/:floorName';
-export const ROOM_DETAILS = '/home/:roomName';
+export const COMPANIES = '/companies';
+export const COMPANY_DETAILS = '/companies/:companyTitle';
+export const BUILDINGS = '/buildings';
+export const BUILDING_DETAILS = '/buildings/:buildingName';
+
+export const FLOORS = '/floors';
+export const FLOOR_DETAILS = '/floors/:floorName';
+
+export const ROOMS = '/rooms';
+export const ROOM_DETAILS = '/rooms/:roomName';

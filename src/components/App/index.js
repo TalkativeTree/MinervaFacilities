@@ -10,6 +10,9 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
+import FloorsPage from '../Displays/Floors';
+import RoomsPage from '../Displays/Rooms';
+
 import { Tabs, Tab } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -45,6 +48,11 @@ const App = () => (
           </div>
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
           <Route path={ROUTES.ADMIN} component={AdminPage} />
+
+          {/* <Route path={ROUTES.COMPANIES} component={} /> */}
+          {/* <Route path={ROUTES.BUILDINGS} component={} /> */}
+          <Route path={ROUTES.FLOORS} component={FloorsPage} />
+          <Route path={ROUTES.ROOMS} component={RoomsPage} />
         </div>
         <Navigation />
       </div>

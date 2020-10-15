@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { withFirebase } from '../Firebase';
-import * as ROUTES from '../../constants/routes';
+import { withFirebase } from '../../Firebase';
+import * as ROUTES from '../../../constants/routes';
 
 class RoomList extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class RoomList extends Component {
 
     return (
       <div className="add-padding-bottom">
-        <h2>Rooms</h2>
+        <h2>Room List</h2>
         {loading && <div>Loading ...</div>}
         <ul>
           {rooms.map((room) => (
@@ -57,7 +57,7 @@ class RoomList extends Component {
               <span>
                 <Link
                   to={{
-                    pathname: `${ROUTES.ROOM}/${room.id}`,
+                    pathname: `${ROUTES.ROOMS}/${room.id}`,
                     state: { room },
                   }}
                 >

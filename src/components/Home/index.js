@@ -12,8 +12,8 @@ import Reports from '../Reports';
 import Companies from '../Creators/Companies';
 import Buildings from '../Creators/Buildings';
 import Floors from '../Creators/Floors';
-import FloorDetails from '../Floors/FloorDetails';
-import { RoomList, RoomItem } from '../../components/Rooms';
+import FloorDetails from '../Displays/Floors/FloorDetails';
+import { RoomList, RoomItem } from '../Displays/Rooms';
 
 const HomePage = () => (
   <AuthUserContext.Consumer>
