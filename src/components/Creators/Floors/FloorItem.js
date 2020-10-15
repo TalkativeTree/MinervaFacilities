@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import * as ROUTES from '../../../constants/routes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -9,16 +11,16 @@ class FloorItem extends Component {
 
     this.state = {
       editMode: false,
-      editFloorTitle: this.props.floor.floorTitle,
-      editFloorAddress: this.props.floor.floorAddress,
+      editFloorTitle: this.props.floor.floorName,
+      editFloorAddress: this.props.floor.floorLocation,
     };
   }
 
   onToggleEditMode = () => {
     this.setState((state) => ({
       editMode: !state.editMode,
-      editFloorTitle: this.props.floor.floorTitle,
-      editFloorAddress: this.props.floor.floorAddress,
+      editFloorTitle: this.props.floor.floorName,
+      editFloorAddress: this.props.floor.floorLocation,
     }));
   };
 
@@ -67,8 +69,10 @@ class FloorItem extends Component {
         ) : (
           <div className="col-8">
             {/* <strong>{floor.userId}</strong> */}
-            {floor.floorTitle}
-            {floor.floorAddress}
+            <Link to={{ pathname: `${ROUTES.HOME}/${floor.floorName}`, state: { floor }}}>
+              {floor.floorName}
+            </Link>
+            {floor.floorLocation}
             {floor.editedAt && <span>(Edited)</span>}
           </div>
         )}

@@ -6,3 +6,9 @@ export const ACCOUNT = '/account';
 export const PASSWORD_FORGET = '/pw-forget';
 export const ADMIN = '/admin';
 export const ADMIN_DETAILS = '/admin/:id';
+
+export const FLOORS = '/floor';
+export const ROOMS = '/room';
+
+export const FLOOR_DETAILS = '/home/:floorName';
+export const ROOM_DETAILS = '/home/:roomName';

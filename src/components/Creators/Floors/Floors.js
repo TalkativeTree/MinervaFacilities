@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { AuthUserContext } from '../Session';
-import { withFirebase } from '../Firebase';
+import { AuthUserContext } from '../../Session';
+import { withFirebase } from '../../Firebase';
 import FloorList from './FloorList';
 
 class Floors extends Component {
@@ -16,8 +16,8 @@ class Floors extends Component {
       floors: [],
       limit: 5,
 
-      floorTitle: '',
-      floorAddress: '',
+      floorName: '',
+      floorLocation: '',
       rooms: { r1: 'main-room' },
       members: [],
     };
@@ -31,7 +31,7 @@ class Floors extends Component {
     this.setState({ loading: true });
 
     this.props.firebase
-      .floors(this.state.companyID, this.state.buildingID)
+      .floors()
       .orderByChild('createdAt')
       .limitToLast(this.state.limit)
       .on('value', (snapshot) => {
@@ -58,47 +58,47 @@ class Floors extends Component {
   }
 
   onChangeFloorTitle = (event) => {
-    this.setState({ floorTitle: event.target.value });
+    this.setState({ floorName: event.target.value });
   };
 
   onChangeFloorAddress = (event) => {
-    this.setState({ floorAddress: event.target.value });
+    this.setState({ floorLocation: event.target.value });
   };
 
   onCreateFloor = (event, authUser) => {
     this.props.firebase
-      .floors(this.state.companyID, this.state.buildingID)
+      .floors()
       .push({
-        floorTitle: this.state.floorTitle,
-        floorAddress: this.state.floorAddress,
+        floorName: this.state.floorName,
+        floorLocation: this.state.floorLocation,
         userId: authUser.uid,
         createdAt: this.props.firebase.serverValue.TIMESTAMP,
       });
 
     this.setState({
-      floorTitle: '',
-      floorAddress: '',
+      floorName: '',
+      floorLocation: '',
     });
 
     event.preventDefault();
   };
 
-  onEditFloor = (floor, floorTitle, floorAddress) => {
+  onEditFloor = (floor, floorName, floorLocation) => {
     const { uid, ...floorSnapshot } = floor;
 
     this.props.firebase
-      .floor(this.state.companyID, this.state.buildingID, floor.uid)
+      .floor(floor.uid)
       .set({
         ...floorSnapshot,
-        floorTitle,
-        floorAddress,
+        floorName,
+        floorLocation,
         editedAt: this.props.firebase.serverValue.TIMESTAMP,
       });
   };
 
   onRemoveFloor = (uid) => {
     this.props.firebase
-      .floor(this.state.companyID, this.state.buildingID, uid)
+      .floor(uid)
       .remove();
   };
 
@@ -110,13 +110,16 @@ class Floors extends Component {
   };
 
   render() {
-    const { floorTitle, floorAddress, floors, loading } = this.state;
+    const { floorName, floorLocation, floors, loading } = this.state;
 
     return (
       <AuthUserContext.Consumer>
         {(authUser) =>
-          authUser.roles.companyRole === 'ADMIN' || 'MANAGER' ? (
+          authUser.roles.companyRole === 'OWNER' ||
+          authUser.roles.companyRole === 'MANAGER' ? (
             <div className="text-center">
+              <h4 className="text-center">Floors List</h4>
+
               {!loading && floors && (
                 <button
                   className="btn btn-secondary"
@@ -150,14 +153,14 @@ class Floors extends Component {
                     type="text"
                     className="col-10 form-input"
                     placeholder="Floor Name?"
-                    value={floorTitle}
+                    value={floorName}
                     onChange={this.onChangeFloorTitle}
                   />
                   <input
                     className="col-10 form-input"
                     placeholder="Floor Location/Number?"
                     type="text"
-                    value={floorAddress}
+                    value={floorLocation}
                     onChange={this.onChangeFloorAddress}
                   />
                 </div>
@@ -170,6 +173,8 @@ class Floors extends Component {
             </div>
           ) : (
             <div>
+              <h4 className="text-center">Floors List</h4>
+
               {!loading && floors && (
                 <button
                   className="btn btn-secondary btn-bot"

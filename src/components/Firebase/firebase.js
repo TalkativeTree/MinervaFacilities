@@ -11,16 +11,28 @@ import 'firebase/database';
 //   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
 // };
 
+// const config = {
+//   apiKey: 'AIzaSyDl_Mionn-j0hp8f4hriSZqvOI9q754zCA',
+//   authDomain: 'taddle-new-harmony-cafe.firebaseapp.com',
+//   databaseURL: 'https://taddle-new-harmony-cafe.firebaseio.com',
+//   projectId: 'taddle-new-harmony-cafe',
+//   storageBucket: 'taddle-new-harmony-cafe.appspot.com',
+//   messagingSenderId: '183816749191',
+//   appId: '1:183816749191:web:8677931d232f454a767822',
+//   measurementId: 'G-EG3DEKSHRE',
+// };
+
 const config = {
-  apiKey: 'AIzaSyDl_Mionn-j0hp8f4hriSZqvOI9q754zCA',
-  authDomain: 'taddle-new-harmony-cafe.firebaseapp.com',
-  databaseURL: 'https://taddle-new-harmony-cafe.firebaseio.com',
-  projectId: 'taddle-new-harmony-cafe',
-  storageBucket: 'taddle-new-harmony-cafe.appspot.com',
-  messagingSenderId: '183816749191',
-  appId: '1:183816749191:web:8677931d232f454a767822',
-  measurementId: 'G-EG3DEKSHRE',
+  apiKey: 'AIzaSyBnJSs5VkOG4k2VAByyYU8pxeyOthF3FFs',
+  authDomain: 'minerva-facilities.firebaseapp.com',
+  databaseURL: 'https://minerva-facilities.firebaseio.com',
+  projectId: 'minerva-facilities',
+  storageBucket: 'minerva-facilities.appspot.com',
+  messagingSenderId: '286455586521',
+  appId: '1:286455586521:web:658ab0b3a18a1dcebfe8c8',
+  measurementId: 'G-674WMEGJDS',
 };
+
 
 class Firebase {
   constructor() {
@@ -144,15 +156,23 @@ class Firebase {
 
   // **** Floors API ***
 
-  floor = (companyId, buildingId, uid) =>
-    this.db.ref(
-      `companies/${companyId}/buildings/${buildingId}/floors/${uid}`,
-    );
+  // floor = (companyId, buildingId, uid) =>
+  //   this.db.ref(
+  //     `companies/${companyId}/buildings/${buildingId}/floors/${uid}`,
+  //   );
 
-  floors = (companyId, buildingId) =>
-    this.db.ref(
-      `companies/${companyId}/buildings/${buildingId}/floors`,
-    );
+  // floors = (companyId, buildingId) =>
+  //   this.db.ref(
+  //     `companies/${companyId}/buildings/${buildingId}/floors`,
+  //   );
+
+  floor = (uid) => this.db.ref(`floors/${uid}`);
+
+  floors = () => this.db.ref('floors');
+
+  room = (uid) => this.db.ref(`rooms/${uid}`);
+
+  rooms = () => this.db.ref('rooms');
 }
 
 export default Firebase;

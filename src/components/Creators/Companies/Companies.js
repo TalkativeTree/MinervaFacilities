@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { AuthUserContext } from '../Session';
-import { withFirebase } from '../Firebase';
+import { AuthUserContext } from '../../Session';
+import { withFirebase } from '../../Firebase';
 import CompanyList from './CompanyList';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 

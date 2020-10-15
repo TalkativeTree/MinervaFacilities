@@ -27,11 +27,7 @@ const App = () => (
             role="tabpanel"
             aria-labelledby="nav-landing-tab"
           >
-            <Route
-              exact
-              path={ROUTES.LANDING}
-              component={LandingPage}
-            />
+            <Route exact path={ROUTES.LANDING} component={LandingPage} />
           </div>
           <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
           <Route path={ROUTES.SIGN_IN} component={SignInPage} />

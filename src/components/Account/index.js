@@ -47,7 +47,7 @@ const AccountPage = () => (
           {authUser.email}
           <br />
           <strong>Company: </strong>
-          {authUser.company}
+          {authUser.company_id}
         </p>
         <h5>Roles:</h5>
         <p>{JSON.stringify(authUser.roles)}</p>

@@ -74,11 +74,14 @@ class ReportItem extends Component {
               <strong>Ticket Id:</strong> {report.uid}
             </p>
             <p className="comp-item">
+              <strong>Request Status: </strong>({report.status}){' '}
+            </p>
+            <p className="comp-item">
               <strong>Request Type: </strong>({report.serviceType}){' '}
             </p>
             <p className="comp-item report-desc">
               <strong>Desc: </strong>
-              {report.text}
+              {report.reportMessage}
             </p>
             <p className="comp-item">
               <sub>{report.editedAt && <span> (Edited)</span>}</sub>

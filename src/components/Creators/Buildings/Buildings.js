@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { AuthUserContext } from '../Session';
-import { withFirebase } from '../Firebase';
+import { AuthUserContext } from '../../Session';
+import { withFirebase } from '../../Firebase';
 import BuildingList from './BuildingList';
 
 class Buildings extends Component {

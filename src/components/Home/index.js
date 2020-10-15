@@ -1,21 +1,27 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import { compose } from 'recompose';
 import { Tabs, Tab } from 'react-bootstrap';
 import '../App/index.css';
 
 import { AuthUserContext, withAuthorization, withEmailVerification } from '../Session';
 
+import * as ROUTES from '../../constants/routes';
+
 import Reports from '../Reports';
-import Companies from '../Companies';
-import Buildings from '../Buildings';
-import Floors from '../Floors';
+import Companies from '../Creators/Companies';
+import Buildings from '../Creators/Buildings';
+import Floors from '../Creators/Floors';
+import FloorDetails from '../Floors/FloorDetails';
+import { RoomList, RoomItem } from '../../components/Rooms';
 
 const HomePage = () => (
   <AuthUserContext.Consumer>
     {(authUser) =>
       authUser.roles.ADMIN ? (
         <AdminHomePage />
-      ) : authUser.roles.companyRole === "ADMIN" || "MANAGER" ? (
+      ) : authUser.roles.companyRole === 'OWNER' ||
+          authUser.roles.companyRole === 'MANAGER' ? (
         <ManagerHomePage />
       ) : (
         <EmployeeHomePage />
@@ -33,17 +39,24 @@ const EmployeeHomePage = () => (
       <div className="container">
         <div className="row">
           <Tabs
-            defaultActiveKey="floors"
+            defaultActiveKey="reports"
             className="non-nav"
             variant="pills"
           >
-            <Tab eventKey="floors" title="Floors">
+            {/* <Tab eventKey="floors" title="Floors">
               <div className="tab-item-wrapper">
                 <br></br>
-                <h4 className="text-center">Floors List</h4>
-                <Floors />
+                <Switch>
+                  <Route exact path={ROUTES.HOME} component={Floors} />
+                  <Route exact path={ROUTES.FLOOR_DETAILS} component={FloorDetails} />
+                </Switch>
+
+                {/* <Switch>
+                  <Route exact path={ROUTES.HOME} component={RoomList} />
+                  <Route exact path={ROUTES.ROOM_DETAILS} component={RoomItem} />
+                </Switch> /}
               </div>
-            </Tab>
+            </Tab> */}
             <Tab eventKey="reports" title="Reports">
               <div className="tab-item-wrapper">
                 <br></br>
