@@ -5,10 +5,10 @@ import {
   withAuthorization,
   withEmailVerification,
 } from '../Session';
-import SignOutButton from '../SignOut';
 import { withFirebase } from '../Firebase';
-import { PasswordForgetForm } from '../PasswordForget';
-import PasswordChangeForm from '../PasswordChange';
+import SignOutButton from '../Auth/SignOut';
+import { PasswordForgetForm } from '../Auth/PasswordForget';
+import PasswordChangeForm from '../Auth/PasswordChange';
 
 const SIGN_IN_METHODS = [
   {

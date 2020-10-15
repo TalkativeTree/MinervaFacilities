@@ -8,7 +8,7 @@ import { AuthUserContext, withAuthorization, withEmailVerification } from '../Se
 
 import * as ROUTES from '../../constants/routes';
 
-import Reports from '../Reports';
+import Reports from '../Creators/Reports';
 import Companies from '../Creators/Companies';
 import Buildings from '../Creators/Buildings';
 import Floors from '../Creators/Floors';

@@ -16,19 +16,28 @@ class FloorList extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
+    var userID = this.props.firebase.auth.currentUser.uid;
+    this.props.firebase.user(userID).on('value', (snapshot) => {
+      const user = snapshot.val();
+      const usersCompany = user.company_id;
+      console.log(userID, usersCompany);
 
-    this.props.firebase.floors().on('value', (snapshot) => {
-      const floorsObject = snapshot.val();
+      this.props.firebase.floors()
+        .orderByChild('companyID')
+        .equalTo(usersCompany)
+        .on('value', (snapshot) => {
+          const floorsObject = snapshot.val();
 
-      const floorsList = Object.keys(floorsObject).map((key) => ({
-        ...floorsObject[key],
-        uid: key,
-      }));
+          const floorsList = Object.keys(floorsObject).map((key) => ({
+            ...floorsObject[key],
+            uid: key,
+          }));
 
-      this.setState({
-        floors: floorsList,
-        loading: false,
-      });
+          this.setState({
+            floors: floorsList,
+            loading: false,
+          });
+        });
     });
   }
 

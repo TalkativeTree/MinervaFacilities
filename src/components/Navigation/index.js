@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { AuthUserContext } from '../Session';
-import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
@@ -120,7 +119,6 @@ const NavigationAuth = ({ authUser }) => (
                 Admin
               </Link>
             )}
-            {/* <SignOutButton /> */}
           </div>
         </nav>
       </div>
