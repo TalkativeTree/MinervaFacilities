@@ -9,7 +9,12 @@ class Reports extends Component {
     super(props);
 
     this.state = {
-      text: '',
+      companyID: '',
+      buildingID: '',
+      floorID: '',
+      roomID: '',
+      message: '',
+      status: 'OPEN',
       serviceType: '',
       loading: false,
       reports: [],
@@ -51,8 +56,24 @@ class Reports extends Component {
     this.props.firebase.reports().off();
   }
 
-  onChangeText = (event) => {
-    this.setState({ text: event.target.value });
+  onChangeCompanyID = (event) => {
+    this.setState({ companyID: event.target.value });
+  };
+
+  onChangeBuildingID = (event) => {
+    this.setState({ buildingID: event.target.value });
+  };
+  
+  onChangeFloorID = (event) => {
+    this.setState({ floorID: event.target.value });
+  };
+
+  onChangeRoomID = (event) => {
+    this.setState({ roomID: event.target.value });
+  };
+
+  onChangeMessage = (event) => {
+    this.setState({ message: event.target.value });
   };
 
   onChangeServiceType = (event) => {
@@ -61,26 +82,41 @@ class Reports extends Component {
 
   onCreateReport = (event, authUser) => {
     this.props.firebase.reports().push({
-      text: this.state.text,
+      companyID: this.state.companyID,
+      buildingID: this.state.buildingID,
+      floorID: this.state.floorID,
+      roomID: this.state.roomID,
+      message: this.state.message,
       serviceType: this.state.serviceType,
-      userId: authUser.uid,
+      status: this.state.status,
+      reporter: authUser.uid,
       createdAt: this.props.firebase.serverValue.TIMESTAMP,
     });
 
     this.setState({
-      text: '',
+      companyID: '',
+      buildingID: '',
+      floorID: '',
+      roomID: '',
+      message: '',
+      status: 'OPEN',
       serviceType: '',
     });
 
     event.preventDefault();
   };
 
-  onEditReport = (report, text, serviceType) => {
+  onEditReport = (report, message, serviceType) => {
     const { uid, ...reportSnapshot } = report;
 
     this.props.firebase.report(report.uid).set({
       ...reportSnapshot,
-      text,
+      companyID,
+      buildingID,
+      floorID,
+      roomID,
+      message,
+      status,
       serviceType,
       editedAt: this.props.firebase.serverValue.TIMESTAMP,
     });
@@ -98,7 +134,7 @@ class Reports extends Component {
   };
 
   render() {
-    const { serviceType, text, reports, loading } = this.state;
+    const { companyID, buildingID, floorID, roomID, serviceType, message, reports, loading } = this.state;
 
     return (
       <AuthUserContext.Consumer>
@@ -135,11 +171,42 @@ class Reports extends Component {
               }
             >
               <input
+                className="ml-1 mr-2"
                 type="text"
-                value={text}
-                onChange={this.onChangeText}
+                placeholder="Company ID"
+                value={companyID}
+                onChange={this.onChangeCompanyID}
               />
-              &nbsp;
+              <input
+                className="ml-1 mr-2"
+                type="text"
+                placeholder="Building ID"
+                value={buildingID}
+                onChange={this.onChangeBuildingID}
+              />
+              <input
+                className="ml-1 mr-2"
+                type="text"
+                placeholder="Floor ID"
+                value={floorID}
+                onChange={this.onChangeFloorID}
+              />
+              <input
+                className="ml-1 mr-2"
+                type="text"
+                placeholder="Room ID"
+                value={roomID}
+                onChange={this.onChangeRoomID}
+              />
+
+              <input
+                className="ml-1 mr-2"
+                type="text"
+                placeholder="Reason For Report"
+                value={message}
+                onChange={this.onChangeMessage}
+              />
+
               <select
                 value={serviceType}
                 onChange={this.onChangeServiceType}
@@ -151,8 +218,10 @@ class Reports extends Component {
                 <option value="HAZARD">Hazard Report</option>
                 <option value="SERVICE">Service Report</option>
               </select>
-              &nbsp;
-              <button type="submit">Send</button>
+
+              <button className="ml-1 mt-2" type="submit">
+                Send
+              </button>
             </form>
           </div>
         )}
@@ -162,3 +231,10 @@ class Reports extends Component {
 }
 
 export default withFirebase(Reports);
+
+
+// TEST IDS
+// -MIl88ANUFKxLp_sKsvf
+// -MIqkLiTo2qwbo3JkrHL
+// -MIqkPSUQ7HeoFxXdrW7
+// -MIqCSAwq5QBti12uqKI

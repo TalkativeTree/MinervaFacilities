@@ -9,7 +9,8 @@ class ReportItem extends Component {
 
     this.state = {
       editMode: false,
-      editText: this.props.report.text,
+      editMessage: this.props.report.message,
+      editStatus: this.props.report.status,
       editServiceType: this.props.report.serviceType,
     };
   }
@@ -17,13 +18,18 @@ class ReportItem extends Component {
   onToggleEditMode = () => {
     this.setState((state) => ({
       editMode: !state.editMode,
-      editText: this.props.report.text,
+      editMessage: this.props.report.message,
+      editStatus: this.props.report.status,
       editServiceType: this.props.report.serviceType,
     }));
   };
 
-  onChangeEditText = (event) => {
-    this.setState({ editText: event.target.value });
+  onChangeEditMessage = (event) => {
+    this.setState({ editMessage: event.target.value });
+  };
+
+  onChangeEditStatus = (event) => {
+    this.setState({ editStatus: event.target.value });
   };
 
   onChangeEditServiceType = (event) => {
@@ -33,7 +39,8 @@ class ReportItem extends Component {
   onSaveEditText = () => {
     this.props.onEditReport(
       this.props.report,
-      this.state.editText,
+      this.state.editMessage,
+      this.state.status,
       this.state.editServiceType,
     );
 
@@ -42,7 +49,7 @@ class ReportItem extends Component {
 
   render() {
     const { authUser, report, onRemoveReport } = this.props;
-    const { editMode, editText, editServiceType } = this.state;
+    const { editMode, editMessage, editStatus, editServiceType } = this.state;
 
     return (
       <li className="row">
@@ -50,11 +57,12 @@ class ReportItem extends Component {
         {editMode ? (
           <div>
             <input
+              className="ml-1 mr-2"
               type="text"
-              value={editText}
-              onChange={this.onChangeEditText}
+              value={editMessage}
+              onChange={this.onChangeEditMessage}
             />
-            &nbsp;
+
             <select
               value={editServiceType}
               onChange={this.onChangeEditServiceType}
@@ -66,7 +74,17 @@ class ReportItem extends Component {
               <option value="HAZARD">Hazard Report</option>
               <option value="SERVICE">Service Report</option>
             </select>
-            &nbsp;
+
+            <select
+              className="ml-1 mr-2"
+              value={editStatus}
+              onChange={this.onChangeEditStatus}
+            >
+              <option value="">Select a Status</option>
+              <option value="OPEN">OPEN</option>
+              <option value="CLOSED">CLOSED</option>
+              <option value="URGENT">URGENT</option>
+            </select>
           </div>
         ) : (
           <div className="col-10">
@@ -81,18 +99,31 @@ class ReportItem extends Component {
             </p>
             <p className="comp-item report-desc">
               <strong>Desc: </strong>
-              {report.reportMessage}
+              {report.message}
+            </p>
+            <p className="comp-item report-location">
+              <strong>Location: </strong>
+              <br />
+              {/* Company ID: {report.companyID},<br /> */}
+              {/* Building ID: {report.buildingID},<br /> */}
+              {/* Floor ID: {report.floorID},<br /> */}
+              Room ID: {report.roomID}
             </p>
             <p className="comp-item">
               <sub>{report.editedAt && <span> (Edited)</span>}</sub>
             </p>
           </div>
         )}
-        {authUser.uid === report.userId && (
+        {authUser.uid === report.reporter && (
           <div>
             {editMode ? (
               <span>
-                <button onClick={this.onSaveEditText}>Save</button>
+                <button
+                  className="ml-1 mr-2"
+                  onClick={this.onSaveEditText}
+                >
+                  Save
+                </button>
                 <button onClick={this.onToggleEditMode}>Reset</button>
               </span>
             ) : (
