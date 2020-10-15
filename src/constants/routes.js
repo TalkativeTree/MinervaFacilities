@@ -7,7 +7,6 @@ export const PASSWORD_FORGET = '/pw-forget';
 export const ADMIN = '/admin';
 export const ADMIN_DETAILS = '/admin/:id';
 
-
 export const COMPANIES = '/companies';
 export const COMPANY_DETAILS = '/companies/:companyTitle';
 export const BUILDINGS = '/buildings';

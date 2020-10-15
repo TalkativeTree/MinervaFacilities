@@ -33,7 +33,7 @@ const AccountPage = () => (
   <AuthUserContext.Consumer>
     {(authUser) => (
       <div className="container text-center add-padding-bottom">
-        <div>
+        <div className="mt-3">
           <img
             src={authUser.photoURL}
             width="100"

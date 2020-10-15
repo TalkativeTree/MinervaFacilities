@@ -26,7 +26,7 @@ const NavigationAuth = ({ authUser }) => (
   <div className="tab-wrapper">
     <div className="container">
       <div className="row">
-        <nav defaultactivekey="/">
+        <nav defaultactivekey="/home">
           <div className="nav nav-tabs" id="nav-tab" role="tablist">
             {/* <Link
               className="nav-item nav-link "
@@ -127,16 +127,62 @@ const NavigationAuth = ({ authUser }) => (
 );
 
 const NavigationNonAuth = () => (
-  <ul>
-    <li className="row">
-      {' '}
-      <Link to={ROUTES.LANDING}>Landing</Link>
-    </li>
-    <li className="row">
-      {' '}
-      <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-    </li>
-  </ul>
+  <div className="tab-wrapper">
+    <div className="container">
+      <div className="row">
+        <nav defaultactivekey="/">
+          <div className="nav nav-tabs" id="nav-tab" role="tablist">
+            <Link
+              className="nav-item nav-link "
+              id="nav-landing-tab"
+              data-toggle="tab"
+              role="tab"
+              aria-controls="nav-landing"
+              aria-selected="true"
+              to={ROUTES.LANDING}
+            >
+              Landing
+            </Link>
+            <Link
+              className="nav-item nav-link "
+              id="nav-signup-tab"
+              data-toggle="tab"
+              role="tab"
+              aria-controls="nav-signup"
+              aria-selected="true"
+              to={ROUTES.SIGN_UP}
+            >
+              Sign Up
+            </Link>
+
+            <Link
+              className="nav-item nav-link "
+              id="nav-signin-tab"
+              data-toggle="tab"
+              role="tab"
+              aria-controls="nav-signin"
+              aria-selected="true"
+              to={ROUTES.SIGN_IN}
+            >
+              Sign In
+            </Link>
+
+            <Link
+              className="nav-item nav-link "
+              id="nav-forgotpassowrd-tab"
+              data-toggle="tab"
+              role="tab"
+              aria-controls="nav-forgotpassword"
+              aria-selected="true"
+              to={ROUTES.PASSWORD_FORGET}
+            >
+              Forgot Password
+            </Link>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
 );
 
 export default Navigation;
