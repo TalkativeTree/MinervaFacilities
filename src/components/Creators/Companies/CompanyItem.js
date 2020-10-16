@@ -67,9 +67,6 @@ class CompanyItem extends Component {
               value={editCompanyAddress}
               onChange={this.onChangeEditCompanyAddress}
             />
-
-            <h4 className="text-center">Buildings/Facilities</h4>
-            <Buildings companyID={company.uid} />
           </div>
         ) : (
           <div className="col-10">
@@ -81,6 +78,7 @@ class CompanyItem extends Component {
             <sub className="comp-item">
               {company.editedAt && <span>(Edited)</span>}
             </sub>
+            
           </div>
         )}
 

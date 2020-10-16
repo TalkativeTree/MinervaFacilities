@@ -55,24 +55,13 @@ class RoomList extends Component {
         <ul>
           {rooms.map((room) => (
             <li key={room.id}>
-              <span>
-                <strong>Title:</strong> {room.roomName}
-              </span>
-              <br />
-              <span>
-                <strong>Location:</strong> {room.roomLocation}
-              </span>
-              <br />
-              <span>
-                <Link
-                  to={{
-                    pathname: `${ROUTES.ROOMS}/${room.id}`,
-                    state: { room },
-                  }}
-                >
-                  Details
-                </Link>
-              </span>
+              <strong>Title:</strong> {room.roomName}<br />
+              <strong>Location:</strong> {room.roomLocation}<br />
+
+              <Link to={{ pathname: `${ROUTES.ROOMS}/${room.id}`, state: { room } }}>
+                Details
+              </Link>
+
               <hr />
             </li>
           ))}

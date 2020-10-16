@@ -47,37 +47,14 @@ class FloorDetail extends Component {
 
         {floor && (
           <div>
-            <span>
-              <strong>Title:</strong> {floor.floorName}
-            </span>
-            <br />
-            <span>
-              <strong>Location:</strong> {floor.floorLocation}
-            </span>
-            <br />
-            <span>
-              <strong>Company:</strong> {floor.companyID}
-            </span>
-            <br />
-            <span>
-              <strong>Building:</strong> {floor.buildingID}
-            </span>
-            <br />
-            <span>
-              <strong>Company Owner:</strong> {floor.companyOwner}
-            </span>
-            <br />
-            <span>
-              <strong>Created At:</strong> {floor.createdAt}
-            </span>
-            <br />
-            <span>
-              <strong>Last Edited At:</strong> {floor.editedAt}
-            </span>
-            <br />
-            <span>
-              <strong>Room List:</strong> {floor.roomList}
-            </span>
+            <strong>Title:</strong> {floor.floorName}<br />
+            <strong>Location:</strong> {floor.floorLocation}<br />
+            <strong>Company:</strong> {floor.companyID}<br />
+            <strong>Building:</strong> {floor.buildingID}<br />
+            <strong>Company Owner:</strong> {floor.companyOwner}<br />
+            <strong>Created At:</strong> {floor.createdAt}<br />
+            <strong>Last Edited At:</strong> {floor.editedAt}<br />
+            <strong>Room List:</strong> {floor.roomList}
           </div>
         )}
 

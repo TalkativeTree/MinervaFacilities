@@ -46,39 +46,19 @@ class RoomDetails extends Component {
 
         {room && (
           <div>
-            <span>
-              <strong>Title:</strong> {room.roomName}
-            </span>
-            <br />
-            <span>
-              <strong>Location:</strong> {room.roomLocation}
-            </span>
-            <br />
-            <span>
-              <strong>Company ID:</strong> {room.companyID}
-            </span>
-            <br />
-            <span>
-              <strong>Building ID:</strong> {room.buildingID}
-            </span>
-            <br />
-            <span>
-              <strong>Floor ID:</strong> {room.floorID}
-            </span>
-            <br />
-            <span>
-              <strong>Created At:</strong> {room.createdAt}
-            </span>
-            <br />
-            <span>
-              <strong>Last Edited At:</strong> {room.editedAt}
-            </span>
+            <strong>Title:</strong> {room.roomName}<br />
+            <strong>Location:</strong> {room.roomLocation}<br />
+            <strong>Company ID:</strong> {room.companyID}<br />
+            <strong>Building ID:</strong> {room.buildingID}<br />
+            <strong>Floor ID:</strong> {room.floorID}<br />
+
+            <strong>Created At:</strong> {room.createdAt}<br />
+            <strong>Last Edited At:</strong> {room.editedAt}
           </div>
         )}
 
-        <span>
-          <Link to={{ pathname: `${ROUTES.HOME}`, state: room}}>Create Report</Link>
-        </span>
+        <Link to={{ pathname: `${ROUTES.HOME}`, state: room}}>Create Report</Link>
+
       </div>
     );
   }

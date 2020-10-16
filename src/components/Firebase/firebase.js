@@ -141,8 +141,8 @@ class Firebase {
     // Write the new company's data simultaneously in the compnay list and the user's companies list.
     var updates = {};
     updates['/companies/' + newCompanyKey] = companyData;
-    updates['/users/' + companyData.ownerID + '/companies/' + newCompanyKey] = companyData;
-    
+    updates['/users/' + companyData.ownerID + '/companies/' + newCompanyKey] = newCompanyKey;
+
     this.db.ref().update(updates);
   }
 

@@ -55,36 +55,23 @@ class FloorList extends Component {
         <ul>
           {floors.map((floor) => (
             <li key={floor.id}>
-              <span>
-                <strong>Title:</strong> {floor.floorName}
-              </span>
-              <br />
-              <span>
-                <strong>Location:</strong> {floor.floorLocation}
-              </span>
-              <br />
+              <strong>Title:</strong> {floor.floorName}<br />
+              <strong>Location:</strong> {floor.floorLocation}<br />
+
               <div className="row">
-                <div className="mr-3">
-                  <Link
-                    to={{
-                      pathname: `${ROUTES.FLOORS}/${floor.id}`,
-                      state: { floor },
-                    }}
-                  >
+                <div className="ml-3 mr-2">
+                  <Link to={{ pathname: `${ROUTES.FLOORS}/${floor.id}`, state: { floor } }}>
                     Details
                   </Link>
                 </div>
-                {/* <div>
-                  <Link
-                    to={{
-                      pathname: `${ROUTES.ROOMS}/${floor.id}`,
-                      state: { floor },
-                    }}
-                  >
+
+                {/* <div className="ml-2">
+                  <Link to={{ pathname: `${ROUTES.ROOMS}/${floor.id}`, state: { floor } }}>
                     Rooms / Spaces
                   </Link>
                 </div> */}
               </div>
+
               <hr />
             </li>
           ))}

@@ -20,12 +20,7 @@ class Companies extends Component {
 
       companyTitle: '',
       companyAddress: '',
-      buildings: {
-        '-MINlfvKbXva1iMa4U_i': {
-          buildingTitle: 'Head Quaters',
-          buildingAddress: 0,
-        },
-      },
+      buildingsList: [],
     };
   }
 
@@ -72,15 +67,12 @@ class Companies extends Component {
   onChangeCompanyAddress = (event) => {
     this.setState({ companyAddress: event.target.value });
   };
-  // onChangeCompanyAddress = (childData) => {
-  //   this.setState({ companyAddress: childData });
-  // };
 
   onCreateCompany = (event, authUser) => {
     var companyData = {
       companyTitle: this.state.companyTitle,
       companyAddress: this.state.companyAddress,
-      buildings: this.state.buildings,
+      buildingsList: this.state.buildingsList,
       ownerID: authUser.uid,
       createdAt: this.props.firebase.serverValue.TIMESTAMP,
     };
