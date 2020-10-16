@@ -16,19 +16,28 @@ class RoomList extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
+    var userID = this.props.firebase.auth.currentUser.uid;
+    this.props.firebase.user(userID).on('value', (snapshot) => {
+      const user = snapshot.val();
+      const usersCompany = user.company_id;
 
-    this.props.firebase.rooms().on('value', (snapshot) => {
-      const roomsObject = snapshot.val();
+      this.props.firebase
+        .rooms()
+        .orderByChild('companyID')
+        .equalTo(usersCompany)
+        .on('value', (snapshot) => {
+          const roomsObject = snapshot.val();
 
-      const roomsList = Object.keys(roomsObject).map((key) => ({
-        ...roomsObject[key],
-        uid: key,
-      }));
+          const roomsList = Object.keys(roomsObject).map((key) => ({
+            ...roomsObject[key],
+            uid: key,
+          }));
 
-      this.setState({
-        rooms: roomsList,
-        loading: false,
-      });
+          this.setState({
+            rooms: roomsList,
+            loading: false,
+          });
+        });
     });
   }
 

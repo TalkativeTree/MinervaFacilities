@@ -22,9 +22,9 @@ class FloorDetail extends Component {
     }
 
     this.setState({ loading: true });
-    console.log(this.props.match.params);
+
     this.props.firebase
-      .floor(this.props.match.params.floor_name)
+      .floor(this.props.match.params.id)
       .on('value', (snapshot) => {
         this.setState({
           floor: snapshot.val(),
@@ -34,7 +34,7 @@ class FloorDetail extends Component {
   }
 
   componentWillUnmount() {
-    this.props.firebase.floor(this.props.match.params.floor_name).off();
+    this.props.firebase.floor(this.props.match.params.id).off();
   }
 
   render() {
@@ -42,7 +42,7 @@ class FloorDetail extends Component {
 
     return (
       <div>
-        <h4>Floor ({floor.floorName})</h4>
+        <h4>Floor ({floor.id})</h4>
         {loading && <div>Loading ...</div>}
 
         {floor && (

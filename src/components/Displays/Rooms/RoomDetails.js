@@ -23,7 +23,7 @@ class RoomDetails extends Component {
     this.setState({ loading: true });
 
     this.props.firebase
-      .room(this.props.match.params.room_id)
+      .room(this.props.match.params.id)
       .on('value', (snapshot) => {
         this.setState({
           room: snapshot.val(),
@@ -33,7 +33,7 @@ class RoomDetails extends Component {
   }
 
   componentWillUnmount() {
-    this.props.firebase.room(this.props.match.params.room_id).off();
+    this.props.firebase.room(this.props.match.params.id).off();
   }
 
   render() {
@@ -41,7 +41,7 @@ class RoomDetails extends Component {
 
     return (
       <div>
-        <h5>Room ({room.roomName})</h5>
+        <h5>Room ({room.id})</h5>
         {loading && <div>Loading ...</div>}
 
         {room && (
@@ -53,11 +53,31 @@ class RoomDetails extends Component {
             <span>
               <strong>Location:</strong> {room.roomLocation}
             </span>
+            <br />
+            <span>
+              <strong>Company ID:</strong> {room.companyID}
+            </span>
+            <br />
+            <span>
+              <strong>Building ID:</strong> {room.buildingID}
+            </span>
+            <br />
+            <span>
+              <strong>Floor ID:</strong> {room.floorID}
+            </span>
+            <br />
+            <span>
+              <strong>Created At:</strong> {room.createdAt}
+            </span>
+            <br />
+            <span>
+              <strong>Last Edited At:</strong> {room.editedAt}
+            </span>
           </div>
         )}
 
         <span>
-          <Link to={{ pathname: `${ROUTES.HOME}` }}>Back</Link>
+          <Link to={{ pathname: `${ROUTES.HOME}`, state: room}}>Create Report</Link>
         </span>
       </div>
     );

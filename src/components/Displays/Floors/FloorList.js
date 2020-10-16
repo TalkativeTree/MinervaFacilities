@@ -20,7 +20,7 @@ class FloorList extends Component {
     this.props.firebase.user(userID).on('value', (snapshot) => {
       const user = snapshot.val();
       const usersCompany = user.company_id;
-      console.log(userID, usersCompany);
+      // console.log(userID, usersCompany);
 
       this.props.firebase.floors()
         .orderByChild('companyID')
