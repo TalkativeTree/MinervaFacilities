@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import { withRouter } from 'react-router-dom'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../../constants/routes';
 
 const PasswordForgetPage = () => (
-  <div>
-    <h1>PasswordForget</h1>
+  <div className="page-bg">
+        <div className="page-inner">
+    <h1>Reset Password</h1>
     <PasswordForgetForm />
+    <BackButton />
+
+    </div>
   </div>
 );
 
@@ -48,8 +54,10 @@ class PasswordForgetFormBase extends Component {
     const isInvalid = email === '';
 
     return (
+      
       <form onSubmit={this.onSubmit}>
         <input
+          className="form-input"
           name="email"
           autoComplete="email"
           value={this.state.email}
@@ -57,12 +65,15 @@ class PasswordForgetFormBase extends Component {
           type="text"
           placeholder="Email Address"
         />
-        <button disabled={isInvalid} type="submit">
-          Reset My Password
+        <button 
+        className="btn btn-secondary btn-social"
+        disabled={isInvalid} type="submit">
+          Reset Password
         </button>
 
         {error && <p>{error.message}</p>}
       </form>
+      
     );
   }
 }
@@ -73,8 +84,16 @@ const PasswordForgetLink = () => (
   </p>
 );
 
+const BackButton = withRouter(({ history }) => {
+  return (
+    <div>
+      <button className="btn btn-primary btn-social" onClick={() => history.goBack()}><FontAwesomeIcon icon={faChevronLeft} /> Go Back</button>
+    </div>
+  )
+});
+
 export default PasswordForgetPage;
 
 const PasswordForgetForm = withFirebase(PasswordForgetFormBase);
 
-export { PasswordForgetForm, PasswordForgetLink };
+export { PasswordForgetForm, PasswordForgetLink, BackButton };

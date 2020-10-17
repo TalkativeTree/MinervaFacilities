@@ -71,7 +71,7 @@ class PasswordChangeForm extends Component {
         />
 
         <button disabled={isInvalid} type="submit">
-          Reset My Password
+          Reset Password
         </button>
 
         {error && <p>{error.message}</p>}

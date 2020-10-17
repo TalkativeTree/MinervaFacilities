@@ -14,7 +14,7 @@ const SignUpPage = () => (
       className="signin-logo fade-in"
       src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
     />
-    <h1>SignUp</h1>
+    <h1>Register</h1>
     <SignUpForm />
     <SignInLink />
   </div>
@@ -175,7 +175,7 @@ class SignUpFormBase extends Component {
 }
 
 const SignUpLink = () => (
-  <span>
+  <span className="cta">
   <p>Don't have an account?</p> 
     <p><Link to={ROUTES.SIGN_UP} className="highlight-link">Sign Up</Link>
   </p>

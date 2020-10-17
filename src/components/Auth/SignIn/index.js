@@ -10,14 +10,16 @@ import * as ROUTES from '../../../constants/routes';
 const SignInPage = () => (
   <div className='page-bg'>
     <div className='page-inner'>
+    
     <img
       className="signin-logo fade-in"
       src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
     />
-      <h1>Sign in</h1>
+   
+      <h1>Log In</h1>
       <SignInForm />
       <PasswordForgetLink />
-      <h4>Or sign in with social:</h4>
+      <h4>Or log in with social:</h4>
       <SignInGoogle />
       <SignInFacebook />
       <SignInTwitter />
@@ -94,8 +96,8 @@ class SignInFormBase extends Component {
           type="password"
           placeholder="Password"
         />&nbsp;
-        <button className="btn btn-signin" disabled={isInvalid} type="submit">
-          Sign in
+        <button className="btn btn-primary" disabled={isInvalid} type="submit">
+          Log in
         </button>
 
         {error && <p>{error.message}</p>}
@@ -142,7 +144,7 @@ class SignInGoogleBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button className="btn btn-signin" type="submit">Sign in with Google</button>
+        <button className="btn btn-social btn-primary" type="submit">Sign in with Google</button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -188,7 +190,7 @@ class SignInFacebookBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button className="btn btn-signin" type="submit">Sign in with Facebook</button>
+        <button className="btn btn-social btn-primary" type="submit">Sign in with Facebook</button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -234,7 +236,7 @@ class SignInTwitterBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button className="btn btn-signin" type="submit">Sign in with Twitter</button>
+        <button className="btn btn-social btn-primary" type="submit">Sign in with Twitter</button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -243,7 +245,7 @@ class SignInTwitterBase extends Component {
 }
 
 const SignInLink = () => (
-  <span>
+  <span className="cta">
     <p>Already have an account?</p>
     <p>
       <Link to={ROUTES.SIGN_IN} className="highlight-link">

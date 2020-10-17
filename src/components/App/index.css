@@ -48,11 +48,6 @@ nav {
   font-weight: bold;
   /* transition: 0.5s ease-out; */
 }
-/* -------------- Login/Signup ------------------- */
-
-.highlight-link {
-  color: blue !important;
-}
 
 /* ----------- Account------------- */
 .btn-social {
@@ -67,9 +62,15 @@ nav {
   text-align: center;
 }
 
-/* ----------- Sign in------------- */
-/* Uses Chris' colors */
+/* -------------- Login/Signup ------------------- */
 
+.highlight-link {
+  color: blue !important;
+}
+.cta {
+  line-height: 0.3;
+  margin-top: 2rem;
+}
 .page-bg {
   /* background-color: #0d4062; */
   /* height: 90vh; */
@@ -283,6 +284,10 @@ p.comp-item.report-desc {
 }
 
 .fade-in {
+  width: 30vw;
+  height: 30vw;
+  margin: 0 20vw;
+  animation-fill-mode: both;
   animation: fadeIn ease 05s;
   -webkit-animation: fadeIn ease 05s;
   -moz-animation: fadeIn ease 05s;
