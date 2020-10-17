@@ -98,7 +98,7 @@ class Firebase {
 
             // default empty roles
             if (!dbUser.roles) {
-              dbUser.roles = {};
+              dbUser.roles = {companyRole: "EMPLOYEE"};
             }
 
             // merge auth and db user
@@ -122,6 +122,8 @@ class Firebase {
   user = (uid) => this.db.ref(`users/${uid}`);
 
   users = () => this.db.ref('users');
+
+  setUserCompany = (userID, companyID) => this.user(userID).update({company_id: companyID});
 
   // *** Report API ***
 
@@ -153,7 +155,7 @@ class Firebase {
   building = (uid) => this.db.ref(`buildings/${uid}`);
 
   buildings = () => this.db.ref('buildings');
-  
+
   // building = (companyId, uid) =>
   //   this.db.ref(`companies/${companyId}/buildings/${uid}`);
 

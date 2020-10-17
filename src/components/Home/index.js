@@ -35,7 +35,7 @@ const EmployeeHomePage = () => (
     <div className="jumbotron paral paralsec">
       <h1 className="display-8 text-center">Employee Homepage</h1>
     </div>
-    <div className="tab-wrapper">
+    {/* <div className="tab-wrapper">
       <div className="container">
         <div className="row">
           <Tabs
@@ -56,18 +56,18 @@ const EmployeeHomePage = () => (
                   <Route exact path={ROUTES.ROOM_DETAILS} component={RoomItem} />
                 </Switch> /}
               </div>
-            </Tab> */}
+            </Tab> /}
             <Tab eventKey="reports" title="Reports">
-              <div className="tab-item-wrapper">
-                <br></br>
-                <h4 className="text-center">Reports List</h4>
-                <Reports />
-              </div>
+              <div className="tab-item-wrapper"> */}
+    <br></br>
+    <h4 className="text-center">Reports List</h4>
+    <Reports />
+    {/* </div>
             </Tab>
           </Tabs>
         </div>
       </div>
-    </div>
+    </div> */}
   </div>
 );
 

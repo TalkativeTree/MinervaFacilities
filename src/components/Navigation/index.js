@@ -61,17 +61,36 @@ const NavigationAuth = ({ authUser }) => (
             >
               Account
             </Link>
-            <Link
-              className="nav-item nav-link"
-              id="nav-companies-tab"
-              data-toggle="tab"
-              role="tab"
-              aria-controls="nav-companies"
-              aria-selected="false"
-              to={ROUTES.COMPANIES}
-            >
-              Companies
-            </Link>
+
+            {!!authUser.company_id && (
+              <Link
+                className="nav-item nav-link"
+                id="nav-buildings-tab"
+                data-toggle="tab"
+                role="tab"
+                aria-controls="nav-buildings"
+                aria-selected="false"
+                to={{pathname: `${ROUTES.COMPANIES}`
+                  // pathname: `${ROUTES.COMPANIES}/${authUser.company_id}`,
+                  // state: { company },
+                }}
+              >
+                My Company
+              </Link>
+            )}
+            {!!authUser.company_id && (
+              <Link
+                className="nav-item nav-link"
+                id="nav-floors-tab"
+                data-toggle="tab"
+                role="tab"
+                aria-controls="nav-floors"
+                aria-selected="false"
+                to={ROUTES.FLOORS}
+              >
+                Floors
+              </Link>
+            )}
 
             {!!authUser.roles[ROLES.ADMIN] && (
               <Link

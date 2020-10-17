@@ -9,6 +9,7 @@ import { withFirebase } from '../Firebase';
 import SignOutButton from '../Auth/SignOut';
 import { PasswordForgetForm } from '../Auth/PasswordForget';
 import PasswordChangeForm from '../Auth/PasswordChange';
+import { CompanyForm } from '../Displays/Companies/CompanyForm';
 
 const SIGN_IN_METHODS = [
   {
@@ -52,9 +53,16 @@ const AccountPage = () => (
         <h5>Roles:</h5>
         <p>{JSON.stringify(authUser.roles)}</p>
         <hr />
+        
+        {!authUser.company_id && (
+          <CompanyForm authUser={authUser}/>
+        )}
+        
         {/* Forgot Your Password? <PasswordForgetForm /> */}
         Reset Your Password. <PasswordChangeForm />
+
         <LoginManagement authUser={authUser} />
+
         <SignOutButton />
       </div>
     )}
