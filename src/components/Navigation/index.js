@@ -13,12 +13,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Navigation = () => (
   <AuthUserContext.Consumer>
     {(authUser) =>
-      authUser ? (
+      !!authUser && (
         <NavigationAuth authUser={authUser} />
-      ) : (
-        <NavigationNonAuth />
-      )
-    }
+      // ) : (
+      //   <NavigationNonAuth />
+      // )
+      )}
   </AuthUserContext.Consumer>
 );
 
@@ -75,7 +75,7 @@ const NavigationAuth = ({ authUser }) => (
                   // state: { company },
                 }}
               >
-                My Company
+                Company
               </Link>
             )}
             {!!authUser.company_id && (
