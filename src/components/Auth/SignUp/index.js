@@ -45,6 +45,8 @@ class SignUpFormBase extends Component {
 
     if (isAdmin) {
       roles[ROLES.ADMIN] = ROLES.ADMIN;
+    } else {
+      roles[ROLES.COMPANY] = ROLES.EMPLOYEE;
     }
 
     this.props.firebase
@@ -55,6 +57,8 @@ class SignUpFormBase extends Component {
           username,
           email,
           roles,
+          photoURL:
+            'https://ctorthopaedic.com/wp-content/uploads/2017/01/profile-silhouette.jpg',
         });
       })
       .then(() => {
