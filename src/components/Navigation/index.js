@@ -61,7 +61,7 @@ const NavigationAuth = ({ authUser }) => (
             >
               Account
             </Link>
-            {/* <Link
+            <Link
               className="nav-item nav-link"
               id="nav-companies-tab"
               data-toggle="tab"
@@ -71,39 +71,6 @@ const NavigationAuth = ({ authUser }) => (
               to={ROUTES.COMPANIES}
             >
               Companies
-            </Link>
-            <Link
-              className="nav-item nav-link"
-              id="nav-buildings-tab"
-              data-toggle="tab"
-              role="tab"
-              aria-controls="nav-buildings"
-              aria-selected="false"
-              to={ROUTES.BUILDINGS}
-            >
-              Buildings
-            </Link> */}
-            <Link
-              className="nav-item nav-link"
-              id="nav-floors-tab"
-              data-toggle="tab"
-              role="tab"
-              aria-controls="nav-floors"
-              aria-selected="false"
-              to={ROUTES.FLOORS}
-            >
-              Floors
-            </Link>
-            <Link
-              className="nav-item nav-link"
-              id="nav-rooms-tab"
-              data-toggle="tab"
-              role="tab"
-              aria-controls="nav-rooms"
-              aria-selected="false"
-              to={ROUTES.ROOMS}
-            >
-              Rooms
             </Link>
 
             {!!authUser.roles[ROLES.ADMIN] && (

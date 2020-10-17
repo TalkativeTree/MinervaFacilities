@@ -58,9 +58,14 @@ class FloorDetail extends Component {
           </div>
         )}
 
-        <span>
-          <Link to={{ pathname: `${ROUTES.HOME}` }}>Back</Link>
-        </span>
+        <div className="row">
+          <div className="ml-3 mr-2">
+            <Link to={ROUTES.FLOORS}>Back</Link>
+          </div>
+          <div className="mr-2">
+            <Link to={ROUTES.ROOMS}>Rooms List</Link>
+          </div>
+        </div>
 
       </div>
     );

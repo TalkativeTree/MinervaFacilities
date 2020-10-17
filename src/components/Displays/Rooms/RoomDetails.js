@@ -51,13 +51,19 @@ class RoomDetails extends Component {
             <strong>Company ID:</strong> {room.companyID}<br />
             <strong>Building ID:</strong> {room.buildingID}<br />
             <strong>Floor ID:</strong> {room.floorID}<br />
-
             <strong>Created At:</strong> {room.createdAt}<br />
             <strong>Last Edited At:</strong> {room.editedAt}
           </div>
         )}
 
-        <Link to={{ pathname: `${ROUTES.HOME}`, state: room}}>Create Report</Link>
+        <div className="row">
+          <div className="ml-3 mr-2">
+            <Link to={ROUTES.ROOMS}>Back</Link>
+          </div>
+          <div className="mr-2">
+            <Link to={{ pathname: `${ROUTES.HOME}`, state: room}}>Create Report</Link>
+          </div>
+        </div>
 
       </div>
     );

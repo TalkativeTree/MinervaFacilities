@@ -141,18 +141,24 @@ class Firebase {
     // Write the new company's data simultaneously in the compnay list and the user's companies list.
     var updates = {};
     updates['/companies/' + newCompanyKey] = companyData;
-    updates['/users/' + companyData.ownerID + '/companies/' + newCompanyKey] = newCompanyKey;
+    updates[
+      '/users/' + companyData.ownerID + '/companies/' + newCompanyKey
+    ] = newCompanyKey;
 
     this.db.ref().update(updates);
-  }
+  };
 
   // **** Building API ***
 
-  building = (companyId, uid) =>
-    this.db.ref(`companies/${companyId}/buildings/${uid}`);
+  building = (uid) => this.db.ref(`buildings/${uid}`);
 
-  buildings = (companyId) =>
-    this.db.ref(`companies/${companyId}/buildings`);
+  buildings = () => this.db.ref('buildings');
+  
+  // building = (companyId, uid) =>
+  //   this.db.ref(`companies/${companyId}/buildings/${uid}`);
+
+  // buildings = (companyId) =>
+  //   this.db.ref(`companies/${companyId}/buildings`);
 
   // **** Floors API ***
 
