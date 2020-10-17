@@ -106,6 +106,8 @@ class SignUpFormBase extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <input
+                    className="form-input"
+
           name="username"
           autoComplete="username"
           value={username}
@@ -114,6 +116,8 @@ class SignUpFormBase extends Component {
           placeholder="Full Name"
         />
         <input
+                  className="form-input"
+
           name="email"
           autoComplete="email"
           value={email}
@@ -122,6 +126,8 @@ class SignUpFormBase extends Component {
           placeholder="Email Address"
         />
         <input
+                  className="form-input"
+
           name="passwordOne"
           autoComplete="new-password"
           value={passwordOne}
@@ -130,6 +136,8 @@ class SignUpFormBase extends Component {
           placeholder="Password"
         />
         <input
+                  className="form-input"
+
           name="passwordTwo"
           autoComplete="new-password"
           value={passwordTwo}
@@ -146,7 +154,9 @@ class SignUpFormBase extends Component {
             onChange={this.onChangeCheckbox}
           />
         </label> */}
-        <button disabled={isInvalid} type="submit">
+        <button 
+        className="btn btn-primary"
+        disabled={isInvalid} type="submit">
           Sign Up
         </button>
 
@@ -157,9 +167,11 @@ class SignUpFormBase extends Component {
 }
 
 const SignUpLink = () => (
-  <p>
-    Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+  <span>
+  <p>Don't have an account?</p> 
+    <p><Link to={ROUTES.SIGN_UP} className="highlight-link">Sign Up</Link>
   </p>
+  </span>
 );
 
 const SignUpForm = compose(

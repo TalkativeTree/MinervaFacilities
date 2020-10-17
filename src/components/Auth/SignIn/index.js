@@ -77,6 +77,7 @@ class SignInFormBase extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <input
+          className="form-input"
           name="email"
           value={email}
           autoComplete="email"
@@ -85,6 +86,7 @@ class SignInFormBase extends Component {
           placeholder="Email Address"
         />&nbsp;
         <input
+          className="form-input"
           name="password"
           autoComplete="current-password"
           value={password}

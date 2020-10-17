@@ -27,7 +27,7 @@ nav {
   left: 0;
   right: 0;
   width: 100vw;
-  background-color: #F5F6F8
+  background-color: #f5f6f8;
 }
 .nav-item {
   width: calc(100% / 4);
@@ -48,6 +48,11 @@ nav {
   font-weight: bold;
   /* transition: 0.5s ease-out; */
 }
+/* -------------- Login/Signup ------------------- */
+
+.highlight-link {
+  color: blue !important;
+}
 
 /* ----------- Account------------- */
 .btn-social {
@@ -66,8 +71,8 @@ nav {
 /* Uses Chris' colors */
 
 .page-bg {
-  background-color: #0d4062;
-  height: 90vh;
+  /* background-color: #0d4062; */
+  /* height: 90vh; */
   width: 100vw;
   background-attachment: fixed;
   background-position: center;
@@ -81,11 +86,11 @@ nav {
 }
 
 .no-padding {
-  padding-bottom: 0vh !important; 
+  padding-bottom: 0vh !important;
 }
 
 .page-inner {
-  background-color: #F5F6F8;
+  /* background-color: #f5f6f8; */
   margin: 10vw;
   padding: 10vw;
   background-attachment: fixed;
@@ -104,7 +109,7 @@ nav {
   margin: 0.3rem 0;
   text-align: center;
   background-color: #087cb8;
-  color: #F5F6F8
+  color: #f5f6f8;
 }
 
 .signin-logo {
