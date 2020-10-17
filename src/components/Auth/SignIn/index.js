@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
 import { SignUpLink } from '../SignUp';
@@ -242,6 +242,18 @@ class SignInTwitterBase extends Component {
   }
 }
 
+const SignInLink = () => (
+  <span>
+    <p>Already have an account?</p>
+    <p>
+      <Link to={ROUTES.SIGN_IN} className="highlight-link">
+        Sign In
+      </Link>
+    </p>
+  </span>
+);
+
+
 const SignInForm = compose(
   withRouter,
   withFirebase,
@@ -264,4 +276,4 @@ const SignInTwitter = compose(
 
 export default SignInPage;
 
-export { SignInForm, SignInGoogle, SignInFacebook, SignInTwitter };
+export { SignInForm, SignInLink, SignInGoogle, SignInFacebook, SignInTwitter };
