@@ -8,10 +8,16 @@ import * as ROUTES from '../../../constants/routes';
 import * as ROLES from '../../../constants/roles';
 
 const SignUpPage = () => (
-  <div>
+  <div className='page-bg'>
+    <div className='page-inner'>
+    <img
+      className="signin-logo fade-in"
+      src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
+    />
     <h1>SignUp</h1>
     <SignUpForm />
     <SignInLink />
+  </div>
   </div>
 );
 
