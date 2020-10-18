@@ -170,7 +170,8 @@ a.active {
   text-align: left;
 }
 
-.form-input {
+.form-input,
+select.form-control {
   padding: 0.5em;
   margin-bottom: 0.5em;
   border-style: none;
@@ -178,7 +179,9 @@ a.active {
   font-weight: bold;
 }
 
-::placeholder {
+::placeholder,
+select option:disabled,
+select option[disabled] {
   color: rgba(0, 0, 0, 0.4) !important;
 }
 
@@ -186,7 +189,10 @@ p.comp-item {
   margin-bottom: 0 !important;
   line-height: 1.3;
 }
-
+span.ticket-info {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .comp-container {
   border: 1px solid black;
 }
@@ -194,6 +200,9 @@ p.comp-item {
 .btn-li {
   border: none;
   background-color: rgba(0, 0, 0, 0);
+  display: block;
+  padding: 0.5rem;
+  margin-top: 0.4rem;
 }
 
 li.row {
@@ -203,6 +212,19 @@ li.row {
   margin-bottom: 0.3em;
 }
 
+.form-row {
+  justify-content: space-evenly;
+}
+.text-center.edit-container {
+  width: 100vw;
+  justify-content: space-evenly;
+}
+.form-row.edit-btn-container {
+  width: 40vw;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 30vw;
+}
 .form-group.col-10 {
   margin: auto;
 }

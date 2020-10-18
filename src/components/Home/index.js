@@ -31,43 +31,14 @@ const HomePage = () => (
 );
 
 const EmployeeHomePage = () => (
-  <div>
+  <div >
     <div className="jumbotron paral paralsec">
-      <h1 className="display-8 text-center">Employee Homepage</h1>
+      <h1 className="display-8 text-center">Home</h1>
     </div>
-    {/* <div className="tab-wrapper">
-      <div className="container">
-        <div className="row">
-          <Tabs
-            defaultActiveKey="reports"
-            className="non-nav"
-            variant="pills"
-          >
-            {/* <Tab eventKey="floors" title="Floors">
-              <div className="tab-item-wrapper">
-                <br></br>
-                <Switch>
-                  <Route exact path={ROUTES.HOME} component={Floors} />
-                  <Route exact path={ROUTES.FLOOR_DETAILS} component={FloorDetails} />
-                </Switch>
-
-                {/* <Switch>
-                  <Route exact path={ROUTES.HOME} component={RoomList} />
-                  <Route exact path={ROUTES.ROOM_DETAILS} component={RoomItem} />
-                </Switch> /}
-              </div>
-            </Tab> /}
-            <Tab eventKey="reports" title="Reports">
-              <div className="tab-item-wrapper"> */}
-    <br></br>
     <h4 className="text-center">Reports List</h4>
+    
     <Reports />
-    {/* </div>
-            </Tab>
-          </Tabs>
-        </div>
-      </div>
-    </div> */}
+   
   </div>
 );
 

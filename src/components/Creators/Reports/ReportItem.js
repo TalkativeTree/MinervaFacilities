@@ -55,41 +55,47 @@ class ReportItem extends Component {
       <li className="row">
         {' '}
         {editMode ? (
-          <div>
-            <input
-              className="ml-1 mr-2"
-              type="text"
-              value={editMessage}
-              onChange={this.onChangeEditMessage}
-            />
-
+          <div className="text-center edit-container">
+            <div className="form-row">
+            <div className="col-5">
             <select
+              className="form-control"
               value={editServiceType}
               onChange={this.onChangeEditServiceType}
             >
-              <option value="">Select a Service</option>
+              <option value="" disabled>Select a Service</option>
               <option value="MAINTENANCE">
                 Maintenance / Repair
               </option>
               <option value="HAZARD">Hazard Report</option>
               <option value="SERVICE">Service Report</option>
             </select>
-
+            </div>
+            <div className="col-4">
             <select
-              className="ml-1 mr-2"
+              className="form-control"
               value={editStatus}
               onChange={this.onChangeEditStatus}
             >
-              <option value="">Select a Status</option>
+              <option value="" disabled>Select a Status</option>
               <option value="OPEN">OPEN</option>
               <option value="CLOSED">CLOSED</option>
               <option value="URGENT">URGENT</option>
             </select>
+            </div>
+            </div>
+            <textarea
+            rows="1"
+              className="form-input col-10"
+              type="text"
+              value={editMessage}
+              onChange={this.onChangeEditMessage}
+            />
           </div>
         ) : (
           <div className="col-10">
             <p className="comp-item">
-              <strong>Ticket Id:</strong> {report.uid}
+              <strong>Ticket Id:</strong> <span className="ticket-info">{report.uid}</span>
             </p>
             <p className="comp-item">
               <strong>Request Status: </strong>({report.status}){' '}
@@ -102,12 +108,11 @@ class ReportItem extends Component {
               {report.message}
             </p>
             <p className="comp-item report-location">
-              <strong>Location: </strong>
-              <br />
+              {/* <strong>Location: </strong> */}
               {/* Company ID: {report.companyID},<br /> */}
               {/* Building ID: {report.buildingID},<br /> */}
               {/* Floor ID: {report.floorID},<br /> */}
-              Room ID: {report.roomID}
+              <strong>Room ID:</strong> <span className="ticket-info">{report.roomID}</span>
             </p>
             <p className="comp-item">
               <sub>{report.editedAt && <span> (Edited)</span>}</sub>
@@ -117,18 +122,17 @@ class ReportItem extends Component {
         {authUser.uid === report.reporter && (
           <div>
             {editMode ? (
-              <span>
+              <div className="form-row edit-btn-container">
                 <button
-                  className="ml-1 mr-2"
+                  className="btn btn-primary"
                   onClick={this.onSaveEditText}
                 >
                   Save
                 </button>
-                <button onClick={this.onToggleEditMode}>Reset</button>
-              </span>
+                <button className="btn btn-secondary" onClick={this.onToggleEditMode}>Reset</button>
+              </div>
             ) : (
-              <span>
-                &nbsp;
+              
                 <button
                   className="btn-li"
                   onClick={this.onToggleEditMode}
@@ -136,7 +140,7 @@ class ReportItem extends Component {
                   {' '}
                   <FontAwesomeIcon icon={faEdit} />
                 </button>
-              </span>
+             
             )}
 
             {!editMode && (

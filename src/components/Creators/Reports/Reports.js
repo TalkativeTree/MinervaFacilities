@@ -139,7 +139,7 @@ class Reports extends Component {
     return (
       <AuthUserContext.Consumer>
         {(authUser) => (
-          <div className="add-padding-bottom">
+          <div className="add-padding-bottom text-center">
             {reports && (
               <ReportList
                 authUser={authUser}
@@ -164,43 +164,48 @@ class Reports extends Component {
             {!reports && <div>There are no reports...</div>}
 
             <h4 className="text-center">Create new report</h4>
-
+            
+            <div className="container text-center">
             <form
               onSubmit={(event) =>
                 this.onCreateReport(event, authUser)
               }
             >
+              <div className="form-row">
               <input
-                className="ml-1 mr-2"
+                className="form-input col-5"
                 type="text"
                 placeholder="Company ID"
                 value={companyID}
                 onChange={this.onChangeCompanyID}
               />
               <input
-                className="ml-1 mr-2"
+                className="form-input col-5"
                 type="text"
                 placeholder="Building ID"
                 value={buildingID}
                 onChange={this.onChangeBuildingID}
               />
+              </div>
+              <div className="form-row">
               <input
-                className="ml-1 mr-2"
+                className="form-input col-5"
                 type="text"
                 placeholder="Floor ID"
                 value={floorID}
                 onChange={this.onChangeFloorID}
               />
               <input
-                className="ml-1 mr-2"
+                className="form-input col-5"
                 type="text"
                 placeholder="Room ID"
                 value={roomID}
                 onChange={this.onChangeRoomID}
               />
-
-              <input
-                className="ml-1 mr-2"
+              </div>
+              <textarea
+              rows="3"
+                className="form-input col-12"
                 type="text"
                 placeholder="Reason For Report"
                 value={message}
@@ -208,10 +213,12 @@ class Reports extends Component {
               />
 
               <select
+                className="form-control"
+                // defaultValue={'DEFAULT'}
                 value={serviceType}
                 onChange={this.onChangeServiceType}
               >
-                <option value="">Select a Service</option>
+                <option value="" disabled>Select a Service</option>
                 <option value="MAINTENANCE">
                   Maintenance / Repair
                 </option>
@@ -219,10 +226,11 @@ class Reports extends Component {
                 <option value="SERVICE">Service Report</option>
               </select>
 
-              <button className="ml-1 mt-2" type="submit">
-                Send
+              <button className="btn btn-primary" type="submit">
+                Report
               </button>
             </form>
+            </div>
           </div>
         )}
       </AuthUserContext.Consumer>
