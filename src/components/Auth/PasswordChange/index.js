@@ -51,8 +51,9 @@ class PasswordChangeForm extends Component {
           type="text"
           placeholder="Email Address"
         />
+        <div className="form-row">
         <input
-          className="col-6"
+          className="form-input"
           name="passwordOne"
           autoComplete="new-password"
           value={passwordOne}
@@ -61,7 +62,7 @@ class PasswordChangeForm extends Component {
           placeholder="New Password"
         />
         <input
-          className="col-6"
+          className="form-input "
           name="passwordTwo"
           autoComplete="new-password"
           value={passwordTwo}
@@ -69,8 +70,8 @@ class PasswordChangeForm extends Component {
           type="password"
           placeholder="Confirm New Password"
         />
-
-        <button disabled={isInvalid} type="submit">
+        </div>
+        <button className="btn btn-danger" disabled={isInvalid} type="submit">
           Reset Password
         </button>
 

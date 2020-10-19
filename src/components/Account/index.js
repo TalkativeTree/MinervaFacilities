@@ -10,6 +10,8 @@ import SignOutButton from '../Auth/SignOut';
 import { PasswordForgetForm } from '../Auth/PasswordForget';
 import PasswordChangeForm from '../Auth/PasswordChange';
 import { CompanyForm } from '../Displays/Companies/CompanyForm';
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SIGN_IN_METHODS = [
   {
@@ -34,9 +36,12 @@ const AccountPage = () => (
   <AuthUserContext.Consumer>
     {(authUser) => (
       <div className="container text-center add-padding-bottom">
+        <div className="usercard">
         <div className="mt-3">
           <img
-            src={authUser.photoURL}
+            className="profile-photo"
+            // src={authUser.photoURL}
+            src={"https://picsum.photos/200"}
             width="100"
             height="100"
             alt="Profile"
@@ -48,10 +53,10 @@ const AccountPage = () => (
           {authUser.email}
           <br />
           <strong>Company: </strong>
-          {authUser.company_id}
+          {authUser.company_id || "No Company assigned."}
         </p>
-        <h5>Roles:</h5>
-        <p>{JSON.stringify(authUser.roles)}</p>
+        <p><strong>Roles:</strong>{authUser.roles.companyRole}</p>
+        </div>
         <hr />
         
         {!authUser.company_id && (
@@ -238,6 +243,7 @@ class DefaultLoginToggle extends Component {
           placeholder="Email Address"
         />
         <input
+          className="form-input"
           name="passwordOne"
           autoComplete="new-password"
           value={passwordOne}
@@ -246,6 +252,7 @@ class DefaultLoginToggle extends Component {
           placeholder="New Password"
         />
         <input
+          className="form-input"
           name="passwordTwo"
           autoComplete="new-password"
           value={passwordTwo}

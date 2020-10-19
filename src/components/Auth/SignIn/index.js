@@ -6,6 +6,8 @@ import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../../constants/routes';
+import { faFacebookF, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SignInPage = () => (
   <div className='page-bg'>
@@ -144,7 +146,7 @@ class SignInGoogleBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button className="btn btn-social btn-primary" type="submit">Sign in with Google</button>
+        <button className="btn btn-social btn-primary" type="submit"><FontAwesomeIcon icon={faGoogle} /> Log in with Google</button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -190,7 +192,7 @@ class SignInFacebookBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button className="btn btn-social btn-primary" type="submit">Sign in with Facebook</button>
+        <button className="btn btn-social btn-primary" type="submit"><FontAwesomeIcon icon={faFacebookF} /> Log in with Facebook</button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -236,7 +238,7 @@ class SignInTwitterBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <button className="btn btn-social btn-primary" type="submit">Sign in with Twitter</button>
+        <button className="btn btn-social btn-primary" type="submit"><FontAwesomeIcon icon={faTwitter} /> Log in with Twitter</button>
 
         {error && <p>{error.message}</p>}
       </form>

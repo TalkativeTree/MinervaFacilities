@@ -50,6 +50,7 @@ class CompanyFormBase extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <input
+          className="form-input"
           name="companyID"
           autoComplete="companyID"
           value={this.state.companyID}
@@ -57,7 +58,7 @@ class CompanyFormBase extends Component {
           type="text"
           placeholder="Company ID"
         />
-        <button disabled={isInvalid} type="submit">
+        <button className="btn btn-primary" disabled={isInvalid} type="submit">
           Join This Company
         </button>
 

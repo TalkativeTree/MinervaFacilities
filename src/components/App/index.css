@@ -61,6 +61,16 @@ nav {
   padding: 0;
   text-align: center;
 }
+.profile-photo {
+  border-radius: 50%;
+}
+
+.usercard {
+  background-color: #bebebe;
+  margin: -1em;
+  border-bottom: 3px ridge #303030;
+  padding-top: 1em;
+}
 
 /* -------------- Login/Signup ------------------- */
 
@@ -209,7 +219,11 @@ li.row {
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   border-bottom-style: ridge;
   text-align: left;
-  margin-bottom: 0.3em;
+  padding-bottom: 0.3em;
+}
+
+li.row:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .form-row {
