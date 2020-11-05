@@ -20,6 +20,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
+import ReportsDetails from '../Displays/Reports/ReportsDetails';
 
 const App = () => (
   <Router>
@@ -55,6 +56,8 @@ const App = () => (
           <Route path={ROUTES.BUILDINGS} component={BuildingsPage} />
           <Route path={ROUTES.FLOORS} component={FloorsPage} />
           <Route path={ROUTES.ROOMS} component={RoomsPage} />
+
+          <Route path={ROUTES.REPORT_DETAILS} component={ReportsDetails} />
         </div>
         <Navigation />
       </div>

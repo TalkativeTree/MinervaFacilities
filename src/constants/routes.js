@@ -10,6 +10,7 @@ export const ADMIN_DETAILS = '/admin/:id';
 export const JOIN_A_COMPANY = 'join-company';
 export const COMPANIES = '/companies';
 export const COMPANY_DETAILS = '/companies/:companyTitle';
+
 export const BUILDINGS = '/buildings';
 export const BUILDING_DETAILS = '/buildings/:buildingName';
 
@@ -18,3 +19,6 @@ export const FLOOR_DETAILS = '/floors/:floorName';
 
 export const ROOMS = '/rooms';
 export const ROOM_DETAILS = '/rooms/:roomName';
+
+export const REPORTS = '/reports';
+export const REPORT_DETAILS = '/reports/:id'
