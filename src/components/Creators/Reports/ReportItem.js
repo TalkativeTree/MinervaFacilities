@@ -73,7 +73,7 @@ class ReportItem extends Component {
           <div className="text-center edit-container">
             <div className="form-row">
               <input
-                className="form-input"
+                className="form-input col-10"
                 type="text"
                 placeholder="Report Title"
                 value={editTitle}

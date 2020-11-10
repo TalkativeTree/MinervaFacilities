@@ -223,7 +223,7 @@ class Reports extends Component {
                 </div>
                 <div className="form-row">
                   <input
-                    className="form-input"
+                    className="form-input col-10"
                     type="text"
                     placeholder="Report Title"
                     value={title}
