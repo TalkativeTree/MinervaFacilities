@@ -279,7 +279,7 @@ p.comp-item.report-desc {
 }
 /* ------- Landing ---------- */
 .landing-container {
-  height: 90vh;
+  height: 100vh;
   width: 100vw;
   background-image: url('https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/BetterGIFs/7c17f0c64b977875a2c0625b406bb0d2.gif?raw=true');
   background-attachment: fixed;
