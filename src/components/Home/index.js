@@ -6,7 +6,7 @@ import '../App/index.css';
 
 import { AuthUserContext, withAuthorization, withEmailVerification } from '../Session';
 
-import * as ROUTES from '../../constants/routes';
+import * as ROUTES from '../../routes';
 
 import Reports from '../Creators/Reports';
 import Companies from '../Creators/Companies';
@@ -20,8 +20,8 @@ const HomePage = () => (
     {(authUser) =>
       authUser.roles.ADMIN ? (
         <AdminHomePage />
-      ) : authUser.roles.companyRole === 'OWNER' ||
-          authUser.roles.companyRole === 'MANAGER' ? (
+      ) : authUser.roles === 'OWNER' ||
+          authUser.roles === 'MANAGER' ? (
         <ManagerHomePage />
       ) : (
         <EmployeeHomePage />

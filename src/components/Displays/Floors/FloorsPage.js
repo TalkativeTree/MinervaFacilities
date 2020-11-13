@@ -4,7 +4,7 @@ import { compose } from 'recompose';
 
 import { withAuthorization, withEmailVerification } from '../../Session';
 import { FloorList, FloorDetails } from './index';
-import * as ROUTES from '../../../constants/routes';
+import * as ROUTES from '../../../routes';
 
 const FloorsPage = () => (
   <div>

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withFirebase } from '../../Firebase';
-import * as ROUTES from '../../../constants/routes';
+import * as ROUTES from '../../../routes';
 
 const PasswordForgetPage = () => (
   <div className="page-bg">

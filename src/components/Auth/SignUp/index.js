@@ -4,8 +4,7 @@ import { compose } from 'recompose';
 
 import { SignInLink } from '../SignIn';
 import { withFirebase } from '../../Firebase';
-import * as ROUTES from '../../../constants/routes';
-import * as ROLES from '../../../constants/roles';
+import * as ROUTES from '../../../routes';
 
 const SignUpPage = () => (
   <div className='page-bg'>
@@ -49,12 +48,12 @@ class SignUpFormBase extends Component {
 
   onSubmit = event => {
     const { username, email, passwordOne, isAdmin } = this.state;
-    const roles = {};
+    const roles = '';
 
     if (isAdmin) {
-      roles[ROLES.ADMIN] = ROLES.ADMIN;
+      roles = 'ADMIN';
     } else {
-      roles[ROLES.COMPANY] = ROLES.EMPLOYEE;
+      roles = 'EMPLOYEE';
     }
 
     this.props.firebase
@@ -65,8 +64,6 @@ class SignUpFormBase extends Component {
           username,
           email,
           roles,
-          photoURL:
-            'https://ctorthopaedic.com/wp-content/uploads/2017/01/profile-silhouette.jpg',
         });
       })
       .then(() => {

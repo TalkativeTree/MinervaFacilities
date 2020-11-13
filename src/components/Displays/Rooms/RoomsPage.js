@@ -4,7 +4,7 @@ import { compose } from 'recompose';
 
 import { withAuthorization, withEmailVerification } from '../../Session';
 import { RoomList, RoomDetails } from '.';
-import * as ROUTES from '../../../constants/routes';
+import * as ROUTES from '../../../routes';
 
 const RoomsPage = () => (
   <div>

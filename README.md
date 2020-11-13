@@ -1,4 +1,4 @@
-# [Minerva] by New Harmony Cafe
+# Minerva Facilities by New Harmony Cafe
 
 <p align="center">
     <img width="350" height="350" src="./public/images/minerva-transparent-vector.png">
@@ -32,6 +32,26 @@
 <b>The app will allow building managers, employees, and maintenance workers/contractors to handle repair requests and office issues while providing a central location to track and store repair/request history.</b>
 
 </p>
+
+## Features
+
+- uses:
+  - only React (create-react-app)
+  - firebase
+  - react-router
+- features:
+  - Sign In
+  - Sign Up
+  - Sign Out
+  - Password Forget
+  - Password Change
+  - Verification Email
+  - Protected Routes with Authorization
+  - Roles-based Authorization
+  - Social Logins with Google, Facebook and Twitter
+  - Linking of Social Logins on Account dashboard
+  - Auth Persistence with Local Storage
+  - Database with Users and Reports
 
 ## 🛠️ Built With
 

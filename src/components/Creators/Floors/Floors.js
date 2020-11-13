@@ -115,8 +115,8 @@ class Floors extends Component {
     return (
       <AuthUserContext.Consumer>
         {(authUser) =>
-          authUser.roles.companyRole === 'OWNER' ||
-          authUser.roles.companyRole === 'MANAGER' ? (
+          authUser.roles === 'OWNER' ||
+          authUser.roles === 'MANAGER' ? (
             <div className="text-center">
               <h4 className="text-center">Floors List</h4>
 

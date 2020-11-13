@@ -55,7 +55,7 @@ const AccountPage = () => (
           <strong>Company: </strong>
           {authUser.company_id || "No Company assigned."}
         </p>
-        <p><strong>Roles:</strong>{authUser.roles.companyRole}</p>
+        <p><strong>Roles:</strong>{authUser.roles}</p>
         </div>
         <hr />
         

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../../Firebase';
-import * as ROUTES from '../../../constants/routes';
+import * as ROUTES from '../../../routes';
 
 class RoomDetails extends Component {
   constructor(props) {

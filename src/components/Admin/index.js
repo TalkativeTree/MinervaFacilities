@@ -4,8 +4,7 @@ import { compose } from 'recompose';
 
 import { withAuthorization, withEmailVerification } from '../Session';
 import { UserList, UserItem } from '../Displays/Users';
-import * as ROLES from '../../constants/roles';
-import * as ROUTES from '../../constants/routes';
+import * as ROUTES from '../../routes';
 
 const AdminPage = () => (
   <div>
@@ -20,7 +19,7 @@ const AdminPage = () => (
 );
 
 const condition = authUser =>
-  authUser && !!authUser.roles[ROLES.ADMIN];
+  authUser && !!authUser.roles.ADMIN;
 
 export default compose(
   withEmailVerification,

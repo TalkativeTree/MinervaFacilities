@@ -18,7 +18,7 @@ import RoomsPage from '../Displays/Rooms';
 import { Tabs, Tab } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import * as ROUTES from '../../constants/routes';
+import * as ROUTES from '../../routes';
 import { withAuthentication } from '../Session';
 import ReportsDetails from '../Displays/Reports/ReportsDetails';
 

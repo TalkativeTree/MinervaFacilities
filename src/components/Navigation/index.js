@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { AuthUserContext } from '../Session';
-import * as ROUTES from '../../constants/routes';
-import * as ROLES from '../../constants/roles';
+import * as ROUTES from '../../routes';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'react-bootstrap/Button';
@@ -92,7 +91,7 @@ const NavigationAuth = ({ authUser }) => (
               </Link>
             )}
 
-            {!!authUser.roles[ROLES.ADMIN] && (
+            {!!authUser.roles.ADMIN && (
               <Link
                 className="nav-item nav-link"
                 id="nav-admin-tab"
