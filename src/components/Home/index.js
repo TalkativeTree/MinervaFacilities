@@ -36,7 +36,7 @@ const EmployeeHomePage = () => (
       <h1 className="display-8 text-center">Home</h1>
     </div>
     {/* <h4 className="text-center">Reports List</h4> */}
-    
+    <h6 className="text-center">Recent Reports:</h6>
     <Reports />
    
   </div>

@@ -8,7 +8,9 @@ import * as ROUTES from '../../../constants/routes';
 
 const FloorsPage = () => (
   <div>
-    <h1>Floors Page</h1>
+    <div className="jumbotron paral paralsec">
+      <h1 className="display-8 text-center mb-3">Floors</h1>
+    </div>
     <p>The Floors Page is accessible by every signed in user.</p>
 
     <Switch>

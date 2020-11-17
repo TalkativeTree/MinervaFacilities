@@ -51,11 +51,11 @@ class CompanyList extends Component {
     return (
       <div className="add-padding-bottom">
         {/* {company.companyTitle}'s */}
-        <h2>Company List</h2>
+        {/* <h2>Company List</h2> */}
         {loading && <div>Loading ...</div>}
-        <ul>
+        <ul className="ul-comp-list">
           {companies.map((company) => (
-            <li key={company.id}>
+            <li key={company.id} className="r-details-card">
               <strong>Title:</strong> {company.companyTitle}
               <br />
               <strong>Location:</strong> {company.companyAddress}

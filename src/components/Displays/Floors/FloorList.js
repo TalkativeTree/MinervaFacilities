@@ -50,9 +50,9 @@ class FloorList extends Component {
 
     return (
       <div className="add-padding-bottom">
-        <h2>Floor List</h2>
+        {/* <h2>Floor List</h2> */}
         {loading && <div>Loading ...</div>}
-        <ul>
+        <ul className="ul-comp-list">
           {floors.map((floor) => (
             <li key={floor.id}>
               <strong>Title:</strong> {floor.floorName}<br />

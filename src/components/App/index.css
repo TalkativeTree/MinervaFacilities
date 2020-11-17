@@ -146,10 +146,10 @@ nav {
   background-image: url('https://img.webnots.com/2017/05/parallax.jpg');
 }
 
-.jumbotron {
+/* .jumbotron {
   border-radius: 0 !important;
   margin-bottom: 0 !important;
-}
+} */
 
 .section-divider {
   width: 100%;
@@ -275,9 +275,9 @@ ul.report-list {
 
 p.comp-item.report-desc {
   text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 80vw;
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+  /* max-width: 80vw; */
 }
 /* ------- Landing ---------- */
 .landing-container {
@@ -357,4 +357,25 @@ p.comp-item.report-desc {
   100% {
     opacity: 1;
   }
+}
+
+/* ------- Details ---------- */
+/* report */
+.content-wrapper {
+  width: 100vw;
+}
+.content-wrapper h2 {
+  text-align: center;
+}
+
+.r-details-card {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0.5em;
+}
+
+/* company */
+
+.ul-comp-list {
+  padding: 0;
 }
