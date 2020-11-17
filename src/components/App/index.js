@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { withAuthentication } from '../Session';
 import * as ROUTES from '../../routes';
 
-// import { Tabs, Tab } from 'react-bootstrap';
 
 import Navigation from '../Navigation';
 import NotFound from '../NotFound';
@@ -56,50 +55,12 @@ const App = () => (
           <Route path={ROUTES.ROOMS} component={RoomsPage} />
 
           <Route path={ROUTES.REPORT_DETAILS} component={ReportsDetails} />
+          <Route path={"*"} component={NotFound} />
         </div>
         <Navigation />
       </div>
     </div>
   </Router>
 );
-
-// const Body = () => {
-//   return (
-//     <div id="body">
-//       <Header />
-//       <Card />
-//       {/* <ContactContainer /> */}
-//     </div>
-//   );
-// };
-
-// const Header = () => {
-//   return (
-//     <div className="header">
-//       <span className="header-title">Minerva Facilities</span>
-//       <br />
-//       <span className="header-text">
-//         Bringing Wisdom to the workplace...
-//       </span>
-//     </div>
-//   );
-// };
-
-// const Card = (props) => {
-//   return (
-//     <div className={props.className}>
-//       <div className="small-div">
-//         <i className={props.className}></i>
-//         <img src={props.img} alt="test" />
-//       </div>
-
-//       <div className="big-div">
-//         <span className="div-title">{props.title}</span>
-//         <br />
-//         <span>{props.description}</span>
-//       </div>
-//     </div>
-//   );
-// };
 
 export default withAuthentication(App);
