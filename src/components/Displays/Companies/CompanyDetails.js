@@ -63,7 +63,7 @@ class CompanyDetail extends Component {
 
         <div className='row'>
           <div className="ml-3 mr-2">
-            <Link to={ROUTES.COMPANIES}>Back</Link>
+            <Link to={ROUTES.COMPANIES}><button className="btn btn-secondary">Back</button></Link>
           </div>
           <div className="mr-2">
             <Link to={{ pathname: `${ROUTES.BUILDINGS}`, state: company }}>Buildings List</Link>

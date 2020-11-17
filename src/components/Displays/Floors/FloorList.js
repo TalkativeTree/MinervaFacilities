@@ -54,7 +54,7 @@ class FloorList extends Component {
         {loading && <div>Loading ...</div>}
         <ul className="ul-comp-list">
           {floors.map((floor) => (
-            <li key={floor.id}>
+            <li key={floor.id} className="r-details-card">
               <strong>Title:</strong> {floor.floorName}<br />
               <strong>Location:</strong> {floor.floorLocation}<br />
 
