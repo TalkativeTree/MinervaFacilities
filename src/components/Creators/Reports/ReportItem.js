@@ -127,17 +127,17 @@ class ReportItem extends Component {
               state: { report },
             }}
           >
-            <div className="col-10">
-              <p className="comp-item">
-                <strong>Subject: </strong>
-                {report.title}
+            <div className="report-card">
+              <p className="comp-item report-title">
+                <strong>{report.title}</strong>
+                <hr />
+              </p>
+              
+              <p className="comp-item report-id">
+                <sup>{report.createdAt} {report.uid}</sup>
               </p>
               <p className="comp-item">
-                <strong>Ticket Id:</strong>{' '}
-                <span className="ticket-info">{report.uid}</span>
-              </p>
-              <p className="comp-item">
-                <strong>Request Status: </strong>({report.status})
+                <strong>Status: </strong>({report.status})
               </p>
               <p className="comp-item">
                 <strong>Request Type: </strong>({report.serviceType})
@@ -154,9 +154,9 @@ class ReportItem extends Component {
                 <strong>Room ID:</strong>{' '}
                 <span className="ticket-info">{report.roomID}</span>
               </p>
-              <p className="comp-item">
+              {/* <p className="comp-item">
                 <sub>{report.editedAt && <span> (Edited)</span>}</sub>
-              </p>
+              </p> */}
             </div>
           </Link>
         )}

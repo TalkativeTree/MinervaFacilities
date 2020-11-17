@@ -41,14 +41,17 @@ class ReportDetail extends Component {
     const { report, loading } = this.state;
 
     return (
-      <div>
-        <h4>Report ({report.uid})</h4>
+      <div className="content-wrapper">
+       <div className="jumbotron paral paralsec">
+        <h1 className="display-8 text-center mb-3">Report Details</h1>
+        </div>
         {loading && <div>Loading ...</div>}
 
         {report && (
-          <div>
-            <strong>Title:</strong> {report.title}
-            <br />
+          <div className="container">
+            <div className="r-details-card">
+            {/* <strong>Title:</strong> {report.title}
+            <br /> */}
             <strong>Location:</strong> {report.reportLocation}
             <br />
             <strong>Company:</strong> {report.companyID}
@@ -60,10 +63,10 @@ class ReportDetail extends Component {
             <strong>Created At:</strong> {report.createdAt}
             <br />
             <strong>Last Edited At:</strong> {report.editedAt}
+            </div>
             <br />
 
-            <hr />
-            
+            <div className="r-details-card">
             <p className="comp-item">
               <strong>Subject: </strong>
               {report.title}
@@ -82,11 +85,12 @@ class ReportDetail extends Component {
                 <strong>Desc: </strong>
                 {report.message}
               </p>
+              </div>
           </div>
         )}
 
-        <div className="ml-3">
-          <Link to={ROUTES.HOME}>Back</Link>
+        <div className="container text-center mt-5">
+          <Link to={ROUTES.HOME}><button className="btn btn-secondary">Back </button></Link>
         </div>
       </div>
     );

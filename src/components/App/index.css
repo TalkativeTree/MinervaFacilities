@@ -146,10 +146,10 @@ nav {
   background-image: url('https://img.webnots.com/2017/05/parallax.jpg');
 }
 
-.jumbotron {
+/* .jumbotron {
   border-radius: 0 !important;
   margin-bottom: 0 !important;
-}
+} */
 
 .section-divider {
   width: 100%;
@@ -199,9 +199,9 @@ p.comp-item {
   margin-bottom: 0 !important;
   line-height: 1.3;
 }
-span.ticket-info {
-  overflow: hidden;
-  text-overflow: ellipsis;
+p hr {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 .comp-container {
   border: 1px solid black;
@@ -216,15 +216,17 @@ span.ticket-info {
 }
 
 li.row {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  border-bottom-style: ridge;
+  border-radius: 5px;
+  margin: 0.5rem 0.1rem;
   text-align: left;
-  padding-bottom: 0.3em;
+  padding: 0.3em;
+  background-color: #fff;
+  justify-content: space-between;
 }
 
-li.row:nth-child(odd) {
+/* li.row:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.3);
-}
+} */
 
 .form-row {
   justify-content: space-evenly;
@@ -273,9 +275,9 @@ ul.report-list {
 
 p.comp-item.report-desc {
   text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 80vw;
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+  /* max-width: 80vw; */
 }
 /* ------- Landing ---------- */
 .landing-container {
@@ -355,4 +357,25 @@ p.comp-item.report-desc {
   100% {
     opacity: 1;
   }
+}
+
+/* ------- Details ---------- */
+/* report */
+.content-wrapper {
+  width: 100vw;
+}
+.content-wrapper h2 {
+  text-align: center;
+}
+
+.r-details-card {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0.5em;
+}
+
+/* company */
+
+.ul-comp-list {
+  padding: 0;
 }
