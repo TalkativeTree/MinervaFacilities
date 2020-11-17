@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { compose } from 'recompose';
 import { Tabs, Tab } from 'react-bootstrap';
-import '../App/index.css';
 
 import { AuthUserContext, withAuthorization, withEmailVerification } from '../Session';
 
@@ -16,20 +15,19 @@ import Reports from '../Creators/Reports';
 // import { RoomList, RoomItem } from '../Displays/Rooms';
 
 const HomePage = () => (
-  <AuthUserContext.Consumer>
-    <EmployeeHomePage />
-
-    {/* {(authUser) =>
-      authUser.roles.ADMIN ? (
-        <AdminHomePage />
-      ) : authUser.roles === 'OWNER' ||
-          authUser.roles === 'MANAGER' ? (
-        <ManagerHomePage />
-      ) : (
-        <EmployeeHomePage />
-      )
-    } */}
-  </AuthUserContext.Consumer>
+  <EmployeeHomePage />
+  // <AuthUserContext.Consumer>
+  //   {(authUser) =>
+  //     authUser.roles.ADMIN ? (
+  //       <AdminHomePage />
+  //     ) : authUser.roles === 'OWNER' ||
+  //         authUser.roles === 'MANAGER' ? (
+  //       <ManagerHomePage />
+  //     ) : (
+  //       <EmployeeHomePage />
+  //     )
+  //   }
+  // </AuthUserContext.Consumer>
 );
 
 const EmployeeHomePage = () => (

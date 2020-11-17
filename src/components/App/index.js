@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { withAuthentication } from '../Session';
 import * as ROUTES from '../../routes';
 
@@ -55,9 +54,11 @@ const App = () => (
           <Route path={ROUTES.ROOMS} component={RoomsPage} />
 
           <Route path={ROUTES.REPORT_DETAILS} component={ReportsDetails} />
-          <Route path={"*"} component={NotFound} />
+          {/* <Route path="*" component={NotFound} /> */}
         </div>
+
         <Navigation />
+
       </div>
     </div>
   </Router>
