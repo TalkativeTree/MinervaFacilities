@@ -199,9 +199,9 @@ p.comp-item {
   margin-bottom: 0 !important;
   line-height: 1.3;
 }
-span.ticket-info {
-  overflow: hidden;
-  text-overflow: ellipsis;
+p hr {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 .comp-container {
   border: 1px solid black;
@@ -216,15 +216,17 @@ span.ticket-info {
 }
 
 li.row {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  border-bottom-style: ridge;
+  border-radius: 5px;
+  margin: 0.5rem 0.1rem;
   text-align: left;
-  padding-bottom: 0.3em;
+  padding: 0.3em;
+  background-color: #fff;
+  justify-content: space-between;
 }
 
-li.row:nth-child(odd) {
+/* li.row:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.3);
-}
+} */
 
 .form-row {
   justify-content: space-evenly;
