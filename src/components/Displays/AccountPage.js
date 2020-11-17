@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { compose } from 'recompose';
+
 import {
   AuthUserContext,
   withAuthorization,
   withEmailVerification,
 } from '../Session';
+
 import { withFirebase } from '../Firebase';
 import SignOutButton from '../Auth/SignOut';
+
 import { PasswordForgetForm } from '../Auth/PasswordForget';
 import PasswordChangeForm from '../Auth/PasswordChange';
-import { CompanyForm } from '../Displays/Companies/CompanyForm';
+
+import { CompanyForm } from './Companies/CompanyForm';
+
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

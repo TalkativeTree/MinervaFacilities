@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { compose } from 'recompose';
 
 import { withAuthorization, withEmailVerification } from '../Session';
-import { UserList, UserItem } from '../Displays/Users';
+import { UserList, UserItem } from './Users';
 import * as ROUTES from '../../routes';
 
 const AdminPage = () => (
