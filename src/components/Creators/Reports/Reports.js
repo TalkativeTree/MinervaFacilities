@@ -229,7 +229,7 @@ class Reports extends Component {
                   onChange={this.onChange}
                 />
 
-                <select className="form-control" name="serviceType" value={serviceType} onChange={this.onChangeServiceType}>
+                <select className="form-control" name="serviceType" value={serviceType} onChange={this.onChange}>
                   <option value="" disabled>
                     Select a Service
                   </option>

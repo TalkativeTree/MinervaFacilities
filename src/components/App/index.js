@@ -29,7 +29,7 @@ import {
 
 const App = () => (
   <Router>
-    <>
+    <div>
     <Switch>
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
       <Route path={ROUTES.HOME} component={HomePage} />
@@ -51,7 +51,7 @@ const App = () => (
     </Switch>
 
     <Navigation />
-    </>
+    </div>
   </Router>
 );
 

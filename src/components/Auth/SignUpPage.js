@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
-import { SignInLink } from '../SignIn';
-import { withFirebase } from '../../Firebase';
-import * as ROUTES from '../../../routes';
+import { SignInLink } from './SignInPage';
+import { withFirebase } from '../Firebase';
+import * as ROUTES from '../../routes';
 
 const SignUpPage = () => (
   <div className='page-bg'>

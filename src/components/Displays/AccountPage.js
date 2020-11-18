@@ -8,11 +8,8 @@ import {
 } from '../Session';
 
 import { withFirebase } from '../Firebase';
-import SignOutButton from '../Auth/SignOut';
 
-import { PasswordForgetForm } from '../Auth/PasswordForget';
-import PasswordChangeForm from '../Auth/PasswordChange';
-
+import { PasswordForgetForm, PasswordChangeForm, SignOutButton} from '../Auth';
 import { CompanyForm } from './Companies/CompanyForm';
 
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
@@ -45,7 +42,6 @@ const AccountPage = () => (
         <div className="mt-3">
           <img
             className="profile-photo"
-            // src={authUser.photoURL}
             src={"https://picsum.photos/200"}
             width="100"
             height="100"

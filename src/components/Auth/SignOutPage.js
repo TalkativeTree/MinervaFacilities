@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { withFirebase } from '../../Firebase';
+import { withFirebase } from '../Firebase';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

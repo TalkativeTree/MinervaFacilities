@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
-import { SignUpLink } from '../SignUp';
-import { PasswordForgetLink } from '../PasswordForget';
-import { withFirebase } from '../../Firebase';
-import * as ROUTES from '../../../routes';
+import { SignUpLink } from './SignUpPage';
+import { PasswordForgetLink } from './PasswordForgetPage';
+import { withFirebase } from '../Firebase';
+import * as ROUTES from '../../routes';
 import { faFacebookF, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
