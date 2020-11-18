@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Prompt } from 'react-router-dom';
 
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+// https://www.npmjs.com/package/react-confirm-alert
+
+
 import { AuthUserContext } from '../../Session';
 import { withFirebase } from '../../Firebase';
 import ReportList from './ReportList';
@@ -116,7 +121,21 @@ class Reports extends Component {
   };
 
   onRemoveReport = (uid) => {
-    this.props.firebase.report(uid).remove();
+    confirmAlert({
+      title: 'Confirm Delete',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.props.firebase.report(uid).remove(),
+          // alert('Click Yes'),
+        },
+        {
+          label: 'No',
+          // onClick: () => alert('Click No'),
+        },
+      ],
+    });
   };
 
   onNextPage = () => {
@@ -224,7 +243,7 @@ class Reports extends Component {
                   className="form-input col-12"
                   type="text"
                   placeholder="Reason For Report"
-                  nmae="message"
+                  name="message"
                   value={message}
                   onChange={this.onChange}
                 />

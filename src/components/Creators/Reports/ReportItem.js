@@ -64,6 +64,7 @@ class ReportItem extends Component {
                 className="form-input col-10"
                 type="text"
                 placeholder="Report Title"
+                name="editTitle"
                 value={editTitle}
                 onChange={this.onChangeEdits}
               />
@@ -72,6 +73,7 @@ class ReportItem extends Component {
               <div className="col-5">
                 <select
                   className="form-control"
+                  name="editServiceType"
                   value={editServiceType}
                   onChange={this.onChangeEdits}
                 >
@@ -88,6 +90,7 @@ class ReportItem extends Component {
               <div className="col-4">
                 <select
                   className="form-control"
+                  name="editStatus"
                   value={editStatus}
                   onChange={this.onChangeEdits}
                 >
@@ -104,6 +107,7 @@ class ReportItem extends Component {
               rows="1"
               className="form-input col-10"
               type="text"
+              name="editMessage"
               value={editMessage}
               onChange={this.onChangeEdits}
             />
