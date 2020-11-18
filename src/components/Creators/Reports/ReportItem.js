@@ -47,13 +47,13 @@ class ReportItem extends Component {
 
   render() {
     const { authUser, report, onRemoveReport } = this.props;
-    const {
-      editMode,
-      editTitle,
-      editMessage,
-      editStatus,
-      editServiceType,
-    } = this.state;
+    const { editMode, editTitle, editMessage, editStatus, editServiceType } = this.state;
+
+    // const date = report.createdAt;
+    const fullDate = new Date(report.createdAt * 1000).toString().split(" ");
+    const date =
+      fullDate[0] + ', ' + fullDate[1] + ' ' + fullDate[2] + ', ' + fullDate[4] + ', ' + fullDate[6] + fullDate[7] + fullDate[8];
+    // https://stackoverflow.com/a/57103780/13986242
 
     return (
       <li className="row">
@@ -71,29 +71,17 @@ class ReportItem extends Component {
             </div>
             <div className="form-row">
               <div className="col-5">
-                <select
-                  className="form-control"
-                  name="editServiceType"
-                  value={editServiceType}
-                  onChange={this.onChangeEdits}
-                >
+                <select className="form-control" name="editServiceType" value={editServiceType} onChange={this.onChangeEdits}>
                   <option value="" disabled>
                     Select a Service
                   </option>
-                  <option value="MAINTENANCE">
-                    Maintenance / Repair
-                  </option>
+                  <option value="MAINTENANCE">Maintenance / Repair</option>
                   <option value="HAZARD">Hazard Report</option>
                   <option value="SERVICE">Service Report</option>
                 </select>
               </div>
               <div className="col-4">
-                <select
-                  className="form-control"
-                  name="editStatus"
-                  value={editStatus}
-                  onChange={this.onChangeEdits}
-                >
+                <select className="form-control" name="editStatus" value={editStatus} onChange={this.onChangeEdits}>
                   <option value="" disabled>
                     Select a Status
                   </option>
@@ -124,9 +112,11 @@ class ReportItem extends Component {
                 <strong>{report.title}</strong>
                 <hr />
               </p>
-              
+
               <p className="comp-item report-id">
-                <sup>{report.createdAt} {report.uid}</sup>
+                <sup>
+                  {date} <br /> {report.uid}
+                </sup>
               </p>
               <p className="comp-item">
                 <strong>Status: </strong>({report.status})
@@ -156,34 +146,21 @@ class ReportItem extends Component {
           <div>
             {editMode ? (
               <div className="form-row edit-btn-container">
-                <button
-                  className="btn btn-primary"
-                  onClick={this.onSaveEditText}
-                >
+                <button className="btn btn-primary" onClick={this.onSaveEditText}>
                   Save
                 </button>
-                <button
-                  className="btn btn-secondary"
-                  onClick={this.onToggleEditMode}
-                >
+                <button className="btn btn-secondary" onClick={this.onToggleEditMode}>
                   Reset
                 </button>
               </div>
             ) : (
-              <button
-                className="btn-li"
-                onClick={this.onToggleEditMode}
-              >
+              <button className="btn-li" onClick={this.onToggleEditMode}>
                 <FontAwesomeIcon icon={faEdit} />
               </button>
             )}
 
             {!editMode && (
-              <button
-                className="btn-li"
-                type="button"
-                onClick={() => onRemoveReport(report.uid)}
-              >
+              <button className="btn-li" type="button" onClick={() => onRemoveReport(report.uid)}>
                 <FontAwesomeIcon icon={faTrash} />
               </button>
             )}

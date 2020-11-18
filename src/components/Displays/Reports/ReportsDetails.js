@@ -40,6 +40,10 @@ class ReportDetail extends Component {
   render() {
     const { report, loading } = this.state;
 
+    const fullDate = new Date(report.createdAt * 1000).toString().split(' ');
+    const date =
+      fullDate[0] + ', ' + fullDate[1] + ' ' + fullDate[2] + ', ' + fullDate[4] + ', ' + fullDate[6] + fullDate[7] + fullDate[8];
+
     return (
       <div className="content-wrapper">
        <div className="jumbotron paral paralsec">
@@ -50,19 +54,20 @@ class ReportDetail extends Component {
         {report && (
           <div className="container">
             <div className="r-details-card">
-            {/* <strong>Title:</strong> {report.title}
-            <br /> */}
-            <strong>Location:</strong> {report.reportLocation}
-            <br />
             <strong>Company:</strong> {report.companyID}
             <br />
             <strong>Building:</strong> {report.buildingID}
             <br />
-            <strong>Company Owner:</strong> {report.companyOwner}
+            <strong>Reporter:</strong> {report.reporter}
             <br />
-            <strong>Created At:</strong> {report.createdAt}
+            <strong>Created At:</strong> {date}
             <br />
-            <strong>Last Edited At:</strong> {report.editedAt}
+            {report.editedAt && (
+              <p>
+                <strong>Last Edited At:</strong> {report.editedAt}
+              </p>
+            )}
+
             </div>
             <br />
 
