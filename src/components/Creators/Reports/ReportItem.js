@@ -29,20 +29,8 @@ class ReportItem extends Component {
     }));
   };
 
-  onChangeEditTitle = (event) => {
-    this.setState({ editTitle: event.target.value });
-  };
-
-  onChangeEditMessage = (event) => {
-    this.setState({ editMessage: event.target.value });
-  };
-
-  onChangeEditStatus = (event) => {
-    this.setState({ editStatus: event.target.value });
-  };
-
-  onChangeEditServiceType = (event) => {
-    this.setState({ editServiceType: event.target.value });
+  onChangeEdits = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   onSaveEditText = () => {
@@ -77,7 +65,7 @@ class ReportItem extends Component {
                 type="text"
                 placeholder="Report Title"
                 value={editTitle}
-                onChange={this.onChangeEditTitle}
+                onChange={this.onChangeEdits}
               />
             </div>
             <div className="form-row">
@@ -85,7 +73,7 @@ class ReportItem extends Component {
                 <select
                   className="form-control"
                   value={editServiceType}
-                  onChange={this.onChangeEditServiceType}
+                  onChange={this.onChangeEdits}
                 >
                   <option value="" disabled>
                     Select a Service
@@ -101,7 +89,7 @@ class ReportItem extends Component {
                 <select
                   className="form-control"
                   value={editStatus}
-                  onChange={this.onChangeEditStatus}
+                  onChange={this.onChangeEdits}
                 >
                   <option value="" disabled>
                     Select a Status
@@ -117,7 +105,7 @@ class ReportItem extends Component {
               className="form-input col-10"
               type="text"
               value={editMessage}
-              onChange={this.onChangeEditMessage}
+              onChange={this.onChangeEdits}
             />
           </div>
         ) : (
@@ -151,7 +139,7 @@ class ReportItem extends Component {
                 {/* Company ID: {report.companyID},<br /> */}
                 {/* Building ID: {report.buildingID},<br /> */}
                 {/* Floor ID: {report.floorID},<br /> */}
-                <strong>Room ID:</strong>{' '}
+                <strong>Room ID:</strong>
                 <span className="ticket-info">{report.roomID}</span>
               </p>
               {/* <p className="comp-item">
@@ -182,7 +170,6 @@ class ReportItem extends Component {
                 className="btn-li"
                 onClick={this.onToggleEditMode}
               >
-                {' '}
                 <FontAwesomeIcon icon={faEdit} />
               </button>
             )}

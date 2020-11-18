@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Prompt } from 'react-router-dom';
 
 import { AuthUserContext } from '../../Session';
 import { withFirebase } from '../../Firebase';
@@ -9,6 +10,8 @@ class Reports extends Component {
     super(props);
 
     this.state = {
+      isBlocking: false,
+
       companyID: '',
       buildingID: '',
       floorID: '',
@@ -17,6 +20,7 @@ class Reports extends Component {
       message: '',
       status: 'OPEN',
       serviceType: '',
+
       loading: false,
       reports: [],
       limit: 5,
@@ -46,9 +50,10 @@ class Reports extends Component {
           this.setState({
             reports: reportList,
             loading: false,
+            isBlocking: false,
           });
         } else {
-          this.setState({ reports: null, loading: false });
+          this.setState({ reports: null, loading: false, isBlocking: false });
         }
       });
   };
@@ -57,32 +62,11 @@ class Reports extends Component {
     this.props.firebase.reports().off();
   }
 
-  onChangeCompanyID = (event) => {
-    this.setState({ companyID: event.target.value });
-  };
-
-  onChangeBuildingID = (event) => {
-    this.setState({ buildingID: event.target.value });
-  };
-
-  onChangeFloorID = (event) => {
-    this.setState({ floorID: event.target.value });
-  };
-
-  onChangeRoomID = (event) => {
-    this.setState({ roomID: event.target.value });
-  };
-  
-  onChangeTitle = (event) => {
-    this.setState({ title: event.target.value });
-  };
-
-  onChangeMessage = (event) => {
-    this.setState({ message: event.target.value });
-  };
-
-  onChangeServiceType = (event) => {
-    this.setState({ serviceType: event.target.value });
+  onChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+      isBlocking: event.target.value.length > 0,
+    });
   };
 
   onCreateReport = (event, authUser) => {
@@ -100,6 +84,7 @@ class Reports extends Component {
     });
 
     this.setState({
+      isBlocking: false,
       companyID: '',
       buildingID: '',
       floorID: '',
@@ -143,6 +128,8 @@ class Reports extends Component {
 
   render() {
     const {
+      isBlocking,
+
       companyID,
       buildingID,
       floorID,
@@ -168,11 +155,7 @@ class Reports extends Component {
             )}
 
             {!loading && reports && (
-              <button
-                className="btn btn-secondary"
-                type="button"
-                onClick={this.onNextPage}
-              >
+              <button className="btn btn-secondary" type="button" onClick={this.onNextPage}>
                 Load More
               </button>
             )}
@@ -184,25 +167,27 @@ class Reports extends Component {
             <h4 className="text-center">Create new report</h4>
 
             <div className="container text-center">
-              <form
-                onSubmit={(event) =>
-                  this.onCreateReport(event, authUser)
-                }
-              >
+              <form onSubmit={(event) => this.onCreateReport(event, authUser)}>
+                <Prompt when={isBlocking} message={(location) => `Are you sure you want to go to ${location.pathname}`} />
+                <p>Blocking? {isBlocking ? 'Yes, click a link or the back button' : 'Nope'}</p>
+
+
                 <div className="form-row">
                   <input
                     className="form-input col-5"
                     type="text"
                     placeholder="Company ID"
+                    name="companyID"
                     value={companyID}
-                    onChange={this.onChangeCompanyID}
+                    onChange={this.onChange}
                   />
                   <input
                     className="form-input col-5"
                     type="text"
                     placeholder="Building ID"
+                    name="buildingID"
                     value={buildingID}
-                    onChange={this.onChangeBuildingID}
+                    onChange={this.onChange}
                   />
                 </div>
                 <div className="form-row">
@@ -210,15 +195,17 @@ class Reports extends Component {
                     className="form-input col-5"
                     type="text"
                     placeholder="Floor ID"
+                    name="floorID"
                     value={floorID}
-                    onChange={this.onChangeFloorID}
+                    onChange={this.onChange}
                   />
                   <input
                     className="form-input col-5"
                     type="text"
                     placeholder="Room ID"
+                    name="roomID"
                     value={roomID}
-                    onChange={this.onChangeRoomID}
+                    onChange={this.onChange}
                   />
                 </div>
                 <div className="form-row">
@@ -226,8 +213,9 @@ class Reports extends Component {
                     className="form-input col-10"
                     type="text"
                     placeholder="Report Title"
+                    name="title"
                     value={title}
-                    onChange={this.onChangeTitle}
+                    onChange={this.onChange}
                   />
                 </div>
 
@@ -236,22 +224,16 @@ class Reports extends Component {
                   className="form-input col-12"
                   type="text"
                   placeholder="Reason For Report"
+                  nmae="message"
                   value={message}
-                  onChange={this.onChangeMessage}
+                  onChange={this.onChange}
                 />
 
-                <select
-                  className="form-control"
-                  // defaultValue={'DEFAULT'}
-                  value={serviceType}
-                  onChange={this.onChangeServiceType}
-                >
+                <select className="form-control" name="serviceType" value={serviceType} onChange={this.onChangeServiceType}>
                   <option value="" disabled>
                     Select a Service
                   </option>
-                  <option value="MAINTENANCE">
-                    Maintenance / Repair
-                  </option>
+                  <option value="MAINTENANCE">Maintenance / Repair</option>
                   <option value="HAZARD">Hazard Report</option>
                   <option value="SERVICE">Service Report</option>
                 </select>
