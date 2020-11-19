@@ -96,12 +96,12 @@ class ReportDetail extends Component {
                 {report.message}
               </p>
               {report.image && (
-                <dev>
+                <div>
                   <a href={report.image}>
                     <img src={report.image || 'https://via.placeholder.com/150x150'} alt="Uploaded Images" height="150" width="150" />
                     {/* {report.image} */}
                   </a>
-                </dev>
+                </div>
               )}
             </div>
           </div>

@@ -26,6 +26,7 @@ class Reports extends Component {
       status: 'OPEN',
       serviceType: '',
       image_url: '',
+      image_name: '',
       upload: null,
       progress: 0,
 
@@ -109,7 +110,7 @@ class Reports extends Component {
             .child(upload.name)
             .getDownloadURL()
             .then((image_url) => {
-              this.setState({ image_url });
+              this.setState({ image_url, image_name: upload.name });
             });
         },
       );
@@ -128,6 +129,7 @@ class Reports extends Component {
       status: this.state.status,
       reporter: authUser.uid,
       image: this.state.image_url,
+      image_name: this.state.image_name,
       createdAt: this.props.firebase.serverValue.TIMESTAMP,
     });
 
@@ -142,6 +144,7 @@ class Reports extends Component {
       status: 'OPEN',
       serviceType: '',
       image_url: '',
+      image_name: '',
       upload: null,
       progress: 0,
     });
@@ -163,18 +166,23 @@ class Reports extends Component {
       status,
       serviceType,
       image_url,
+      image_name,
       editedAt: this.props.firebase.serverValue.TIMESTAMP,
     });
   };
 
   onRemoveReport = (uid) => {
+    const report = this.props.firebase.report(uid);
+
     confirmAlert({
       title: 'Confirm Delete',
       message: 'Are you sure to do this.',
       buttons: [
         {
           label: 'Yes',
-          onClick: () => this.props.firebase.report(uid).remove(),
+          onClick: () => {
+            this.props.firebase.storage.ref().child('images').delete(), report.remove()
+          }
           // alert('Click Yes'),
         },
         {
