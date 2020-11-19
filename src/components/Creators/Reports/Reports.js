@@ -25,6 +25,9 @@ class Reports extends Component {
       message: '',
       status: 'OPEN',
       serviceType: '',
+      image_url: '',
+      upload: null,
+      progress: 0,
 
       loading: false,
       reports: [],
@@ -39,7 +42,9 @@ class Reports extends Component {
   onListenForReports = () => {
     this.setState({ loading: true });
 
-    this.props.firebase.reports().orderByChild('createdAt')
+    this.props.firebase
+      .reports()
+      .orderByChild('createdAt')
       .limitToLast(this.state.limit)
       .on('value', (snapshot) => {
         const reportObject = snapshot.val();
@@ -72,6 +77,45 @@ class Reports extends Component {
     });
   };
 
+  onAutoFill = () => {
+    this.setState({
+      isBlocking: true,
+      companyID: '-MIl88ANUFKxLp_sKsvf',
+      buildingID: '-MIqkLiTo2qwbo3JkrHL',
+      floorID: '-MIqkPSUQ7HeoFxXdrW7',
+      roomID: '-MIqCSAwq5QBti12uqKI',
+    });
+  };
+
+  handleChange = (e) => {
+    if (e.target.files[0]) {
+      const upload = e.target.files[0];
+      const uploadTask = this.props.firebase.storage.ref(`images/${upload.name}`).put(upload);
+      uploadTask.on(
+        'state_changed',
+        (snapshot) => {
+          // progress function ...
+          const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+          this.setState({ progress });
+        },
+        (error) => {
+          // Error function ...
+          console.log(error);
+        },
+        () => {
+          // complete function ...
+          this.props.firebase.storage
+            .ref(`images`)
+            .child(upload.name)
+            .getDownloadURL()
+            .then((image_url) => {
+              this.setState({ image_url });
+            });
+        },
+      );
+    }
+  };
+
   onCreateReport = (event, authUser) => {
     this.props.firebase.reports().push({
       companyID: this.state.companyID,
@@ -83,6 +127,7 @@ class Reports extends Component {
       serviceType: this.state.serviceType,
       status: this.state.status,
       reporter: authUser.uid,
+      image: this.state.image_url,
       createdAt: this.props.firebase.serverValue.TIMESTAMP,
     });
 
@@ -96,6 +141,9 @@ class Reports extends Component {
       message: '',
       status: 'OPEN',
       serviceType: '',
+      image_url: '',
+      upload: null,
+      progress: 0,
     });
 
     event.preventDefault();
@@ -114,6 +162,7 @@ class Reports extends Component {
       message,
       status,
       serviceType,
+      image_url,
       editedAt: this.props.firebase.serverValue.TIMESTAMP,
     });
   };
@@ -137,10 +186,7 @@ class Reports extends Component {
   };
 
   onNextPage = () => {
-    this.setState(
-      (state) => ({ limit: state.limit + 5 }),
-      this.onListenForReports,
-    );
+    this.setState((state) => ({ limit: state.limit + 5 }), this.onListenForReports);
   };
 
   render() {
@@ -155,6 +201,7 @@ class Reports extends Component {
       title,
       message,
       serviceType,
+      progress,
       loading,
     } = this.state;
 
@@ -187,7 +234,6 @@ class Reports extends Component {
               <form onSubmit={(event) => this.onCreateReport(event, authUser)}>
                 <Prompt when={isBlocking} message={(location) => `Are you sure you want to go to ${location.pathname}`} />
                 <p>Blocking? {isBlocking ? 'Yes, click a link or the back button' : 'Nope'}</p>
-
 
                 <div className="form-row">
                   <input
@@ -225,6 +271,11 @@ class Reports extends Component {
                     onChange={this.onChange}
                   />
                 </div>
+
+                <div className="btn btn-primary" onClick={this.onAutoFill}>
+                  Auto Fill Location
+                </div>
+
                 <div className="form-row">
                   <input
                     className="form-input col-10"
@@ -255,6 +306,12 @@ class Reports extends Component {
                   <option value="SERVICE">Service Report</option>
                 </select>
 
+                <input type="file" onChange={this.handleChange} />
+                <p>
+                  Photo Upload Progress:
+                  <progress value={progress} max="100" className="progress" />
+                </p>
+
                 <button className="btn btn-primary" type="submit">
                   Report
                 </button>
@@ -268,10 +325,3 @@ class Reports extends Component {
 }
 
 export default withFirebase(Reports);
-
-
-// TEST IDS
-// -MIl88ANUFKxLp_sKsvf
-// -MIqkLiTo2qwbo3JkrHL
-// -MIqkPSUQ7HeoFxXdrW7
-// -MIqCSAwq5QBti12uqKI

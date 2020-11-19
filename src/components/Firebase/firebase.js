@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import 'firebase/storage';
 import 'firebase/analytics';
 
 const config = {
@@ -26,6 +27,7 @@ class Firebase {
     /* Firebase APIs */
     this.auth = app.auth();
     this.db = app.database();
+    this.storage = app.storage();
     this.analytics = app.analytics();
 
     /* Social Sign In Method Provider */

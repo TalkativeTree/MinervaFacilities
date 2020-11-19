@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import PageNotFound from "../assets/images/PageNotFound";
+import { HOME } from "../../routes";
 
 class NotFoundPage extends Component {
   render() {
     return (
-      <div id="content-wrap" className="NotFoundPage">
-        {/* <img src={PageNotFound} /> */}
+      <div id="content-wrap" className="container pt-5" style={{ textAlign: 'center' }}>
         <h1>Oops!</h1>
-        <h2>We can't seem to find the page you're looking for.</h2>
-        <p style={{ textAlign: "center" }}>
-          <Link to="/">Go to Home </Link>
+        <h2>We can't find the page you're looking for.</h2>
+        <p>
+          <Link to={HOME}><button className="btn btn-secondary">Go to Home Kid</button></Link>
         </p>
       </div>
     );
