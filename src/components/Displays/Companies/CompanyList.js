@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AuthUserContext } from '../../Session';
 import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../../routes';
 
@@ -16,29 +17,21 @@ class CompanyList extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
-    var userID = this.props.firebase.auth.currentUser.uid;
-    this.props.firebase.user(userID).on('value', (snapshot) => {
-      const user = snapshot.val();
-      const usersCompany = user.company_id;
-      // console.log(userID, usersCompany);
 
-      this.props.firebase.companies()
-        .orderByChild('id')
-        .equalTo(usersCompany)
-        .on('value', (snapshot) => {
-          const companiesObject = snapshot.val();
+    this.props.firebase.companies().orderByChild('id')
+      .on('value', (snapshot) => {
+        const companiesObject = snapshot.val();
 
-          const companiesList = Object.keys(companiesObject).map((key) => ({
-            ...companiesObject[key],
-            uid: key,
-          }));
+        const companiesList = Object.keys(companiesObject).map((key) => ({
+          ...companiesObject[key],
+          uid: key,
+        }));
 
-          this.setState({
-            companies: companiesList,
-            loading: false,
-          });
+        this.setState({
+          companies: companiesList,
+          loading: false,
         });
-    });
+      });
   }
 
   componentWillUnmount() {
@@ -49,40 +42,37 @@ class CompanyList extends Component {
     const { companies, loading } = this.state;
 
     return (
-      <div className="add-padding-bottom">
-        {/* {company.companyTitle}'s */}
-        {/* <h2>Company List</h2> */}
-        {loading && <div>Loading ...</div>}
-        <ul className="ul-comp-list">
-          {companies.map((company) => (
-            <li key={company.id} className="r-details-card">
-              <strong>Title:</strong> {company.companyTitle}
-              <br />
-              <strong>Location:</strong> {company.companyAddress}
-              <br />
-              <div className="row">
-                <div className="ml-3 mr-2">
-                  <Link
-                    to={{
-                      pathname: `${ROUTES.COMPANIES}/${company.id}`,
-                      state: { company },
-                    }}
-                  >
-                    Details
-                  </Link>
-                </div>
+      <AuthUserContext.Consumer>
+        {(authUser) => (
+          <div className="container add-padding-bottom">
+            {loading && <div>Loading ...</div>}
 
-                {/* <div className="ml-2">
-                  <Link to={{ pathname: `${ROUTES.FLOORS}/${company.id}`, state: { company } }}>
-                    Rooms / Spaces
-                  </Link>
-                </div> */}
-              </div>
-              <hr />
-            </li>
-          ))}
-        </ul>
-      </div>
+            <ul className="ul-comp-list">
+              {companies.map((company) => (company.id === authUser.company_id &&
+                <li key={company.id} className="r-details-card">
+                  <strong>Title:</strong> {company.companyTitle}
+                  <br />
+                  <strong>Location:</strong> {company.companyAddress}
+                  <br />
+                  <div className="row">
+                    <div className="ml-3 mr-2">
+                      <Link
+                        to={{
+                          pathname: `${ROUTES.COMPANIES}/${company.id}`,
+                          state: { company },
+                        }}
+                      >
+                        Details
+                      </Link>
+                    </div>
+                  </div>
+                  <hr />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </AuthUserContext.Consumer>
     );
   }
 }

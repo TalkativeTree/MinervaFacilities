@@ -13,16 +13,16 @@ export const ADMIN_DETAILS = '/admin/:id';
 
 export const JOIN_A_COMPANY = 'join-company';
 export const COMPANIES = '/companies';
-export const COMPANY_DETAILS = '/companies/:companyTitle';
+export const COMPANY_DETAILS = '/companies/:id';
 
 export const BUILDINGS = '/buildings';
-export const BUILDING_DETAILS = '/buildings/:buildingName';
+export const BUILDING_DETAILS = '/buildings/:id';
 
 export const FLOORS = '/floors';
-export const FLOOR_DETAILS = '/floors/:floorName';
+export const FLOOR_DETAILS = '/floors/:id';
 
 export const ROOMS = '/rooms';
-export const ROOM_DETAILS = '/rooms/:roomName';
+export const ROOM_DETAILS = '/rooms/:id';
 
 export const REPORTS = '/reports';
 export const REPORT_DETAILS = '/reports/:id'

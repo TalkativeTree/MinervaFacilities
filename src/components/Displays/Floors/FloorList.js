@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AuthUserContext } from '../../Session';
 import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../../routes';
 
@@ -16,29 +17,21 @@ class FloorList extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
-    var userID = this.props.firebase.auth.currentUser.uid;
-    this.props.firebase.user(userID).on('value', (snapshot) => {
-      const user = snapshot.val();
-      const usersCompany = user.company_id;
-      // console.log(userID, usersCompany);
 
-      this.props.firebase.floors()
-        .orderByChild('companyID')
-        .equalTo(usersCompany)
-        .on('value', (snapshot) => {
-          const floorsObject = snapshot.val();
+    this.props.firebase.floors().orderByChild('companyID')
+      .on('value', (snapshot) => {
+        const floorsObject = snapshot.val();
 
-          const floorsList = Object.keys(floorsObject).map((key) => ({
-            ...floorsObject[key],
-            uid: key,
-          }));
+        const floorsList = Object.keys(floorsObject).map((key) => ({
+          ...floorsObject[key],
+          uid: key,
+        }));
 
-          this.setState({
-            floors: floorsList,
-            loading: false,
-          });
+        this.setState({
+          floors: floorsList,
+          loading: false,
         });
-    });
+      });
   }
 
   componentWillUnmount() {
@@ -49,34 +42,30 @@ class FloorList extends Component {
     const { floors, loading } = this.state;
 
     return (
-      <div className="add-padding-bottom">
-        {/* <h2>Floor List</h2> */}
-        {loading && <div>Loading ...</div>}
-        <ul className="ul-comp-list">
-          {floors.map((floor) => (
-            <li key={floor.id} className="r-details-card">
-              <strong>Title:</strong> {floor.floorName}<br />
-              <strong>Location:</strong> {floor.floorLocation}<br />
+      <AuthUserContext.Consumer>
+        {(authUser) => (
+          <div className="container add-padding-bottom">
+            {loading && <div>Loading ...</div>}
 
-              <div className="row">
-                <div className="ml-3 mr-2">
-                  <Link to={{ pathname: `${ROUTES.FLOORS}/${floor.id}`, state: { floor } }}>
-                    Details
-                  </Link>
-                </div>
-
-                {/* <div className="ml-2">
-                  <Link to={{ pathname: `${ROUTES.ROOMS}/${floor.id}`, state: { floor } }}>
-                    Rooms / Spaces
-                  </Link>
-                </div> */}
-              </div>
-
-              <hr />
-            </li>
-          ))}
-        </ul>
-      </div>
+            <ul className="ul-comp-list">
+              {floors.map((floor) => (floor.companyID === authUser.company_id &&
+                <li key={floor.id} className="r-details-card">
+                  <strong>Title:</strong> {floor.floorName}
+                  <br />
+                  <strong>Location:</strong> {floor.floorLocation}
+                  <br />
+                  <div className="row">
+                    <div className="ml-3 mr-2">
+                      <Link to={{ pathname: `${ROUTES.FLOORS}/${floor.id}`, state: { floor } }}>Details</Link>
+                    </div>
+                  </div>
+                  <hr />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </AuthUserContext.Consumer>
     );
   }
 }

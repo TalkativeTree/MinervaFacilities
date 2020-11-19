@@ -8,7 +8,9 @@ import * as ROUTES from '../../../routes';
 
 const BuildingsPage = () => (
   <div>
-    <h1>Buildings Page</h1>
+    <div className="jumbotron paral paralsec">
+      <h1 className="display-8 text-center mb-3">Buildings</h1>
+    </div>
     <p>The Buildings Page is accessible by every signed in user.</p>
 
     <Switch>

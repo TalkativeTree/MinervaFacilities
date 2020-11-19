@@ -110,8 +110,9 @@ class ReportItem extends Component {
             <div className="report-card">
               <p className="comp-item report-title">
                 <strong>{report.title}</strong>
-                <hr />
               </p>
+
+              <hr />
 
               <p className="comp-item report-id">
                 <sup>

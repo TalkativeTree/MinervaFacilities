@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../../routes';
@@ -40,13 +40,23 @@ class BuildingDetail extends Component {
   render() {
     const { building, loading } = this.state;
 
+    const fullDateCreated = new Date(building.createdAt * 1000).toString().split(' ');
+    const dateCreated =
+      fullDateCreated[0] + ', ' + fullDateCreated[1] + ' ' + fullDateCreated[2] + ', ' + 
+      fullDateCreated[4] + ', ' + fullDateCreated[6] + fullDateCreated[7] + fullDateCreated[8];
+
+    const fullDateEdited = new Date(building.editedAt * 1000).toString().split(' ');
+    const dateEdited =
+      fullDateEdited[0] + ', ' + fullDateEdited[1] + ' ' + fullDateEdited[2] + ', ' +
+      fullDateEdited[4] + ', ' + fullDateEdited[6] + fullDateEdited[7] + fullDateEdited[8];
+
     return (
-      <div>
-        <h4>Building ({building.id})</h4>
+      <div className="container">
         {loading && <div>Loading ...</div>}
 
         {building && (
           <div>
+            <h5>Building ({building.id})</h5>
             <strong>Title:</strong> {building.buildingTitle}
             <br />
             <strong>Location:</strong> {building.buildingAddress}
@@ -55,9 +65,13 @@ class BuildingDetail extends Component {
             <br />
             <strong>Company Owner:</strong> {building.companyOwner}
             <br />
-            <strong>Created At:</strong> {building.createdAt}
+            <strong>Created At:</strong> {dateCreated}
             <br />
-            <strong>Last Edited At:</strong> {building.editedAt}
+            {building.editedAt && (
+              <p>
+                <strong>Last Edited At:</strong> {dateEdited}
+              </p>
+            )}
             <br />
             <strong>Floor List:</strong> {building.floorList}
           </div>
@@ -65,10 +79,14 @@ class BuildingDetail extends Component {
 
         <div className="row">
           <div className="ml-3 mr-2">
-            <Link to={ROUTES.BUILDINGS}>Back</Link>
+            <Link to={ROUTES.BUILDINGS}>
+              <button className="btn btn-secondary">Back</button>
+            </Link>
           </div>
           <div className="mr-2">
-            <Link to={ROUTES.FLOORS}>Floors List</Link>
+            <Link to={{ pathname: `${ROUTES.FLOORS}`, state: building }}>
+              <button className="btn btn-success">Floors List </button>
+            </Link>
           </div>
         </div>
       </div>

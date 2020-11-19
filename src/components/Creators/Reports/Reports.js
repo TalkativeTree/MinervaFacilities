@@ -39,9 +39,7 @@ class Reports extends Component {
   onListenForReports = () => {
     this.setState({ loading: true });
 
-    this.props.firebase
-      .reports()
-      .orderByChild('createdAt')
+    this.props.firebase.reports().orderByChild('createdAt')
       .limitToLast(this.state.limit)
       .on('value', (snapshot) => {
         const reportObject = snapshot.val();

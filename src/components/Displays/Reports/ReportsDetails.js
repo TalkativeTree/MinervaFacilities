@@ -40,9 +40,16 @@ class ReportDetail extends Component {
   render() {
     const { report, loading } = this.state;
 
-    const fullDate = new Date(report.createdAt * 1000).toString().split(' ');
-    const date =
-      fullDate[0] + ', ' + fullDate[1] + ' ' + fullDate[2] + ', ' + fullDate[4] + ', ' + fullDate[6] + fullDate[7] + fullDate[8];
+    const fullDateCreated = new Date(report.createdAt * 1000).toString().split(' ');
+    const dateCreated =
+      fullDateCreated[0] + ', ' + fullDateCreated[1] + ' ' + fullDateCreated[2] + ', ' +
+      fullDateCreated[4] + ', ' + fullDateCreated[6] + fullDateCreated[7] + fullDateCreated[8];
+
+    const FullDateEdited = new Date(report.editedAt * 1000).toString().split(' ');
+    const dateEdited =
+      FullDateEdited[0] + ', ' + FullDateEdited[1] + ' ' + FullDateEdited[2] + ', ' +
+      FullDateEdited[4] + ', ' + FullDateEdited[6] + FullDateEdited[7] + FullDateEdited[8];
+
 
     return (
       <div className="content-wrapper">
@@ -60,11 +67,11 @@ class ReportDetail extends Component {
             <br />
             <strong>Reporter:</strong> {report.reporter}
             <br />
-            <strong>Created At:</strong> {date}
+            <strong>Created At:</strong> {dateCreated}
             <br />
             {report.editedAt && (
               <p>
-                <strong>Last Edited At:</strong> {report.editedAt}
+                <strong>Last Edited At:</strong> {dateEdited}
               </p>
             )}
 

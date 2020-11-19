@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AuthUserContext } from '../../Session';
 import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../../routes';
 
@@ -16,29 +17,21 @@ class RoomList extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
-    var userID = this.props.firebase.auth.currentUser.uid;
-    this.props.firebase.user(userID).on('value', (snapshot) => {
-      const user = snapshot.val();
-      const usersCompany = user.company_id;
 
-      this.props.firebase
-        .rooms()
-        .orderByChild('companyID')
-        .equalTo(usersCompany)
-        .on('value', (snapshot) => {
-          const roomsObject = snapshot.val();
+    this.props.firebase.rooms().orderByChild('companyID')
+      .on('value', (snapshot) => {
+        const roomsObject = snapshot.val();
 
-          const roomsList = Object.keys(roomsObject).map((key) => ({
-            ...roomsObject[key],
-            uid: key,
-          }));
+        const roomsList = Object.keys(roomsObject).map((key) => ({
+          ...roomsObject[key],
+          uid: key,
+        }));
 
-          this.setState({
-            rooms: roomsList,
-            loading: false,
-          });
+        this.setState({
+          rooms: roomsList,
+          loading: false,
         });
-    });
+      });
   }
 
   componentWillUnmount() {
@@ -49,24 +42,27 @@ class RoomList extends Component {
     const { rooms, loading } = this.state;
 
     return (
-      <div className="add-padding-bottom">
-        <h2>Room List</h2>
-        {loading && <div>Loading ...</div>}
-        <ul>
-          {rooms.map((room) => (
-            <li key={room.id}>
-              <strong>Title:</strong> {room.roomName}<br />
-              <strong>Location:</strong> {room.roomLocation}<br />
+      <AuthUserContext.Consumer>
+        {(authUser) => (
+          <div className="container add-padding-bottom">
+            {loading && <div>Loading ...</div>}
 
-              <Link to={{ pathname: `${ROUTES.ROOMS}/${room.id}`, state: { room } }}>
-                Details
-              </Link>
-
-              <hr />
-            </li>
-          ))}
-        </ul>
-      </div>
+            <ul className="ul-comp-list">
+              {rooms.map((room) => room.companyID === authUser.company_id && (
+                <li key={room.id}>
+                  <strong>Title:</strong> {room.roomName}
+                  <br />
+                  <strong>Location:</strong> {room.roomLocation}
+                  <br />
+                  <Link to={{ pathname: `${ROUTES.ROOMS}/${room.id}`, state: { room } }}>Details</Link>
+                  <hr />
+                </li>
+                ),
+              )}
+            </ul>
+          </div>
+        )}
+      </AuthUserContext.Consumer>
     );
   }
 }

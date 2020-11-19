@@ -39,32 +39,55 @@ class RoomDetails extends Component {
   render() {
     const { room, loading } = this.state;
 
+    const fullDateCreated = new Date(room.createdAt * 1000).toString().split(' ');
+    const dateCreated =
+      fullDateCreated[0] + ', ' + fullDateCreated[1] + ' ' + fullDateCreated[2] + ', ' +
+      fullDateCreated[4] + ', ' + fullDateCreated[6] + fullDateCreated[7] + fullDateCreated[8];
+
+    const fullDateEdited = new Date(room.editedAt * 1000).toString().split(' ');
+    const dateEdited =
+      fullDateEdited[0] + ', ' + fullDateEdited[1] + ' ' + fullDateEdited[2] + ', ' +
+      fullDateEdited[4] + ', ' + fullDateEdited[6] + fullDateEdited[7] + fullDateEdited[8];
+
     return (
-      <div>
-        <h5>Room ({room.id})</h5>
+      <div className="container">
         {loading && <div>Loading ...</div>}
 
         {room && (
           <div>
-            <strong>Title:</strong> {room.roomName}<br />
-            <strong>Location:</strong> {room.roomLocation}<br />
-            <strong>Company ID:</strong> {room.companyID}<br />
-            <strong>Building ID:</strong> {room.buildingID}<br />
-            <strong>Floor ID:</strong> {room.floorID}<br />
-            <strong>Created At:</strong> {room.createdAt}<br />
-            <strong>Last Edited At:</strong> {room.editedAt}
+            <h5>Room ({room.id})</h5>
+            <strong>Title:</strong> {room.roomName}
+            <br />
+            <strong>Location:</strong> {room.roomLocation}
+            <br />
+            <strong>Company ID:</strong> {room.companyID}
+            <br />
+            <strong>Building ID:</strong> {room.buildingID}
+            <br />
+            <strong>Floor ID:</strong> {room.floorID}
+            <br />
+            <strong>Created At:</strong> {dateCreated}
+            <br />
+            {room.editedAt && (
+              <p>
+                <strong>Last Edited At:</strong> {dateEdited}
+              </p>
+            )}
           </div>
         )}
 
         <div className="row">
           <div className="ml-3 mr-2">
-            <Link to={ROUTES.ROOMS}>Back</Link>
+            <Link to={ROUTES.ROOMS}>
+              <button className="btn btn-secondary">Back</button>
+            </Link>
           </div>
           <div className="mr-2">
-            <Link to={{ pathname: `${ROUTES.HOME}`, state: room}}>Create Report</Link>
+            <Link to={{ pathname: `${ROUTES.REPORTS}`, state: room }}>
+              <button className="btn btn-success">Create Report</button>
+            </Link>
           </div>
         </div>
-
       </div>
     );
   }

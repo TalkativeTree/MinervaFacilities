@@ -2,14 +2,9 @@ import React from 'react';
 
 import ReportItem from './ReportItem';
 
-const ReportList = ({
-  authUser,
-  reports,
-  onEditReport,
-  onRemoveReport,
-}) => (
+const ReportList = ({ authUser, reports, onEditReport, onRemoveReport }) => (
   <ul className="report-list">
-    {reports.map((report) => (
+    {reports.map((report) => report.companyID === authUser.company_id && (
       <ReportItem
         authUser={authUser}
         key={report.uid}

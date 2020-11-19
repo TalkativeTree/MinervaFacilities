@@ -46,6 +46,7 @@ const App = () => (
       <Route path={ROUTES.FLOORS} component={FloorsPage} />
       <Route path={ROUTES.ROOMS} component={RoomsPage} />
 
+      <Route exact path={ROUTES.REPORTS}><Redirect to={ROUTES.HOME}/></Route>
       <Route path={ROUTES.REPORT_DETAILS} component={ReportsDetails} />
       <Route path={ROUTES.NOT_FOUND} component={NotFoundPage} />
     </Switch>
