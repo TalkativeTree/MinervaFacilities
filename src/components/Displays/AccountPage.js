@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { compose } from 'recompose';
 
 import {
@@ -15,65 +15,79 @@ import { CompanyForm } from './Companies/CompanyForm';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import ToggleSwitch from '../Utils/ToggleSwitch';
+
+const AccountPage = () => {
+  let [settings, setSettings] = useState(false);
+  // let [daily, setDaily] = useState(false);
+  // let [weekly, setWeekly] = useState(false);
+  // let [monthly, setMonthly] = useState(false);
+
+  const onSettingsChange = (checked) => {
+    setSettings(checked);
+    // if (!checked) {
+    //   setDaily(false);
+    //   setWeekly(false);
+    //   setMonthly(false);
+    // }
+  };
+
+  return (
+    <AuthUserContext.Consumer>
+      {(authUser) => (
+        <div className="container text-center add-padding-bottom">
+          <div className="usercard">
+            <div className="mt-3">
+              <img className="profile-photo" src={'https://picsum.photos/200'} width="100" height="100" alt="Profile" />
+            </div>
+            <h3>{authUser.username}'s Account</h3>
+            <p>
+              <strong>Email: </strong>
+              {authUser.email}
+              <br />
+              <strong>Company: </strong>
+              {authUser.company_id || 'No Company assigned.'}
+            </p>
+            <p>
+              <strong>Roles:</strong>
+              {authUser.roles}
+            </p>
+          </div>
+          <hr />
+
+          {!authUser.company_id && <CompanyForm authUser={authUser} />}
+
+          <SignOutButton />
+
+          <br />
+
+          <div>
+            <ToggleSwitch id="settings" checked={settings} onChange={onSettingsChange} />
+            <label htmlFor="settings">Edit Account Settings</label>
+          </div>
+
+          {settings && (
+            <div>
+              {/* Forgot Your Password? <PasswordForgetForm /> */}
+              Reset Your Password. <PasswordChangeForm />
+              <LoginManagement authUser={authUser} />
+            </div>
+          )}
+
+        </div>
+      )}
+    </AuthUserContext.Consumer>
+  );
+};
+
+
 const SIGN_IN_METHODS = [
-  {
-    id: 'password',
-    provider: null,
-  },
-  {
-    id: 'google.com',
-    provider: 'googleProvider',
-  },
-  {
-    id: 'facebook.com',
-    provider: 'facebookProvider',
-  },
-  {
-    id: 'twitter.com',
-    provider: 'twitterProvider',
-  },
+  { id: 'password', provider: null },
+  { id: 'google.com', provider: 'googleProvider' },
+  { id: 'facebook.com', provider: 'facebookProvider' },
+  { id: 'twitter.com', provider: 'twitterProvider' },
 ];
 
-const AccountPage = () => (
-  <AuthUserContext.Consumer>
-    {(authUser) => (
-      <div className="container text-center add-padding-bottom">
-        <div className="usercard">
-        <div className="mt-3">
-          <img
-            className="profile-photo"
-            src={"https://picsum.photos/200"}
-            width="100"
-            height="100"
-            alt="Profile"
-          />
-        </div>
-        <h3>{authUser.username}'s Account</h3>
-        <p>
-          <strong>Email: </strong>
-          {authUser.email}
-          <br />
-          <strong>Company: </strong>
-          {authUser.company_id || "No Company assigned."}
-        </p>
-        <p><strong>Roles:</strong>{authUser.roles}</p>
-        </div>
-        <hr />
-        
-        {!authUser.company_id && (
-          <CompanyForm authUser={authUser}/>
-        )}
-        
-        {/* Forgot Your Password? <PasswordForgetForm /> */}
-        Reset Your Password. <PasswordChangeForm />
-
-        <LoginManagement authUser={authUser} />
-
-        <SignOutButton />
-      </div>
-    )}
-  </AuthUserContext.Consumer>
-);
 
 class LoginManagementBase extends Component {
   constructor(props) {
@@ -165,6 +179,7 @@ class LoginManagementBase extends Component {
     );
   }
 }
+
 
 const SocialLoginToggle = ({
   onlyOneLeft,
