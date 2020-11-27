@@ -1,0 +1,21 @@
+{
+  "LABEL": {
+    "name": "title needs formatting",
+    "color": "EEEEEE"
+  },
+  "CHECKS": {
+    "prefixes": [
+      "[Add]:",
+      "[Adjust]:",
+      "[Delete]:",
+      "[Fix]: ",
+      "[Feat]: ",
+      "[Feature]:",
+      "[Remove]:",
+      "[Update]:"
+    ],
+    "regexp": "docs\\(v[0-9]\\): ",
+    "ignoreLabels" : ["dont-check-PRs-with-this-label", "meta"]
+    // "alwaysPassCI": true
+  }
+}
