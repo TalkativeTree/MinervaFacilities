@@ -11,9 +11,10 @@ export const ACCOUNT = '/account';
 export const ADMIN = '/admin';
 export const ADMIN_DETAILS = '/admin/:id';
 
-export const JOIN_A_COMPANY = 'join-company';
 export const COMPANIES = '/companies';
+export const COMPANY_NEW = '/companies/new';
 export const COMPANY_DETAILS = '/companies/:id';
+export const JOIN_A_COMPANY = '/join-company';
 
 export const BUILDINGS = '/buildings';
 export const BUILDING_DETAILS = '/buildings/:id';

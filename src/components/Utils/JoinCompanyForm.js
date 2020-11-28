@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { withFirebase } from '../../Firebase';
-import * as ROUTES from '../../../routes';
+import { withFirebase } from '../Firebase';
+import { AuthUserContext } from '../Session';
+import * as ROUTES from '../../routes';
 
-const CompanyPage = () => (
-  <div>
-    <h1>Company</h1>
-    <CompanyForm />
-  </div>
+const JoinCompanyPage = () => (
+  <AuthUserContext.Consumer>
+    {(authUser) => (
+      <div>
+        <h3>Join A Company</h3>
+        <JoinCompanyForm authUser={authUser} />
+      </div>
+    )}
+  </AuthUserContext.Consumer>
 );
 
 const INITIAL_STATE = {
@@ -74,8 +79,8 @@ const CompanyLink = () => (
   </p>
 );
 
-export default CompanyPage;
+export default JoinCompanyPage;
 
-const CompanyForm = withFirebase(CompanyFormBase);
+const JoinCompanyForm = withFirebase(CompanyFormBase);
 
-export { CompanyForm, CompanyLink };
+export { JoinCompanyForm, CompanyLink };

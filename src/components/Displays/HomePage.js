@@ -16,8 +16,9 @@ const EmployeeHomePage = () => (
     <div className="jumbotron paral paralsec">
       <h1 className="display-8 text-center">Home</h1>
     </div>
-    <h6 className="text-center">Recent Reports:</h6>
-    <Reports />
+    <h5>Under Construction</h5>
+    {/* <h6 className="text-center">Recent Reports:</h6>
+    <Reports /> */}
   </div>
 );
 

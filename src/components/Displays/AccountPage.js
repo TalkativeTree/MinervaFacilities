@@ -1,21 +1,20 @@
 import React, { Component, useState } from 'react';
 import { compose } from 'recompose';
 
+import { withFirebase } from '../Firebase';
+
 import {
   AuthUserContext,
   withAuthorization,
   withEmailVerification,
 } from '../Session';
 
-import { withFirebase } from '../Firebase';
-
 import { PasswordForgetForm, PasswordChangeForm, SignOutButton} from '../Auth';
-import { CompanyForm } from './Companies/CompanyForm';
+import { JoinCompanyForm, ToggleSwitch } from '../Utils';
 
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import ToggleSwitch from '../Utils/ToggleSwitch';
 
 const AccountPage = () => {
   let [settings, setSettings] = useState(false);
@@ -55,7 +54,7 @@ const AccountPage = () => {
           </div>
           <hr />
 
-          {!authUser.company_id && <CompanyForm authUser={authUser} />}
+          {!authUser.company_id && <JoinCompanyForm />}
 
           <SignOutButton />
 

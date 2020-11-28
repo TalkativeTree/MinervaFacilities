@@ -12,31 +12,47 @@ class CompanyList extends Component {
     this.state = {
       loading: false,
       companies: [],
+      limit: 5,
     };
   }
 
   componentDidMount() {
     this.setState({ loading: true });
 
-    this.props.firebase.companies().orderByChild('id')
+    this.props.firebase
+      .companies()
+      .orderByChild('id')
+      .limitToLast(this.state.limit)
       .on('value', (snapshot) => {
-        const companiesObject = snapshot.val();
+        const companyObject = snapshot.val();
 
-        const companiesList = Object.keys(companiesObject).map((key) => ({
-          ...companiesObject[key],
-          uid: key,
-        }));
+        if (companyObject) {
+          const companyList = Object.keys(companyObject).map((key) => ({
+            ...companyObject[key],
+            uid: key,
+          }));
 
-        this.setState({
-          companies: companiesList,
-          loading: false,
-        });
+          this.setState({
+            companies: companyList,
+            loading: false,
+          });
+        } else {
+          this.setState({ companies: null, loading: false });
+        }
       });
   }
 
   componentWillUnmount() {
     this.props.firebase.companies().off();
   }
+
+  onNextPage = () => {
+    this.setState(
+      (state) => ({ limit: state.limit + 5 }),
+      this.onListenForCompanies,
+    );
+  };
+
 
   render() {
     const { companies, loading } = this.state;
@@ -46,30 +62,43 @@ class CompanyList extends Component {
         {(authUser) => (
           <div className="container add-padding-bottom">
             {loading && <div>Loading ...</div>}
+            
+            {!companies ? (
+              <div>There are no companies ...</div>
+            ) : (
+              <div>
+                <button className="btn btn-secondary" type="button" onClick={this.onNextPage}>
+                  Show More
+                </button>
 
-            <ul className="ul-comp-list">
-              {companies.map((company) => (company.id === authUser.company_id &&
-                <li key={company.id} className="r-details-card">
-                  <strong>Title:</strong> {company.companyTitle}
-                  <br />
-                  <strong>Location:</strong> {company.companyAddress}
-                  <br />
-                  <div className="row">
-                    <div className="ml-3 mr-2">
-                      <Link
-                        to={{
-                          pathname: `${ROUTES.COMPANIES}/${company.id}`,
-                          state: { company },
-                        }}
-                      >
-                        Details
-                      </Link>
-                    </div>
-                  </div>
-                  <hr />
-                </li>
-              ))}
-            </ul>
+                <ul className="ul-comp-list">
+                  {companies.map(
+                    (company) =>
+                      company.uid === authUser.company_id && (
+                        <li key={company.uid} className="r-details-card">
+                          <strong>Title:</strong> {company.companyTitle}
+                          <br />
+                          <strong>Location:</strong> {company.companyAddress}
+                          <br />
+                          <div className="row">
+                            <div className="ml-3 mr-2">
+                              <Link
+                                to={{
+                                  pathname: `${ROUTES.COMPANIES}/${company.uid}`,
+                                  state: { company },
+                                }}
+                              >
+                                Details
+                              </Link>
+                            </div>
+                          </div>
+                          <hr />
+                        </li>
+                      ),
+                  )}
+                </ul>
+              </div>
+            )}
           </div>
         )}
       </AuthUserContext.Consumer>
