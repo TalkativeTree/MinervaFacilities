@@ -37,36 +37,26 @@ class Firebase {
   }
 
   // *** Auth API ***
-  doCreateUserWithEmailAndPassword = (email, password) =>
-    this.auth.createUserWithEmailAndPassword(email, password);
+  doCreateUserWithEmailAndPassword = (email, password) => this.auth.createUserWithEmailAndPassword(email, password);
 
-  doSignInWithEmailAndPassword = (email, password) =>
-    this.auth.signInWithEmailAndPassword(email, password);
+  doSignInWithEmailAndPassword = (email, password) => this.auth.signInWithEmailAndPassword(email, password);
 
-  doSignInWithGoogle = () =>
-    this.auth.signInWithPopup(this.googleProvider);
+  doSignInWithGoogle = () => this.auth.signInWithPopup(this.googleProvider);
 
-  doSignInWithFacebook = () =>
-    this.auth.signInWithPopup(this.facebookProvider);
+  doSignInWithFacebook = () => this.auth.signInWithPopup(this.facebookProvider);
 
-  doSignInWithTwitter = () =>
-    this.auth.signInWithPopup(this.twitterProvider);
+  doSignInWithTwitter = () => this.auth.signInWithPopup(this.twitterProvider);
 
   doSignOut = () => this.auth.signOut();
 
-  doPasswordReset = (email) =>
-    this.auth.sendPasswordResetEmail(email);
+  doPasswordReset = (email) => this.auth.sendPasswordResetEmail(email);
 
   doSendEmailVerification = () =>
     this.auth.currentUser.sendEmailVerification({
-      url:
-        process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT ||
-        'http://localhost:19006/',
+      url: process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT || 'http://localhost:19006/',
     });
 
-  doPasswordUpdate = (password) =>
-    this.auth.currentUser.updatePassword(password);
-
+  doPasswordUpdate = (password) => this.auth.currentUser.updatePassword(password);
 
   // *** Merge Auth and DB User API *** //
   onAuthUserListener = (next, fallback) =>
@@ -98,17 +88,14 @@ class Firebase {
       }
     });
 
-
   // *** User API ***
   user = (uid) => this.db.ref(`users/${uid}`);
   users = () => this.db.ref('users');
-  setUserCompany = (userID, companyID) => this.user(userID).update({company_id: companyID});
-
+  setUserCompany = (userID, companyID) => this.user(userID).update({ company_id: companyID });
 
   // *** Report API ***
   report = (uid) => this.db.ref(`reports/${uid}`);
   reports = () => this.db.ref('reports');
-
 
   // **** Company API ***
   company = (uid) => this.db.ref(`companies/${uid}`);
@@ -122,30 +109,39 @@ class Firebase {
     updates['/companies/' + newCompanyKey] = companyData;
     updates['/users/' + companyData.owner.ownerID + '/company_id'] = newCompanyKey;
 
-    updates[
-      '/users/' + companyData.owner.ownerID + '/companies/' + companyData.companyTitle
-    ] = newCompanyKey;
+    updates['/users/' + companyData.owner.ownerID + '/companies/' + companyData.companyTitle] = newCompanyKey;
 
     this.db.ref().update(updates);
 
     return newCompanyKey;
   };
 
-
   // **** Building API ***
   building = (uid) => this.db.ref(`buildings/${uid}`);
   buildings = () => this.db.ref('buildings');
 
+  createBuilding = (buildingData) => {
+    // Get a key for a new building.
+    var newbuildingKey = this.db.ref('buildings').push().key;
+    // Write the new building's data simultaneously in the compnay list and the user's companies list.
+    var updates = {};
+    updates['/buildings/' + newbuildingKey] = buildingData;
+    // updates['/users/' + buildingData.owner.ownerID + '/building_id'] = newbuildingKey;
+
+    // updates['/users/' + buildingData.owner.ownerID + '/companies/buildings/' + buildingData.buildingTitle] = newbuildingKey;
+
+    this.db.ref().update(updates);
+
+    return newbuildingKey;
+  };
 
   // **** Floors API ***
   floor = (uid) => this.db.ref(`floors/${uid}`);
   floors = () => this.db.ref('floors');
 
-
   // *** Rooms API ***
   room = (uid) => this.db.ref(`rooms/${uid}`);
   rooms = () => this.db.ref('rooms');
-
 }
 
 export default Firebase;

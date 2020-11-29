@@ -17,6 +17,7 @@ export const COMPANY_DETAILS = '/companies/:id';
 export const JOIN_A_COMPANY = '/join-company';
 
 export const BUILDINGS = '/buildings';
+export const BUILDING_NEW = '/buildings/new';
 export const BUILDING_DETAILS = '/buildings/:id';
 
 export const FLOORS = '/floors';

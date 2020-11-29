@@ -33,6 +33,10 @@ class CompanyForm extends Component {
 
     let companyID = this.props.firebase.createCompany(companyData);
     console.log(companyID);
+    this.setState({
+      companyTitle: '',
+      companyAddress: '',
+    });
   };
 
   render() {

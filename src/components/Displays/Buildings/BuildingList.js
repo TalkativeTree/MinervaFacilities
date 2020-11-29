@@ -12,31 +12,43 @@ class BuildingList extends Component {
     this.state = {
       loading: false,
       buildings: [],
+      limit: 5,
+      companyID: this.props.companyID,
     };
   }
 
   componentDidMount() {
     this.setState({ loading: true });
 
-    this.props.firebase.buildings().orderByChild('companyID')
+    this.props.firebase
+      .buildings()
+      .orderByChild('companyID')
       .on('value', (snapshot) => {
         const buildingsObject = snapshot.val();
 
-        const buildingsList = Object.keys(buildingsObject).map((key) => ({
-          ...buildingsObject[key],
-          uid: key,
-        }));
+        if (buildingsObject) {
+          const buildingList = Object.keys(buildingsObject).map((key) => ({
+            ...buildingsObject[key],
+            uid: key,
+          }));
 
-        this.setState({
-          buildings: buildingsList,
-          loading: false,
-        });
+          this.setState({
+            buildings: buildingList,
+            loading: false,
+          });
+        } else {
+          this.setState({ buildings: null, loading: false });
+        }
       });
   }
 
   componentWillUnmount() {
     this.props.firebase.buildings().off();
   }
+
+  onNextPage = () => {
+    this.setState((state) => ({ limit: state.limit + 5 }), this.onListenForBuildings);
+  };
 
   render() {
     const { buildings, loading } = this.state;
@@ -47,29 +59,42 @@ class BuildingList extends Component {
           <div className="container add-padding-bottom">
             {loading && <div>Loading ...</div>}
 
-            <ul className="ul-comp-list">
-              {buildings.map((building) => (building.companyID === authUser.company_id &&
-                <li key={building.id} className="r-details-card">
-                  <strong>Title:</strong> {building.buildingTitle}
-                  <br />
-                  <strong>Location:</strong> {building.buildingAddress}
-                  <br />
-                  <div className="row">
-                    <div className="ml-3 mr-2">
-                      <Link
-                        to={{
-                          pathname: `${ROUTES.BUILDINGS}/${building.id}`,
-                          state: { building },
-                        }}
-                      >
-                        Details
-                      </Link>
-                    </div>
-                  </div>
-                  <hr />
-                </li>
-              ))}
-            </ul>
+            {!buildings ? (
+              <div>There are no buildings ...</div>
+            ) : (
+              <div>
+                <button className="btn btn-secondary" type="button" onClick={this.onNextPage}>
+                  Show More
+                </button>
+
+                <ul className="ul-comp-list">
+                  {buildings.map(
+                    (building) =>
+                      building.companyID === authUser.company_id && (
+                        <li key={building.uid} className="r-details-card">
+                          <strong>Title:</strong> {building.buildingTitle}
+                          <br />
+                          <strong>Location:</strong> {building.buildingAddress}
+                          <br />
+                          <div className="row">
+                            <div className="ml-3 mr-2">
+                              <Link
+                                to={{
+                                  pathname: `${ROUTES.BUILDINGS}/${building.uid}`,
+                                  state: { building },
+                                }}
+                              >
+                                Details
+                              </Link>
+                            </div>
+                          </div>
+                          <hr />
+                        </li>
+                      ),
+                  )}
+                </ul>
+              </div>
+            )}
           </div>
         )}
       </AuthUserContext.Consumer>

@@ -1,6 +1,10 @@
 import AddressForm from './AddressForm';
-import CreateCompanyForm from './CreateCompanyForm';
-import JoinCompanyForm from './JoinCompanyForm';
 import ToggleSwitch from './ToggleSwitch';
 
-export { AddressForm, CreateCompanyForm, JoinCompanyForm, ToggleSwitch };
+import JoinCompanyForm from './JoinCompanyForm';
+import CreateCompanyForm from './CreateCompanyForm';
+import CreateBuildingForm from './CreateBuildingForm';
+
+export { AddressForm, ToggleSwitch };
+export { CreateCompanyForm, JoinCompanyForm };
+export { CreateBuildingForm };
