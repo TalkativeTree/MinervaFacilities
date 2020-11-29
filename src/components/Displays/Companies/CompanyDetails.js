@@ -156,7 +156,7 @@ class CompanyDetail extends Component {
                         type="text"
                         className="form-input form-control"
                         placeholder="Address..."
-                        name="companyAdress"
+                        name="companyAddress"
                         value={companyAddress}
                         onChange={this.onChange}
                       />

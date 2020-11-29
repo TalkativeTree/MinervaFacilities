@@ -27,6 +27,7 @@ class BuildingDetail extends Component {
 
   componentDidMount() {
     if (this.state.building) {
+      console.log(this.state);
       return;
     }
 
@@ -51,14 +52,14 @@ class BuildingDetail extends Component {
   onToggleEditMode = () => {
     this.setState((state) => ({
       editMode: !state.editMode,
-      companyID: this.props.companyID,
-      buildingTitle: this.props.building.buildingTitle,
-      buildingAddress: this.props.building.buildingAddress,
+      companyID: this.state.companyID,
+      buildingTitle: this.state.building.buildingTitle,
+      buildingAddress: this.state.building.buildingAddress,
     }));
   };
 
-  onSaveEditText = () => {
-    const { buildingTitle, buildingAddress } = this.state;
+  onSaveEdit = () => {
+    const { building, buildingTitle, buildingAddress } = this.state;
     const { uid, ...buildingSnapshot } = building;
 
     this.props.firebase.building(building.uid).set({
@@ -143,6 +144,7 @@ class BuildingDetail extends Component {
                         type="text"
                         className="col-10 form-input"
                         placeholder="Name Your Building!"
+                        name="buildingTitle"
                         value={buildingTitle}
                         onChange={this.onChange}
                       />
@@ -150,13 +152,14 @@ class BuildingDetail extends Component {
                         type="text"
                         className="col-10 form-input"
                         placeholder="Where does it live?"
+                        name="buildingAddress"
                         value={buildingAddress}
                         onChange={this.onChange}
                       />
                     </div>
 
                     <div className="justify-me">
-                      <button className="btn btn-secondary btn-bot" onClick={this.onSaveEditText}>
+                      <button className="btn btn-secondary btn-bot" onClick={this.onSaveEdit}>
                         Save Changes
                       </button>
                       <button className="btn btn-secondary btn-bot" onClick={this.onToggleEditMode}>
@@ -170,8 +173,8 @@ class BuildingDetail extends Component {
                       <FontAwesomeIcon icon={faEdit} />
                     </button>
 
-                    <button className="btn-li" tpye="button" onClick={() => onRemoveBuilding(building.uid)}>
-                      <FontAwesomeIcon icon={faTrash} />
+                    <button className="btn-li" tpye="button" onClick={() => this.onRemoveBuilding(building.uid)}>
+                      <Link to={ROUTES.BUILDINGS}><FontAwesomeIcon icon={faTrash} /></Link>
                     </button>
                   </div>
                 )}

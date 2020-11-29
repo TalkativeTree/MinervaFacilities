@@ -21,9 +21,11 @@ export const BUILDING_NEW = '/buildings/new';
 export const BUILDING_DETAILS = '/buildings/:id';
 
 export const FLOORS = '/floors';
+export const FLOOR_NEW = '/floors/new';
 export const FLOOR_DETAILS = '/floors/:id';
 
 export const ROOMS = '/rooms';
+export const ROOM_NEW = '/rooms/new';
 export const ROOM_DETAILS = '/rooms/:id';
 
 export const REPORTS = '/reports';

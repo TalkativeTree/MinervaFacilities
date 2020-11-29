@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { HOME } from '../../routes';
+import { BUILDINGS } from '../../routes';
 
 import { withFirebase } from '../Firebase';
 
@@ -79,7 +79,7 @@ class BuildingForm extends Component {
         </form>
 
         <button className="btn btn-primary" type="submit" onClick={this.onCreateBuilding}>
-          <Link to={HOME}>click me to send back</Link>
+          <Link to={BUILDINGS}>click me to send back</Link>
         </button>
       </div>
     );

@@ -12,31 +12,44 @@ class FloorList extends Component {
     this.state = {
       loading: false,
       floors: [],
+      limit: 5,
+      companyID: this.props.companyID,
+      buildingID: this.props.buildingID,
     };
   }
 
   componentDidMount() {
     this.setState({ loading: true });
 
-    this.props.firebase.floors().orderByChild('companyID')
+    this.props.firebase
+      .floors()
+      .orderByChild('companyID')
       .on('value', (snapshot) => {
         const floorsObject = snapshot.val();
 
-        const floorsList = Object.keys(floorsObject).map((key) => ({
-          ...floorsObject[key],
-          uid: key,
-        }));
+        if (floorsObject) {
+          const floorList = Object.keys(floorsObject).map((key) => ({
+            ...floorsObject[key],
+            uid: key,
+          }));
 
-        this.setState({
-          floors: floorsList,
-          loading: false,
-        });
+          this.setState({
+            floors: floorList,
+            loading: false,
+          });
+        } else {
+          this.setState({ floors: null, loading: false });
+        }
       });
   }
 
   componentWillUnmount() {
     this.props.firebase.floors().off();
   }
+
+  onNextPage = () => {
+    this.setState((state) => ({ limit: state.limit + 5 }), this.onListenForFloors);
+  };
 
   render() {
     const { floors, loading } = this.state;
@@ -47,22 +60,35 @@ class FloorList extends Component {
           <div className="container add-padding-bottom">
             {loading && <div>Loading ...</div>}
 
-            <ul className="ul-comp-list">
-              {floors.map((floor) => (floor.companyID === authUser.company_id &&
-                <li key={floor.id} className="r-details-card">
-                  <strong>Title:</strong> {floor.floorName}
-                  <br />
-                  <strong>Location:</strong> {floor.floorLocation}
-                  <br />
-                  <div className="row">
-                    <div className="ml-3 mr-2">
-                      <Link to={{ pathname: `${ROUTES.FLOORS}/${floor.id}`, state: { floor } }}>Details</Link>
-                    </div>
-                  </div>
-                  <hr />
-                </li>
-              ))}
-            </ul>
+            {!floors ? (
+              <div>There are no floors for your Company/Building...</div>
+            ) : (
+              <div>
+                <button className="btn btn-secondary btn-bot" type="button" onClick={this.onNextPage}>
+                  More
+                </button>
+
+                <ul className="ul-comp-list">
+                  {floors.map(
+                    (floor) =>
+                      floor.companyID === authUser.company_id && (
+                        <li key={floor.uid} className="r-details-card">
+                          <strong>Title:</strong> {floor.floorTitle}
+                          <br />
+                          <strong>Location:</strong> {floor.floorAddress}
+                          <br />
+                          <div className="row">
+                            <div className="ml-3 mr-2">
+                              <Link to={{ pathname: `${ROUTES.FLOORS}/${floor.uid}`, state: { floor } }}>Details</Link>
+                            </div>
+                          </div>
+                          <hr />
+                        </li>
+                      ),
+                  )}
+                </ul>
+              </div>
+            )}
           </div>
         )}
       </AuthUserContext.Consumer>

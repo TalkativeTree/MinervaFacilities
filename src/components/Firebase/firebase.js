@@ -128,7 +128,7 @@ class Firebase {
     updates['/buildings/' + newbuildingKey] = buildingData;
     // updates['/users/' + buildingData.owner.ownerID + '/building_id'] = newbuildingKey;
 
-    // updates['/users/' + buildingData.owner.ownerID + '/companies/buildings/' + buildingData.buildingTitle] = newbuildingKey;
+    // updates['/users/' + buildingData.owner.ownerID + '/buildings/' + buildingData.buildingTitle] = newbuildingKey;
 
     this.db.ref().update(updates);
 
@@ -138,6 +138,21 @@ class Firebase {
   // **** Floors API ***
   floor = (uid) => this.db.ref(`floors/${uid}`);
   floors = () => this.db.ref('floors');
+
+  createFloor = (floorData) => {
+    // Get a key for a new floor.
+    var newfloorKey = this.db.ref('floors').push().key;
+    // Write the new floor's data simultaneously in the compnay list and the user's companies list.
+    var updates = {};
+    updates['/floors/' + newfloorKey] = floorData;
+    // updates['/users/' + floorData.owner.ownerID + '/floor_id'] = newfloorKey;
+
+    // updates['/users/' + floorData.owner.ownerID + '/floors/' + floorData.floorTitle] = newfloorKey;
+
+    this.db.ref().update(updates);
+
+    return newfloorKey;
+  };
 
   // *** Rooms API ***
   room = (uid) => this.db.ref(`rooms/${uid}`);
