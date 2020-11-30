@@ -121,7 +121,7 @@ class BuildingDetail extends Component {
                 <br />
                 <strong>Location:</strong> {building.buildingAddress}
                 <br />
-                <strong>Company:</strong> {building.companyID}
+                <strong>Company:</strong> {companyID}
                 <br />
                 <strong>Company Owner:</strong> {building.companyOwner}
                 <br />

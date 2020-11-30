@@ -10,14 +10,14 @@ import { faFacebookF, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-i
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SignInPage = () => (
-  <div className='page-bg'>
-    <div className='page-inner'>
-    
-    <img
-      className="signin-logo fade-in"
-      src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
-    />
-   
+  <div className="page-bg">
+    <div className="page-inner">
+      <img
+        className="signin-logo fade-in"
+        alt="logo"
+        src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
+      />
+
       <h1>Log In</h1>
       <SignInForm />
       <PasswordForgetLink />

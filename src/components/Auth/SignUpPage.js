@@ -10,7 +10,7 @@ const SignUpPage = () => (
   <div className='page-bg'>
     <div className='page-inner'>
     <img
-      className="signin-logo fade-in"
+      className="signin-logo fade-in" alt="logo"
       src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
     />
     <h1>Register</h1>
@@ -48,7 +48,7 @@ class SignUpFormBase extends Component {
 
   onSubmit = event => {
     const { username, email, passwordOne, isAdmin } = this.state;
-    const roles = '';
+    let roles = '';
 
     if (isAdmin) {
       roles = 'ADMIN';

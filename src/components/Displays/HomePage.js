@@ -1,9 +1,9 @@
 import React from 'react';
 import { compose } from 'recompose';
-import { Tabs, Tab } from 'react-bootstrap';
+// import { Tabs, Tab } from 'react-bootstrap';
 
 import { AuthUserContext, withEmailVerification, withAuthorization } from '../Session';
-import ReportsPage from '../Displays';
+// import ReportsPage from '../Displays';
 
 const HomePage = () => (
   <AuthUserContext.Consumer>

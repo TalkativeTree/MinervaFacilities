@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ToggleSwitch.scss';
+// import './ToggleSwitch.scss';
 
 /*
 Toggle Switch Component By https://www.sitepoint.com/react-toggle-switch-reusable-component/
