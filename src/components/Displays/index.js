@@ -9,6 +9,6 @@ import CompaniesPage from './Companies';
 import BuildingsPage from './Buildings';
 import FloorsPage from './Floors';
 import RoomsPage from './Rooms';
-import ReportsDetails from './Reports/ReportsDetails';
+import ReportsPage from './Reports';
 
-export { AccountPage, AdminPage, HomePage, LandingPage, NotFoundPage, CompaniesPage, BuildingsPage, FloorsPage, RoomsPage, ReportsDetails };
+export { AccountPage, AdminPage, HomePage, LandingPage, NotFoundPage, CompaniesPage, BuildingsPage, FloorsPage, RoomsPage, ReportsPage };

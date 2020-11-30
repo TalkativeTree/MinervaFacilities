@@ -24,6 +24,7 @@ class FloorList extends Component {
     this.props.firebase
       .floors()
       .orderByChild('companyID')
+      .limitToLast(this.state.limit)
       .on('value', (snapshot) => {
         const floorsObject = snapshot.val();
 

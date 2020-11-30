@@ -93,26 +93,18 @@ class Firebase {
   users = () => this.db.ref('users');
   setUserCompany = (userID, companyID) => this.user(userID).update({ company_id: companyID });
 
-  // *** Report API ***
-  report = (uid) => this.db.ref(`reports/${uid}`);
-  reports = () => this.db.ref('reports');
-
   // **** Company API ***
   company = (uid) => this.db.ref(`companies/${uid}`);
   companies = () => this.db.ref('companies');
 
   createCompany = (companyData) => {
-    // Get a key for a new Company.
     var newCompanyKey = this.db.ref('companies').push().key;
-    // Write the new company's data simultaneously in the compnay list and the user's companies list.
     var updates = {};
     updates['/companies/' + newCompanyKey] = companyData;
+    updates['/users/' + companyData.owner.ownerID + '/companies/' + companyData.companyTitle] = newCompanyKey;
     updates['/users/' + companyData.owner.ownerID + '/company_id'] = newCompanyKey;
 
-    updates['/users/' + companyData.owner.ownerID + '/companies/' + companyData.companyTitle] = newCompanyKey;
-
     this.db.ref().update(updates);
-
     return newCompanyKey;
   };
 
@@ -121,18 +113,14 @@ class Firebase {
   buildings = () => this.db.ref('buildings');
 
   createBuilding = (buildingData) => {
-    // Get a key for a new building.
-    var newbuildingKey = this.db.ref('buildings').push().key;
-    // Write the new building's data simultaneously in the compnay list and the user's companies list.
+    let { companyID, buildingTitle } = buildingData;
+    var newBuildingKey = this.db.ref('buildings').push().key;
     var updates = {};
-    updates['/buildings/' + newbuildingKey] = buildingData;
-    // updates['/users/' + buildingData.owner.ownerID + '/building_id'] = newbuildingKey;
-
-    // updates['/users/' + buildingData.owner.ownerID + '/buildings/' + buildingData.buildingTitle] = newbuildingKey;
+    updates['/companies/' + companyID + '/buildings/' + buildingTitle] = newBuildingKey;
+    updates['/buildings/' + newBuildingKey] = buildingData;
 
     this.db.ref().update(updates);
-
-    return newbuildingKey;
+    return newBuildingKey;
   };
 
   // **** Floors API ***
@@ -140,23 +128,51 @@ class Firebase {
   floors = () => this.db.ref('floors');
 
   createFloor = (floorData) => {
-    // Get a key for a new floor.
-    var newfloorKey = this.db.ref('floors').push().key;
-    // Write the new floor's data simultaneously in the compnay list and the user's companies list.
+    let { companyID, buildingID, floorTitle } = reportData;
+    var newFloorKey = this.db.ref('floors').push().key;
     var updates = {};
-    updates['/floors/' + newfloorKey] = floorData;
-    // updates['/users/' + floorData.owner.ownerID + '/floor_id'] = newfloorKey;
-
-    // updates['/users/' + floorData.owner.ownerID + '/floors/' + floorData.floorTitle] = newfloorKey;
+    updates['/companies/' + companyID + '/buildings/' + buildingID + '/floors/' + floorTitle] = newFloorKey;
+    updates['/floors/' + newFloorKey] = floorData;
 
     this.db.ref().update(updates);
-
-    return newfloorKey;
+    return newFloorKey;
   };
 
   // *** Rooms API ***
   room = (uid) => this.db.ref(`rooms/${uid}`);
   rooms = () => this.db.ref('rooms');
+
+  createRoom = (roomData) => {
+    let { companyID, buildingID, floorID, roomTitle } = roomData;
+    var newRoomKey = this.db.ref('rooms').push().key;
+    var updates = {};
+    updates['/companies/' + companyID + '/buildings/' + buildingID + '/floors/' + floorID + '/rooms/' + roomTitle] = newRoomKey;
+    updates['/rooms/' + newroomKey] = roomData;
+
+    this.db.ref().update(updates);
+    return newRoomKey;
+  };
+
+  // *** Report API ***
+  report = (uid) => this.db.ref(`reports/${uid}`);
+  reports = () => this.db.ref('reports');
+
+  createReport = (reportData) => {
+    let { location, reportTitle, reporter } = reportData;
+    let { companyID, buildingID, floorID, roomID } = location;
+    
+    // Get a key for a new room.
+    var newReportKey = this.db.ref('reports').push().key;
+    // Write the new room's data simultaneously in the compnay list and the user's companies list.
+    var updates = {};
+    // updates['/companies/' + companyID + '/buildings/' + buildingID + '/floors/' + floorID + '/rooms/' + roomID + '/reports/' + reportTitle] = newReportKey;
+    updates['/reports/' + newReportKey] = reportData;
+    updates['/users/' + reporter.ownerID + '/reports/' + reportTitle] = newReportKey;
+
+    console.log(companyID, buildingID, floorID, roomID, reportTitle, reporter);
+    this.db.ref().update(updates);
+    return newReportKey;
+  };
 }
 
 export default Firebase;

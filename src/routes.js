@@ -29,4 +29,5 @@ export const ROOM_NEW = '/rooms/new';
 export const ROOM_DETAILS = '/rooms/:id';
 
 export const REPORTS = '/reports';
-export const REPORT_DETAILS = '/reports/:id'
+export const REPORT_NEW = '/reports/new';
+export const REPORT_DETAILS = '/reports/:id';

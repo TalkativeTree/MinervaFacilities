@@ -17,7 +17,7 @@ import {
   BuildingsPage,
   FloorsPage,
   RoomsPage,
-  ReportsDetails,
+  ReportsPage,
 } from '../Displays';
 
 const App = () => (
@@ -36,6 +36,7 @@ const App = () => (
               <Route path={ROUTES.BUILDINGS} component={BuildingsPage} />
               <Route path={ROUTES.FLOORS} component={FloorsPage} />
               <Route path={ROUTES.ROOMS} component={RoomsPage} />
+              <Route path={ROUTES.REPORTS} component={ReportsPage} />
 
               <Route exact path={ROUTES.LANDING}>
                 <Redirect to={ROUTES.HOME} />
@@ -46,11 +47,6 @@ const App = () => (
               <Route path={ROUTES.SIGN_IN}>
                 <Redirect to={ROUTES.HOME} />
               </Route>
-
-              <Route exact path={ROUTES.REPORTS}>
-                <Redirect to={ROUTES.HOME} />
-              </Route>
-              <Route path={ROUTES.REPORT_DETAILS} component={ReportsDetails} />
 
               <Route path={ROUTES.NOT_FOUND} component={NotFoundPage} />
             </Switch>

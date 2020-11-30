@@ -23,6 +23,7 @@ class BuildingList extends Component {
     this.props.firebase
       .buildings()
       .orderByChild('companyID')
+      .limitToLast(this.state.limit)
       .on('value', (snapshot) => {
         const buildingsObject = snapshot.val();
 

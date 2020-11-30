@@ -3,7 +3,7 @@ import { compose } from 'recompose';
 import { Tabs, Tab } from 'react-bootstrap';
 
 import { AuthUserContext, withEmailVerification, withAuthorization } from '../Session';
-import Reports from '../Creators/Reports';
+import ReportsPage from '../Displays';
 
 const HomePage = () => (
   <AuthUserContext.Consumer>
@@ -16,9 +16,9 @@ const EmployeeHomePage = () => (
     <div className="jumbotron paral paralsec">
       <h1 className="display-8 text-center">Home</h1>
     </div>
-    <h5>Under Construction</h5>
-    {/* <h6 className="text-center">Recent Reports:</h6>
-    <Reports /> */}
+    {/* <h5>Under Construction</h5> */}
+    <h6 className="text-center">Recent Reports:</h6>
+    {/* <ReportsPage /> */}
   </div>
 );
 
@@ -29,7 +29,7 @@ const AdminHomePage = () => (
       <h1 className="display-8 text-center">Admin Homepage</h1>
     </div>
     <h6 className="text-center">Recent Reports:</h6>
-    <Reports />
+    {/* <Reports /> */}
 
     {/* <div className="tab-wrapper">
       <div className="container">
