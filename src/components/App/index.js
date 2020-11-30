@@ -27,7 +27,6 @@ const App = () => (
         {(authUser) =>
           authUser ? (
             <Switch>
-              <Route path={ROUTES.HOME} component={HomePage} />
               <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
 
               <Route path={ROUTES.ADMIN} component={AdminPage} />
@@ -38,6 +37,10 @@ const App = () => (
               <Route path={ROUTES.ROOMS} component={RoomsPage} />
               <Route path={ROUTES.REPORTS} component={ReportsPage} />
 
+              <Route exact path={ROUTES.HOME}>
+                <Redirect to={ROUTES.REPORTS} />
+                {/* <HomePage /> */}
+              </Route>
               <Route exact path={ROUTES.LANDING}>
                 <Redirect to={ROUTES.HOME} />
               </Route>

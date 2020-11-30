@@ -64,9 +64,11 @@ class BuildingList extends Component {
               <div>There are no buildings ...</div>
             ) : (
               <div>
-                <button className="btn btn-secondary" type="button" onClick={this.onNextPage}>
-                  Show More
-                </button>
+                {buildings.length > this.state.limit && (
+                  <button className="btn btn-secondary" type="button" onClick={this.onNextPage}>
+                    Show More
+                  </button>
+                )}
 
                 <ul className="ul-comp-list">
                   {buildings.map(

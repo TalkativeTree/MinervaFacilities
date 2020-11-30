@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import * as ROUTES from '../../../routes';
 import { withFirebase } from '../../Firebase';
 import { AuthUserContext } from '../../Session';
+import { CreateReportForm } from '../../Utils';
 
 class ReportList extends Component {
   constructor(props) {
@@ -72,9 +73,11 @@ class ReportList extends Component {
               <div>There are no Reports for your Company/Building...</div>
             ) : (
               <div>
-                <button className="btn btn-secondary btn-bot" type="button" onClick={this.onNextPage}>
-                  More
-                </button>
+                {reports.length > this.state.limit && (
+                  <button className="btn btn-secondary btn-bot" type="button" onClick={this.onNextPage}>
+                    More
+                  </button>
+                )}
 
                 <ul className="ul-comp-list">
                   {reports.map(
@@ -124,6 +127,9 @@ class ReportList extends Component {
                 </ul>
               </div>
             )}
+
+            <CreateReportForm authUser={authUser} />
+
           </div>
         )}
       </AuthUserContext.Consumer>

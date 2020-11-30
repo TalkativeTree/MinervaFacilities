@@ -67,9 +67,11 @@ class CompanyList extends Component {
               <div>There are no companies ...</div>
             ) : (
               <div>
-                <button className="btn btn-secondary" type="button" onClick={this.onNextPage}>
-                  Show More
-                </button>
+                {companies.length > this.state.limit && (
+                  <button className="btn btn-secondary" type="button" onClick={this.onNextPage}>
+                    Show More
+                  </button>
+                )}
 
                 <ul className="ul-comp-list">
                   {companies.map(

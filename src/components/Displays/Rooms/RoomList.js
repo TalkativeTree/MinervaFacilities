@@ -66,9 +66,12 @@ class RoomList extends Component {
               <div>There are no Rooms for your Building/Floor...</div>
             ) : (
               <div>
-                <button className="btn btn-secondary btn-bot" type="button" onClick={this.onNextPage}>
-                  More
-                </button>
+                {rooms.length > this.state.limit && (
+                  <button className="btn btn-secondary btn-bot" type="button" onClick={this.onNextPage}>
+                    More
+                  </button>
+                )}
+
                 <ul className="ul-comp-list">
                   {rooms.map(
                     (room) =>
