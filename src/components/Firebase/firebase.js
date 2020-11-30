@@ -128,7 +128,7 @@ class Firebase {
   floors = () => this.db.ref('floors');
 
   createFloor = (floorData) => {
-    let { companyID, buildingID, floorTitle } = reportData;
+    let { companyID, buildingID, floorTitle } = floorData;
     var newFloorKey = this.db.ref('floors').push().key;
     var updates = {};
     updates['/companies/' + companyID + '/buildings/' + buildingID + '/floors/' + floorTitle] = newFloorKey;
@@ -147,7 +147,7 @@ class Firebase {
     var newRoomKey = this.db.ref('rooms').push().key;
     var updates = {};
     updates['/companies/' + companyID + '/buildings/' + buildingID + '/floors/' + floorID + '/rooms/' + roomTitle] = newRoomKey;
-    updates['/rooms/' + newroomKey] = roomData;
+    updates['/rooms/' + newRoomKey] = roomData;
 
     this.db.ref().update(updates);
     return newRoomKey;
