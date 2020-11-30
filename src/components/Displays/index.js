@@ -1,7 +1,6 @@
 import AccountPage from './AccountPage';
-import AdminPage from './AdminPage';
+import AdminPage from './Users';
 
-import HomePage from './HomePage';
 import LandingPage from './LandingPage';
 import NotFoundPage from './NotFoundPage';
 
@@ -11,4 +10,4 @@ import FloorsPage from './Floors';
 import RoomsPage from './Rooms';
 import ReportsPage from './Reports';
 
-export { AccountPage, AdminPage, HomePage, LandingPage, NotFoundPage, CompaniesPage, BuildingsPage, FloorsPage, RoomsPage, ReportsPage };
+export { AccountPage, AdminPage, LandingPage, NotFoundPage, CompaniesPage, BuildingsPage, FloorsPage, RoomsPage, ReportsPage };

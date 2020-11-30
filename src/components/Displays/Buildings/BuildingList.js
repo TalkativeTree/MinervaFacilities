@@ -5,6 +5,8 @@ import { AuthUserContext } from '../../Session';
 import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../../routes';
 
+import { CreateBuildingForm } from '../../Utils';
+
 class BuildingList extends Component {
   constructor(props) {
     super(props);
@@ -98,6 +100,8 @@ class BuildingList extends Component {
                 </ul>
               </div>
             )}
+
+            {authUser.roles === 'ADMIN' && <CreateBuildingForm authUser={authUser} />}
           </div>
         )}
       </AuthUserContext.Consumer>

@@ -10,7 +10,6 @@ import { SignUpPage, SignInPage, PasswordForgetPage } from '../Auth';
 import {
   LandingPage,
   NotFoundPage,
-  HomePage,
   AccountPage,
   AdminPage,
   CompaniesPage,

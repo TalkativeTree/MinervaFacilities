@@ -5,6 +5,8 @@ import { AuthUserContext } from '../../Session';
 import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../../routes';
 
+import { CreateCompanyForm } from '../../Utils';
+
 class CompanyList extends Component {
   constructor(props) {
     super(props);
@@ -62,7 +64,7 @@ class CompanyList extends Component {
         {(authUser) => (
           <div className="container add-padding-bottom">
             {loading && <div>Loading ...</div>}
-            
+
             {!companies ? (
               <div>There are no companies ...</div>
             ) : (
@@ -101,6 +103,8 @@ class CompanyList extends Component {
                 </ul>
               </div>
             )}
+
+            {authUser.roles === 'ADMIN' && <CreateCompanyForm authUser={authUser} />}
           </div>
         )}
       </AuthUserContext.Consumer>

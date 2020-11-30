@@ -5,6 +5,8 @@ import { AuthUserContext } from '../../Session';
 import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../../routes';
 
+import { CreateRoomForm } from '../../Utils';
+
 class RoomList extends Component {
   constructor(props) {
     super(props);
@@ -89,6 +91,8 @@ class RoomList extends Component {
                 </ul>
               </div>
             )}
+
+            {authUser.roles === 'ADMIN' && <CreateRoomForm authUser={authUser} />}
           </div>
         )}
       </AuthUserContext.Consumer>

@@ -128,7 +128,7 @@ class ReportForm extends Component {
 
     return (
       <div className="add-padding-bottom text-center">
-        <h1>Create A Company!</h1>
+        <h1>Create A Report!</h1>
         <form>
           <div className="form-row">
             <input
