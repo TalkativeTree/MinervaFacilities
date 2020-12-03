@@ -127,8 +127,9 @@ class ReportForm extends Component {
     } = this.state;
 
     return (
-      <div className="add-padding-bottom text-center">
-        <h1>Create A Report!</h1>
+      <div className=" text-center">
+        <hr />
+        <h2>Create A Report!</h2>
         <form>
           <div className="form-row">
             <input
@@ -167,7 +168,7 @@ class ReportForm extends Component {
             />
           </div>
 
-          <div className="btn btn-primary" onClick={this.onAutoFill}>
+          <div className="btn btn-primary form-input" onClick={this.onAutoFill}>
             Auto Fill Location
           </div>
 
@@ -201,18 +202,20 @@ class ReportForm extends Component {
             <option value="SERVICE">Service Report</option>
           </select>
 
-          <input type="file" onChange={this.handleChange} />
-          <p>
+          
+          <input className="file-uploader" type="file" onChange={this.handleChange} />
+
+          <p className='text-center'>
             Photo Upload Progress:
             <progress value={progress} max="100" className="progress" />
           </p>
         </form>
 
         <Prompt when={isBlocking} message={(location) => `Are you sure you want to go to ${location.pathname}`} />
-        <p>Blocking? {isBlocking ? 'Yes, click a link or the back button' : 'Nope'}</p>
+        {/* <p>Blocking? {isBlocking ? 'Yes, click a link or the back button' : 'Nope'}</p> */}
 
         <button className="btn btn-primary" type="submit" onClick={this.onCreateReport}>
-          <Link to={REPORTS}>click me to Send Report & Go Back</Link>
+          <Link to={REPORTS}>Submit Report</Link>
         </button>
       </div>
     );

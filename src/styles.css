@@ -1,5 +1,5 @@
 /* // Large devices (desktops, 992px and up) */
-@media (min-width: 834px) {
+@media (min-width: 780px) {
   .site-content {
     display: none;
   }
@@ -192,7 +192,25 @@ nav {
 .paralsec {
   background-image: url('https://img.webnots.com/2017/05/parallax.jpg');
 }
-
+.progress {
+  width: auto !important;
+}
+.file-uploader {
+  background-color: #fff !important;
+  /* padding: 0.5em; */
+  margin-bottom: 0.5em;
+  border-style: none;
+  border-radius: 5px;
+  position: relative;
+}
+button a {
+  color: white !important;
+  font-weight: bold;
+}
+/* input#file-upload-button {
+  background-color: #087cb8 !important;
+  font-weight: bold !important;
+} */
 /* .jumbotron {
   border-radius: 0 !important;
   margin-bottom: 0 !important;
