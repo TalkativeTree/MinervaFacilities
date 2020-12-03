@@ -1,7 +1,7 @@
-# [Minerva] by New Harmony Cafe
+# Minerva Facilities by New Harmony Cafe
 
 <p align="center">
-    <img width="350" height="350" src="./icon.png">
+    <img width="350" height="350" src="./public/images/minerva-transparent-vector.png">
 </p>
 
 <p align="center">
@@ -29,13 +29,34 @@
 
   <br />
 
-  <b>The app will allow building managers, employees, and maintenance workers/contractors to handle repair requests and office issues while providing a central location to track and store repair/request history.</b>
+<b>The app will allow building managers, employees, and maintenance workers/contractors to handle repair requests and office issues while providing a central location to track and store repair/request history.</b>
 
 </p>
+
+## Features
+
+- uses:
+  - only React (create-react-app)
+  - firebase
+  - react-router
+- features:
+  - Sign In
+  - Sign Up
+  - Sign Out
+  - Password Forget
+  - Password Change
+  - Verification Email
+  - Protected Routes with Authorization
+  - Roles-based Authorization
+  - Social Logins with Google, Facebook and Twitter
+  - Linking of Social Logins on Account dashboard
+  - Auth Persistence with Local Storage
+  - Database with Users and Reports
 
 ## 🛠️ Built With
 
 <!-- - [React-Native](https://reactnative.dev/docs/tutorial.html) - React Native is like React, but it uses native components instead of web components as building blocks. So to understand the basic structure of a React Native app, you need to understand some of the basic React concepts, like JSX, components, `state`, and `props`. -->
+
 - [Expo](https://docs.expo.io) - Expo is a framework and a platform for universal React applications. It is a set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate on iOS, Android, and web apps from the same JavaScript/TypeScript codebase.
 - [FireBase](https://firebase.google.com/docs?authuser=0) - Firebase gives you the tools to develop high-quality apps, grow your user base, and earn more money. We cover the essentials so you can monetize your business and focus on your users.
 - React Firebase Authentication [Tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial) & [Repo](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication.git) - The example used
@@ -67,29 +88,29 @@ Expo Client supports running any project that doesn't have custom native modules
 ## :writing_hand: Authors
 
 - Chris Barnes,
-[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/chrisbarnes2000/)
-&nbsp;
-[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/ChrisBarnes7404)
+  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/chrisbarnes2000/)
+  &nbsp;
+  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/ChrisBarnes7404)
 
 - Thom d'Olanie,
-[![Linkedin](https://i.stack.imgur.com/gVE0j.png) MISSING LinkedIn](https://www.linkedin.com/in/--)
-&nbsp;
-[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/PudgyElderGod)
+  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) MISSING LinkedIn](https://www.linkedin.com/in/--)
+  &nbsp;
+  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/PudgyElderGod)
 
 - Luke Harrison,
-[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/lukazdane/)
-&nbsp;
-[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/LukazDane)
+  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/lukazdane/)
+  &nbsp;
+  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/LukazDane)
 
 - Angelina Olmedo,
-[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/angelinaolmedo/)
-&nbsp;
-[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/angelinaolmedo7)
+  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/angelinaolmedo/)
+  &nbsp;
+  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/angelinaolmedo7)
 
 - David Evans,
-[![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/david-a-e/)
-&nbsp;
-[![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/Evansdava)
+  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/david-a-e/)
+  &nbsp;
+  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/Evansdava)
 
 <!-- ### [Project Features & Scoring](./PROGRESS.md) -->
 
@@ -97,11 +118,11 @@ Expo Client supports running any project that doesn't have custom native modules
 
 - Ben Angel @[New Harmony Cafe](https://www.newharmonycafe.com/),
 
-    [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/bangel/)
-    &nbsp;
-    [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/TalkativeTree)
-    &nbsp;
-    [:e-mail: Email](mailto:ben@newharmonycafe.com)
+  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/bangel/)
+  &nbsp;
+  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/TalkativeTree)
+  &nbsp;
+  [:e-mail: Email](mailto:ben@newharmonycafe.com)
 
 <!-- ## :pencil: License
 
@@ -114,6 +135,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [Emojis Wiki](https://emojis.wiki/) & [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
 - [Markdown Tutorial](https://agea.github.io/tutorial.md/)
 - [Writing A Good Commit](https://chris.beams.io/posts/git-commit/)
-<!-- - [Commit Template](https://thoughtbot.com/blog/better-commit-messages-with-a-gitmessage-template) -->
-<!-- - [Customizing Git Configuration](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration) -->
-<!-- - List of Github Badges [1](https://github.com/ClydeDz/emoji-badges-vscode/blob/master/list-of-badges.md) & [2](https://github.com/Naereen/badges) -->
+  <!-- - [Commit Template](https://thoughtbot.com/blog/better-commit-messages-with-a-gitmessage-template) -->
+  <!-- - [Customizing Git Configuration](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration) -->
+  <!-- - List of Github Badges [1](https://github.com/ClydeDz/emoji-badges-vscode/blob/master/list-of-badges.md) & [2](https://github.com/Naereen/badges) -->

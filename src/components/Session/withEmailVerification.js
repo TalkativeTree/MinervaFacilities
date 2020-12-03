@@ -50,7 +50,7 @@ const withEmailVerification = (Component) => {
                   onClick={this.onSendEmailVerification}
                   disabled={this.state.isSent}
                 >
-                  Send confirmation E-Mail
+                  Re-Send confirmation E-Mail
                 </Button>
               </div>
             ) : (
