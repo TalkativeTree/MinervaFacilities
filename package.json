@@ -1,7 +1,7 @@
 {
   "name": "minerva",
-  "homepage": "https://minervafacilities.com",
-  "version": "0.2.0",
+  "homepage": "https://TalkativeTree.github.io/MinervaFacilities",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "@firebase/database": "^0.6.12",
