@@ -1,3 +1,39 @@
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 834px) {
+  .site-content {
+    display: none;
+  }
+  .hidden {
+    display: block !important;
+    height: 100vh;
+    width: 100vw;
+    background-color: #087cb8;
+    background-image: url('../public/images/background_blue_gradient.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .desktop-banner {
+    margin: auto;
+    overflow: auto;
+    padding: 15vh 5vw;
+    position: fixed;
+  }
+  .little-square {
+    margin: 0 auto;
+    width: 40%;
+  }
+
+  .directive-card {
+    border: 5px solid black !important;
+    border-radius: 1.5rem !important;
+    width: 300px;
+    height: 550px;
+  }
+}
+
+/* ------- general/sitewide -------- */
 html,
 body {
   width: 100%;
@@ -15,10 +51,16 @@ ul {
 a {
   color: black !important;
 }
-
+div.container {
+  min-width: 100vw !important;
+  /* background-color: #087cb8 !important; */
+}
 .add-padding-bottom {
   /* separate so views arent overlayed */
   padding-bottom: 11vh;
+}
+.hidden {
+  display: none;
 }
 /* ------- Navigation -------- */
 nav {
@@ -67,6 +109,11 @@ nav {
 
 .usercard {
   background-color: #bebebe;
+  background-image: url('../public/images/trianglify-lowres.png');
+  background-size: 150%;
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
   margin: -1em;
   border-bottom: 3px ridge #303030;
   padding-top: 1em;
@@ -234,7 +281,6 @@ li.row {
 .text-center.edit-container {
   width: 100vw;
   justify-content: space-evenly;
-  margin-top: 1rem;
 }
 .form-row.edit-btn-container {
   width: 40vw;
@@ -282,8 +328,8 @@ p.comp-item.report-desc {
 }
 /* ------- Landing ---------- */
 .landing-container {
-  height: 100vh;
-  width: 100vw !important;
+  height: 90vh;
+  width: 100vw;
   background-image: url('https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/BetterGIFs/7c17f0c64b977875a2c0625b406bb0d2.gif?raw=true');
   background-attachment: fixed;
   background-position: center;

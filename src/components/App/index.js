@@ -22,6 +22,28 @@ import {
 const App = () => (
   <Router>
     <div>
+    <div className="hidden text-center"> 
+      <div className="row desktop-banner">
+        <div className="col">
+        <img
+        className="square" alt="logo"
+        src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
+      />
+        </div>
+        <div className="col">
+          <div className='card directive-card'>
+          <img
+        className="little-square" alt="logo"
+        src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
+      />     
+          <div class="card-body">
+            <p class="card-text">Visit us on mobile to get the full experience!</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="site-content">
       <AuthUserContext.Consumer>
         {(authUser) =>
           authUser ? (
@@ -91,6 +113,7 @@ const App = () => (
       </AuthUserContext.Consumer>
 
       <Navigation />
+      </div>
     </div>
   </Router>
 );
