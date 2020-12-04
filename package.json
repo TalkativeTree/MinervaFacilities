@@ -1,5 +1,5 @@
 {
-  "name": "minerva",
+  "name": "minervafacilities",
   "homepage": "https://TalkativeTree.github.io/MinervaFacilities",
   "version": "0.3.0",
   "private": true,
@@ -31,8 +31,8 @@
     "storage": "^0.2.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "predeploy": "expo build:web",
+    "deploy": "gh-pages -d web-build",
     "build": "react-scripts build",
     "start": "expo start",
     "android": "expo start --android",
@@ -45,5 +45,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
+  }
 }
