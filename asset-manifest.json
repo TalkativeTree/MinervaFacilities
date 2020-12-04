@@ -1,0 +1,21 @@
+{
+  "files": {
+    "app.js": "/MinervaFacilities/static/js/app.30a31d42.chunk.js",
+    "app.js.map": "/MinervaFacilities/static/js/app.30a31d42.chunk.js.map",
+    "runtime~app.js": "/MinervaFacilities/static/js/runtime~app.b6b603b6.js",
+    "runtime~app.js.map": "/MinervaFacilities/static/js/runtime~app.b6b603b6.js.map",
+    "static/js/2.74046740.chunk.js": "/MinervaFacilities/static/js/2.74046740.chunk.js",
+    "static/js/2.74046740.chunk.js.map": "/MinervaFacilities/static/js/2.74046740.chunk.js.map",
+    "index.html": "/MinervaFacilities/index.html",
+    "manifest.json": "/MinervaFacilities/manifest.json",
+    "serve.json": "/MinervaFacilities/serve.json",
+    "static/js/2.74046740.chunk.js.LICENSE.txt": "/MinervaFacilities/static/js/2.74046740.chunk.js.LICENSE.txt",
+    "static/media/background_blue_gradient.jpg": "/MinervaFacilities/static/media/background_blue_gradient.ba929207.jpg",
+    "static/media/trianglify-lowres.png": "/MinervaFacilities/static/media/trianglify-lowres.879ffb6b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime~app.b6b603b6.js",
+    "static/js/2.74046740.chunk.js",
+    "static/js/app.30a31d42.chunk.js"
+  ]
+}
