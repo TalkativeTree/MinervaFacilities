@@ -303,6 +303,7 @@ li.row {
   justify-content: space-evenly;
 }
 .text-center.edit-container {
+  margin-top: 1rem;
   width: 100vw;
   justify-content: space-evenly;
 }

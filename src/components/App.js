@@ -3,6 +3,8 @@ import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { AuthUserContext, withAuthentication } from './Session';
 import * as ROUTES from '../routes';
 
+import Logo from '../images/minerva-transparent-clean.png';
+
 import Navigation from './Navigation';
 
 import { SignUpPage, SignInPage, PasswordForgetPage } from './Auth';
@@ -27,7 +29,7 @@ const App = () => (
         <div className="col">
         <img
         className="littler-square" alt="logo"
-        src="https://github.com/TalkativeTree/MinervaFacilities/blob/master/public/images/minerva-transparent-clean.png?raw=true"
+        src={Logo}
       />
           <h3>
             <br></br>
