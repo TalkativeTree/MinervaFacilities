@@ -1,21 +1,27 @@
 {
   "files": {
-    "app.js": "/MinervaFacilities/static/js/app.30a31d42.chunk.js",
-    "app.js.map": "/MinervaFacilities/static/js/app.30a31d42.chunk.js.map",
-    "runtime~app.js": "/MinervaFacilities/static/js/runtime~app.b6b603b6.js",
-    "runtime~app.js.map": "/MinervaFacilities/static/js/runtime~app.b6b603b6.js.map",
-    "static/js/2.74046740.chunk.js": "/MinervaFacilities/static/js/2.74046740.chunk.js",
-    "static/js/2.74046740.chunk.js.map": "/MinervaFacilities/static/js/2.74046740.chunk.js.map",
-    "index.html": "/MinervaFacilities/index.html",
-    "manifest.json": "/MinervaFacilities/manifest.json",
-    "serve.json": "/MinervaFacilities/serve.json",
-    "static/js/2.74046740.chunk.js.LICENSE.txt": "/MinervaFacilities/static/js/2.74046740.chunk.js.LICENSE.txt",
-    "static/media/background_blue_gradient.jpg": "/MinervaFacilities/static/media/background_blue_gradient.ba929207.jpg",
-    "static/media/trianglify-lowres.png": "/MinervaFacilities/static/media/trianglify-lowres.879ffb6b.png"
+    "main.css": "/static/css/main.2ce429e6.chunk.css",
+    "main.js": "/static/js/main.58dd01a6.chunk.js",
+    "main.js.map": "/static/js/main.58dd01a6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8b50f163.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8b50f163.js.map",
+    "static/css/2.94f99572.chunk.css": "/static/css/2.94f99572.chunk.css",
+    "static/js/2.f1eb93a5.chunk.js": "/static/js/2.f1eb93a5.chunk.js",
+    "static/js/2.f1eb93a5.chunk.js.map": "/static/js/2.f1eb93a5.chunk.js.map",
+    "static/js/3.1add2a26.chunk.js": "/static/js/3.1add2a26.chunk.js",
+    "static/js/3.1add2a26.chunk.js.map": "/static/js/3.1add2a26.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.94f99572.chunk.css.map": "/static/css/2.94f99572.chunk.css.map",
+    "static/css/main.2ce429e6.chunk.css.map": "/static/css/main.2ce429e6.chunk.css.map",
+    "static/js/2.f1eb93a5.chunk.js.LICENSE.txt": "/static/js/2.f1eb93a5.chunk.js.LICENSE.txt",
+    "static/media/styles.css": "/static/media/trianglify-lowres.879ffb6b.png",
+    "static/media/minerva-transparent-vector.eefc7c90.png": "/static/media/minerva-transparent-vector.eefc7c90.png"
   },
   "entrypoints": [
-    "static/js/runtime~app.b6b603b6.js",
-    "static/js/2.74046740.chunk.js",
-    "static/js/app.30a31d42.chunk.js"
+    "static/js/runtime-main.8b50f163.js",
+    "static/css/2.94f99572.chunk.css",
+    "static/js/2.f1eb93a5.chunk.js",
+    "static/css/main.2ce429e6.chunk.css",
+    "static/js/main.58dd01a6.chunk.js"
   ]
 }
