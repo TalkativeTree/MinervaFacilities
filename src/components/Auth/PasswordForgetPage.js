@@ -6,13 +6,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../routes';
 
+import Logo from '../../images/minerva-transparent-vector.png';
+
 const PasswordForgetPage = () => (
   <div className="page-bg">
-        <div className="page-inner">
-    <h1>Reset Password</h1>
-    <PasswordForgetForm />
-    <BackButton />
-
+    <div className="page-inner">
+      <img className="signin-logo fade-in" alt="logo" src={Logo} />
+      <h1>Reset Password</h1>
+      <PasswordForgetForm />
+      <BackButton />
     </div>
   </div>
 );

@@ -9,22 +9,20 @@ import * as ROUTES from '../../routes';
 import { faFacebookF, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import Logo from '../../images/minerva-transparent-vector.png';
+
 const SignInPage = () => (
   <div className="page-bg">
     <div className="page-inner">
-      <img
-        className="signin-logo fade-in"
-        alt="logo"
-        src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
-      />
+      <img className="signin-logo fade-in" alt="logo" src={Logo} />
 
       <h1>Log In</h1>
       <SignInForm />
       <PasswordForgetLink />
       <h4>Or log in with social:</h4>
       <SignInGoogle />
-      <SignInFacebook />
-      <SignInTwitter />
+      {/* <SignInFacebook /> */}
+      {/* <SignInTwitter /> */}
       <SignUpLink />
     </div>
   </div>

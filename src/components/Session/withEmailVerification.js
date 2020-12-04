@@ -2,7 +2,6 @@ import React from 'react';
 
 import AuthUserContext from './context';
 import { withFirebase } from '../Firebase';
-import Button from 'react-bootstrap/Button';
 
 const needsEmailVerification = (authUser) =>
   authUser &&
@@ -45,13 +44,13 @@ const withEmailVerification = (Component) => {
                   </p>
                 )}
 
-                <Button
+                <button
                   type="button btn-primary"
                   onClick={this.onSendEmailVerification}
                   disabled={this.state.isSent}
                 >
                   Re-Send confirmation E-Mail
-                </Button>
+                </button>
               </div>
             ) : (
               <Component {...this.props} />

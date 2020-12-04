@@ -1,11 +1,11 @@
 import React from 'react';
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import { AuthUserContext, withAuthentication } from '../Session';
-import * as ROUTES from '../../routes';
+import { AuthUserContext, withAuthentication } from './Session';
+import * as ROUTES from '../routes';
 
-import Navigation from '../Navigation';
+import Navigation from './Navigation';
 
-import { SignUpPage, SignInPage, PasswordForgetPage } from '../Auth';
+import { SignUpPage, SignInPage, PasswordForgetPage } from './Auth';
 
 import {
   LandingPage,
@@ -17,7 +17,7 @@ import {
   FloorsPage,
   RoomsPage,
   ReportsPage,
-} from '../Displays';
+} from './Displays';
 
 const App = () => (
   <Router>
@@ -27,7 +27,7 @@ const App = () => (
         <div className="col">
         <img
         className="littler-square" alt="logo"
-        src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-clean.png?raw=true"
+        src="https://github.com/TalkativeTree/MinervaFacilities/blob/master/public/images/minerva-transparent-clean.png?raw=true"
       />
           <h3>
             <br></br>
