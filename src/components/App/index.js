@@ -26,20 +26,13 @@ const App = () => (
       <div className="row desktop-banner">
         <div className="col">
         <img
-        className="square" alt="logo"
-        src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
+        className="littler-square" alt="logo"
+        src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-clean.png?raw=true"
       />
-        </div>
-        <div className="col">
-          <div className='card directive-card'>
-          <img
-        className="little-square" alt="logo"
-        src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
-      />     
-          <div class="card-body">
-            <p class="card-text">Visit us on mobile to get the full experience!</p>
-          </div>
-          </div>
+          <h3>
+            <br></br>
+            Visit us on mobile to get the full experience!
+          </h3>
         </div>
       </div>
     </div>

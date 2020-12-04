@@ -15,14 +15,20 @@
     background-repeat: no-repeat;
   }
   .desktop-banner {
-    margin: auto;
+    margin: 15hv 15vw !important;
     overflow: auto;
     padding: 15vh 5vw;
-    position: fixed;
+    font-size: large;
+    color: white;
+    vertical-align: center;
   }
   .little-square {
     margin: 0 auto;
     width: 40%;
+  }
+  .littler-square {
+    margin: 0 auto;
+    width: 20%;
   }
 
   .directive-card {
