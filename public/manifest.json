@@ -1,5 +1,5 @@
 {
-  "short_name": "Minerva Facilities",
+  "short_name": "minerva_facilities",
   "name": "Minerva Facilities From New Harmony Cafe",
   "icons": [
     {
@@ -8,12 +8,12 @@
       "type": "ico"
     },
     {
-      "src":"/android-chrome-192x192.png",
+      "src":"./favion_io/android-chrome-192x192.png",
       "sizes":"192x192",
       "type":"image/png"
     },
     {
-      "src":"/android-chrome-512x512.png",
+      "src":"./favion_io/android-chrome-512x512.png",
       "sizes":"512x512","type":"image/png"
     }
   ],
