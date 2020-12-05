@@ -1,6 +1,6 @@
 {
   "name": "minerva_facilities",
-  "homepage": "https://minervafacilities.com/",
+  "homepage": "https://TalkativeTree.github.io/MinervaFacilities/",
   "version": "1.0.0",
   "description": "This app allows building managers, employees, and maintenance workers/contractors to handle repair requests and office issues while providing a central location to track and store repair/request history.",
   "main": "index.js",
