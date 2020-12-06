@@ -9,6 +9,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@firebase/analytics": "^0.6.2",
+    "@firebase/performance": "^0.4.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
