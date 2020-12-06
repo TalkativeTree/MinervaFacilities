@@ -30,7 +30,7 @@ class Firebase {
     this.db = app.database();
     this.storage = app.storage();
     this.analytics = app.analytics();
-    this.performance = firebase.performance();
+    this.performance = app.performance();
 
     /* Social Sign In Method Provider */
     this.googleProvider = new app.auth.GoogleAuthProvider();
