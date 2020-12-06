@@ -200,8 +200,8 @@ class ReportDetail extends Component {
                   </p>
                   {report.image && (
                     <div>
-                      <a href={report.image}>
-                        <img src={report.image} alt="Uploaded Images" height="150" width="150" />
+                      <a href={report.image.reportImageURL}>
+                        <img src={report.image.reportImageURL} alt={report.image.reportImageName} height="150" width="150" />
                       </a>
                     </div>
                   )}
