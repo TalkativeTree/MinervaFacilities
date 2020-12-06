@@ -21,93 +21,93 @@ import {
   ReportsPage,
 } from './Displays';
 
+import PromptSaveBookmark from './Utils/PromptSaveBookmark';
+
 const App = () => (
   <Router>
     <div>
-    <div className="hidden text-center"> 
-      <div className="row desktop-banner">
-        <div className="col">
-        <img
-        className="littler-square" alt="logo"
-        src={Logo}
-      />
-          <h3>
-            <br></br>
-            Visit us on mobile to get the full experience!
-          </h3>
+      <div className="hidden text-center">
+        <div className="row desktop-banner">
+          <div className="col">
+            <img className="littler-square" alt="logo" src={Logo} />
+            <h3>
+              <br></br>
+              Visit us on mobile to get the full experience!
+            </h3>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="site-content">
-      <AuthUserContext.Consumer>
-        {(authUser) =>
-          authUser ? (
-            <Switch>
-              <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+      <div className="site-content">
+        <AuthUserContext.Consumer>
+          {(authUser) =>
+            authUser ? (
+              <Switch>
+                <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
 
-              <Route path={ROUTES.ADMIN} component={AdminPage} />
-              <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-              <Route path={ROUTES.COMPANIES} component={CompaniesPage} />
-              <Route path={ROUTES.BUILDINGS} component={BuildingsPage} />
-              <Route path={ROUTES.FLOORS} component={FloorsPage} />
-              <Route path={ROUTES.ROOMS} component={RoomsPage} />
-              <Route path={ROUTES.REPORTS} component={ReportsPage} />
+                <Route path={ROUTES.ADMIN} component={AdminPage} />
+                <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+                <Route path={ROUTES.COMPANIES} component={CompaniesPage} />
+                <Route path={ROUTES.BUILDINGS} component={BuildingsPage} />
+                <Route path={ROUTES.FLOORS} component={FloorsPage} />
+                <Route path={ROUTES.ROOMS} component={RoomsPage} />
+                <Route path={ROUTES.REPORTS} component={ReportsPage} />
 
-              <Route exact path={ROUTES.HOME}>
-                <Redirect to={ROUTES.REPORTS} />
-                {/* <HomePage /> */}
-              </Route>
-              <Route exact path={ROUTES.LANDING}>
-                <Redirect to={ROUTES.HOME} />
-              </Route>
-              <Route path={ROUTES.SIGN_UP}>
-                <Redirect to={ROUTES.HOME} />
-              </Route>
-              <Route path={ROUTES.SIGN_IN}>
-                <Redirect to={ROUTES.HOME} />
-              </Route>
+                <Route exact path={ROUTES.HOME}>
+                  <Redirect to={ROUTES.REPORTS} />
+                  {/* <HomePage /> */}
+                </Route>
+                <Route exact path={ROUTES.LANDING}>
+                  <Redirect to={ROUTES.HOME} />
+                </Route>
+                <Route path={ROUTES.SIGN_UP}>
+                  <Redirect to={ROUTES.HOME} />
+                </Route>
+                <Route path={ROUTES.SIGN_IN}>
+                  <Redirect to={ROUTES.HOME} />
+                </Route>
 
-              <Route path={ROUTES.NOT_FOUND} component={NotFoundPage} />
-            </Switch>
-          ) : (
-            <Switch>
-              <Route exact path={ROUTES.LANDING} component={LandingPage} />
-              <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
-              <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
-              <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+                <Route path={ROUTES.NOT_FOUND} component={NotFoundPage} />
+              </Switch>
+            ) : (
+              <Switch>
+                <Route exact path={ROUTES.LANDING} component={LandingPage} />
+                <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
+                <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
+                <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
 
-              <Route path={ROUTES.HOME}>
-                <Redirect to={ROUTES.SIGN_IN} />
-              </Route>
-              <Route path={ROUTES.ADMIN}>
-                <Redirect to={ROUTES.SIGN_IN} />
-              </Route>
-              <Route path={ROUTES.ACCOUNT}>
-                <Redirect to={ROUTES.SIGN_IN} />
-              </Route>
-              <Route path={ROUTES.COMPANIES}>
-                <Redirect to={ROUTES.SIGN_IN} />
-              </Route>
-              <Route path={ROUTES.BUILDINGS}>
-                <Redirect to={ROUTES.SIGN_IN} />
-              </Route>
-              <Route path={ROUTES.FLOORS}>
-                <Redirect to={ROUTES.SIGN_IN} />
-              </Route>
-              <Route path={ROUTES.ROOMS}>
-                <Redirect to={ROUTES.SIGN_IN} />
-              </Route>
-              <Route path={ROUTES.REPORTS}>
-                <Redirect to={ROUTES.SIGN_IN} />
-              </Route>
+                <Route path={ROUTES.HOME}>
+                  <Redirect to={ROUTES.SIGN_IN} />
+                </Route>
+                <Route path={ROUTES.ADMIN}>
+                  <Redirect to={ROUTES.SIGN_IN} />
+                </Route>
+                <Route path={ROUTES.ACCOUNT}>
+                  <Redirect to={ROUTES.SIGN_IN} />
+                </Route>
+                <Route path={ROUTES.COMPANIES}>
+                  <Redirect to={ROUTES.SIGN_IN} />
+                </Route>
+                <Route path={ROUTES.BUILDINGS}>
+                  <Redirect to={ROUTES.SIGN_IN} />
+                </Route>
+                <Route path={ROUTES.FLOORS}>
+                  <Redirect to={ROUTES.SIGN_IN} />
+                </Route>
+                <Route path={ROUTES.ROOMS}>
+                  <Redirect to={ROUTES.SIGN_IN} />
+                </Route>
+                <Route path={ROUTES.REPORTS}>
+                  <Redirect to={ROUTES.SIGN_IN} />
+                </Route>
 
-              <Route path={ROUTES.NOT_FOUND} component={NotFoundPage} />
-            </Switch>
-          )
-        }
-      </AuthUserContext.Consumer>
+                <Route path={ROUTES.NOT_FOUND} component={NotFoundPage} />
+              </Switch>
+            )
+          }
+        </AuthUserContext.Consumer>
 
-      <Navigation />
+        <PromptSaveBookmark />
+        <Navigation />
       </div>
     </div>
   </Router>
