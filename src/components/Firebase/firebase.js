@@ -117,18 +117,18 @@ class Firebase {
   };
   users = () => {
     this.analytics.logEvent('Referencing Users List');
-    this.db.ref('users');
+    return this.db.ref('users');
   };
   setUserCompany = (userID, companyID) => this.user(userID).update({ company_id: companyID });
 
   // **** Company API ***
   company = (uid) => {
     this.analytics.logEvent("Referencing A Company's Data");
-    this.db.ref(`companies/${uid}`);
+    return this.db.ref(`companies/${uid}`);
   };
   companies = () => {
     this.analytics.logEvent("Referencing Companies List");
-    this.db.ref('companies');
+    return this.db.ref('companies');
   };
 
   createCompany = (companyData) => {
@@ -146,11 +146,11 @@ class Firebase {
   // **** Building API ***
   building = (uid) => {
     this.analytics.logEvent("Referencing A Building's Data");
-    this.db.ref(`buildings/${uid}`);
+    return this.db.ref(`buildings/${uid}`);
   };
   buildings = () => {
     this.analytics.logEvent("Referencing Buildings List");
-    this.db.ref('buildings');
+    return this.db.ref('buildings');
   };
 
   createBuilding = (buildingData) => {
@@ -168,11 +168,11 @@ class Firebase {
   // **** Floors API ***
   floor = (uid) => {
     this.analytics.logEvent("Referencing A Floor's Data");
-    this.db.ref(`floors/${uid}`);
+    return this.db.ref(`floors/${uid}`);
   };
   floors = () => {
     this.analytics.logEvent("Referencing Floors List");
-    this.db.ref('floors');
+    return this.db.ref('floors');
   };
 
   createFloor = (floorData) => {
@@ -190,11 +190,11 @@ class Firebase {
   // *** Rooms API ***
   room = (uid) => {
     this.analytics.logEvent("Referencing A Rooms's Data");
-    this.db.ref(`rooms/${uid}`);
+    return this.db.ref(`rooms/${uid}`);
   };
   rooms = () => {
     this.analytics.logEvent("Referencing Rooms List");
-    this.db.ref('rooms');
+    return this.db.ref('rooms');
   };
 
   createRoom = (roomData) => {
@@ -212,11 +212,11 @@ class Firebase {
   // *** Report API ***
   report = (uid) => {
     this.analytics.logEvent("Referencing A Reports's Data");
-    this.db.ref(`reports/${uid}`);
+    return this.db.ref(`reports/${uid}`);
   };
   reports = () => {
     this.analytics.logEvent("Referencing Reports List");
-    this.db.ref('reports');
+    return this.db.ref('reports');
   };
 
   createReport = (reportData) => {
