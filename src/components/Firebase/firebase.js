@@ -3,6 +3,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
 import 'firebase/analytics';
+import 'firebase/performance';
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY || 'AIzaSyBnJSs5VkOG4k2VAByyYU8pxeyOthF3FFs',
@@ -29,6 +30,7 @@ class Firebase {
     this.db = app.database();
     this.storage = app.storage();
     this.analytics = app.analytics();
+    this.performance = firebase.performance();
 
     /* Social Sign In Method Provider */
     this.googleProvider = new app.auth.GoogleAuthProvider();
@@ -37,26 +39,46 @@ class Firebase {
   }
 
   // *** Auth API ***
-  doCreateUserWithEmailAndPassword = (email, password) => this.auth.createUserWithEmailAndPassword(email, password);
+  doCreateUserWithEmailAndPassword = (email, password) => {
+    this.analytics.logEvent('Created A New User Using Email & Pass');
+    return this.auth.createUserWithEmailAndPassword(email, password);
+  };
 
-  doSignInWithEmailAndPassword = (email, password) => this.auth.signInWithEmailAndPassword(email, password);
+  doSignInWithEmailAndPassword = (email, password) => {
+    this.analytics.logEvent('User Logged In Using Email & Pass');
+    return this.auth.signInWithEmailAndPassword(email, password);
+  };
 
-  doSignInWithGoogle = () => this.auth.signInWithPopup(this.googleProvider);
+  doSignInWithGoogle = () => {
+    this.analytics.logEvent('User Logged In Using Google');
+    return this.auth.signInWithPopup(this.googleProvider);
+  };
 
   doSignInWithFacebook = () => this.auth.signInWithPopup(this.facebookProvider);
 
   doSignInWithTwitter = () => this.auth.signInWithPopup(this.twitterProvider);
 
-  doSignOut = () => this.auth.signOut();
+  doSignOut = () => {
+    this.analytics.logEvent('User Logged Out');
+    return this.auth.signOut();
+  };
 
-  doPasswordReset = (email) => this.auth.sendPasswordResetEmail(email);
+  doPasswordReset = (email) => {
+    this.analytics.logEvent('User Tried To Rest Their Password');
+    return this.auth.sendPasswordResetEmail(email);
+  };
 
-  doSendEmailVerification = () =>
-    this.auth.currentUser.sendEmailVerification({
+  doPasswordUpdate = (password) => {
+    this.analytics.logEvent('User Changed Their Password');
+    return this.auth.currentUser.updatePassword(password);
+  };
+
+  doSendEmailVerification = () => {
+    this.analytics.logEvent('Email Verification Sent');
+    return this.auth.currentUser.sendEmailVerification({
       url: process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT || 'http://localhost:3000/',
     });
-
-  doPasswordUpdate = (password) => this.auth.currentUser.updatePassword(password);
+  };
 
   // *** Merge Auth and DB User API *** //
   onAuthUserListener = (next, fallback) =>
@@ -89,13 +111,25 @@ class Firebase {
     });
 
   // *** User API ***
-  user = (uid) => this.db.ref(`users/${uid}`);
-  users = () => this.db.ref('users');
+  user = (uid) => {
+    this.analytics.logEvent("Referencing A User's Data");
+    return this.db.ref(`users/${uid}`);
+  };
+  users = () => {
+    this.analytics.logEvent('Referencing Users List');
+    this.db.ref('users');
+  };
   setUserCompany = (userID, companyID) => this.user(userID).update({ company_id: companyID });
 
   // **** Company API ***
-  company = (uid) => this.db.ref(`companies/${uid}`);
-  companies = () => this.db.ref('companies');
+  company = (uid) => {
+    this.analytics.logEvent("Referencing A Company's Data");
+    this.db.ref(`companies/${uid}`);
+  };
+  companies = () => {
+    this.analytics.logEvent("Referencing Companies List");
+    this.db.ref('companies');
+  };
 
   createCompany = (companyData) => {
     var newCompanyKey = this.db.ref('companies').push().key;
@@ -103,14 +137,21 @@ class Firebase {
     updates['/companies/' + newCompanyKey] = companyData;
     updates['/users/' + companyData.owner.ownerID + '/companies/' + companyData.companyTitle] = newCompanyKey;
     updates['/users/' + companyData.owner.ownerID + '/company_id'] = newCompanyKey;
-
+    
+    this.analytics.logEvent("Creating A New Company");
     this.db.ref().update(updates);
     return newCompanyKey;
   };
 
   // **** Building API ***
-  building = (uid) => this.db.ref(`buildings/${uid}`);
-  buildings = () => this.db.ref('buildings');
+  building = (uid) => {
+    this.analytics.logEvent("Referencing A Building's Data");
+    this.db.ref(`buildings/${uid}`);
+  };
+  buildings = () => {
+    this.analytics.logEvent("Referencing Buildings List");
+    this.db.ref('buildings');
+  };
 
   createBuilding = (buildingData) => {
     let { companyID, buildingTitle } = buildingData;
@@ -119,13 +160,20 @@ class Firebase {
     updates['/companies/' + companyID + '/buildings/' + buildingTitle] = newBuildingKey;
     updates['/buildings/' + newBuildingKey] = buildingData;
 
+    this.analytics.logEvent("Creating A New Building");
     this.db.ref().update(updates);
     return newBuildingKey;
   };
 
   // **** Floors API ***
-  floor = (uid) => this.db.ref(`floors/${uid}`);
-  floors = () => this.db.ref('floors');
+  floor = (uid) => {
+    this.analytics.logEvent("Referencing A Floor's Data");
+    this.db.ref(`floors/${uid}`);
+  };
+  floors = () => {
+    this.analytics.logEvent("Referencing Floors List");
+    this.db.ref('floors');
+  };
 
   createFloor = (floorData) => {
     let { companyID, buildingID, floorTitle } = floorData;
@@ -134,13 +182,20 @@ class Firebase {
     updates['/companies/' + companyID + '/buildings/' + buildingID + '/floors/' + floorTitle] = newFloorKey;
     updates['/floors/' + newFloorKey] = floorData;
 
+    this.analytics.logEvent("Creating A New Floor");
     this.db.ref().update(updates);
     return newFloorKey;
   };
 
   // *** Rooms API ***
-  room = (uid) => this.db.ref(`rooms/${uid}`);
-  rooms = () => this.db.ref('rooms');
+  room = (uid) => {
+    this.analytics.logEvent("Referencing A Rooms's Data");
+    this.db.ref(`rooms/${uid}`);
+  };
+  rooms = () => {
+    this.analytics.logEvent("Referencing Rooms List");
+    this.db.ref('rooms');
+  };
 
   createRoom = (roomData) => {
     let { companyID, buildingID, floorID, roomTitle } = roomData;
@@ -149,18 +204,25 @@ class Firebase {
     updates['/companies/' + companyID + '/buildings/' + buildingID + '/floors/' + floorID + '/rooms/' + roomTitle] = newRoomKey;
     updates['/rooms/' + newRoomKey] = roomData;
 
+    this.analytics.logEvent("Creating A New Room");
     this.db.ref().update(updates);
     return newRoomKey;
   };
 
   // *** Report API ***
-  report = (uid) => this.db.ref(`reports/${uid}`);
-  reports = () => this.db.ref('reports');
+  report = (uid) => {
+    this.analytics.logEvent("Referencing A Reports's Data");
+    this.db.ref(`reports/${uid}`);
+  };
+  reports = () => {
+    this.analytics.logEvent("Referencing Reports List");
+    this.db.ref('reports');
+  };
 
   createReport = (reportData) => {
     let { location, reportTitle, reporter } = reportData;
     let { companyID, buildingID, floorID, roomID } = location;
-    
+
     // Get a key for a new room.
     var newReportKey = this.db.ref('reports').push().key;
     // Write the new room's data simultaneously in the compnay list and the user's companies list.
@@ -170,6 +232,7 @@ class Firebase {
     updates['/users/' + reporter.ownerID + '/reports/' + reportTitle] = newReportKey;
 
     console.log(companyID, buildingID, floorID, roomID, reportTitle, reporter);
+    this.analytics.logEvent("Creating A New Report");
     this.db.ref().update(updates);
     return newReportKey;
   };
