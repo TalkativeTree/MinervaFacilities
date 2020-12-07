@@ -1,7 +1,5 @@
-# Minerva Facilities by New Harmony Cafe
-
 <p align="center">
-    <img width="350" height="350" src="./src/images/minerva-transparent-vector.png">
+  <img width="350" height="350" src="./src/images/minerva-transparent-vector.png">
 </p>
 
 <div align="center">
@@ -21,22 +19,27 @@
       <img alt="GitHub issues" longdesc="GitHub issues" src="https://img.shields.io/github/issues/TalkativeTree/MinervaFacilities.svg?style=social&label=Issues&maxAge=2592000" />
     </a>
   </p>
-  <br />
-  <p>
-    <b>The app will allow building managers, employees, and maintenance workers/contractors to handle repair requests and office issues while providing a central location to track and store repair/request history.</b>
-  </p>
 </div>
+
+# Getting Started Minerva Facilities by New Harmony Cafe
+
+<p>
+  <b>The app will allow building managers, employees, and maintenance workers/contractors to handle repair requests and office issues while providing a central location to track and store repair/request history.</b>
+</p>
 
 ## 🛠️ Built With
 
-- React Firebase Authentication [Tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial) & [Repo](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication.git) - The example used
+Please skim through these links to understand how this project is built.
 
-## Features
+- [Create React App](https://github.com/facebook/create-react-app).
+- React Firebase Authentication [Tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial) & [Repo](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication.git)
 
-<!-- - uses: -->
-  <!-- - only React (create-react-app) -->
-  <!-- - firebase -->
-  <!-- - react-router -->
+### Features
+
+- uses:
+  - React (create-react-app)
+  - react-router
+  - firebase
 - features:
   - Sign In
   - Sign Up
@@ -51,56 +54,150 @@
   - Auth Persistence with Local Storage
   - Database with Users and Reports
 
-<!-- ## Contributing
+## :pencil: License
 
-For more details on our [code of conduct](./.github/CODE_OF_CONDUCT.md), and the process for submitting pull requests to us, Please read our [CONTRIBUTING.md](CONTRIBUTING.md) . -->
+This project is not currently licensed
+<!-- This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details -->
 
-## :rocket: Deployment
+## :writing_hand: Contributing Authors
 
-This section has moved [here](https://facebook.github.io/create-react-app/docs/deployment)
+Before continuing you need to understand the difference between a contributor and a collaborator.\
+Anyone is welcome to contribute!
 
-## :writing_hand: Authors
+## Recruiter:
 
-- Chris Barnes,
-  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/chrisbarnes2000/)
-  &nbsp;
-  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/ChrisBarnes7404)
+- The company/person to initally pitch the idea and has priority power.
 
-- Thom d'Olanie,
-  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) MISSING LinkedIn](https://www.linkedin.com/in/--)
-  &nbsp;
-  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/PudgyElderGod)
+## Colaborators:
 
-- Luke Harrison,
-  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/lukazdane/)
-  &nbsp;
-  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/LukazDane)
+- A collaborator is someone **on** the core development team of the project and has commit access to the main repository of the project.
 
-- Angelina Olmedo,
-  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/angelinaolmedo/)
-  &nbsp;
-  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/angelinaolmedo7)
+## Contributors:
 
-- David Evans,
-  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/david-a-e/)
-  &nbsp;
-  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/Evansdava)
+- A contributor is someone from the outside **(not on)** the core development team of the project that wants to contribute some changes to a project.
 
-## :pray: Acknowledgments
+<!-- Continue reading to learn about the workflow for both [contributors](https://github.com/CoolProp/CoolProp/wiki/Contributing%3A-git-development-workflow) and [collaborators](https://github.com/CoolProp/CoolProp/wiki/Collaborating%3A-git-development-workflow).\ -->
+For more details, Please read our [guide to contribute](./.github/CONTRIBUTING.md) & [code of conduct](./.github/CODE_OF_CONDUCT.md).
 
-- Ben Angel @[New Harmony Cafe](https://www.newharmonycafe.com/),
+<table>
+  <tr>
+    <th>Recruiter</th>
+    <td align="center">
+      <a href="https://github.com/TalkativeTree">
+        <img src="https://avatars0.githubusercontent.com/u/3632442?s=460&v=4" width="75px;" alt="Ben Angel"/>
+        <br />
+        <sub><b>Ben Angel</b></sub>
+      </a>
+      <br />
+      <!-- <a href="mailto:ben@newharmonycafe.com" title="Email">:e-mail:</a> -->
+      <a href="https://github.com/TalkativeTree/MinervaFacilities/commits?author=TalkativeTree" title="Code">💻</a>
+      <!-- <a href="https://www.linkedin.com/in/bangel" title="LinkedIn"><img src="https://i.stack.imgur.com/gVE0j.png" /></a> -->
+    </td>
+  </tr>
+  <tr>
+    <th>Colaborators</th>
+    <td align="center">
+      <a href="https://github.com/chrisbarnes7404">
+        <img src="https://avatars3.githubusercontent.com/u/25515082?s=460&u=d6d50a936b3e64d2e3d071574891a81faa33d0cb&v=4" width="75px;" alt="Chris Barnes"/>
+        <br />
+        <sub><b>Chirs Barnes</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/TalkativeTree/MinervaFacilities/commits?author=chrisbarnes7404" title="Code">💻</a>
+      <!-- <a href="https://www.linkedin.com/in/chrisbarnes2000/" title="LinkedIn"><img src="https://i.stack.imgur.com/gVE0j.png" /></a> -->
+    </td>
+    <td align="center">
+      <a href="https://github.com/PudgyElderGod">
+        <img src="https://avatars2.githubusercontent.com/u/54594141?s=460&u=c2a0845c9909d73960289ea3ea17abff45305daf&v=4" width="75px;" alt="Thom d'Olanie"/>
+        <br />
+        <sub><b>Thom d'Olanie</b></sub>
+        </a>
+        <br />
+        <a href="https://github.com/TalkativeTree/MinervaFacilities/commits?author=PudgyElderGod" title="Code">💻</a>
+        <!-- <a href="https://www.linkedin.com/in/--" title="LinkedIn"><img src="https://i.stack.imgur.com/gVE0j.png" /></a> -->
+      </td>
+    <td align="center">
+      <a href="https://github.com/lukazdane">
+        <img src="https://avatars1.githubusercontent.com/u/27242197?s=460&u=3b8bcfbc40edbfb186ff547d15a1fe9a1c423ff8&v=4" width="75px;" alt="Luke Harrison"/>
+        <br />
+        <sub><b>Luke Harrison</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/TalkativeTree/MinervaFacilities/commits?author=lukazdane" title="Code">💻</a>
+      <!-- <a href="https://www.linkedin.com/in/lukazdane/" title="LinkedIn"><img src="https://i.stack.imgur.com/gVE0j.png" /></a> -->
+    </td>
+    <td align="center">
+      <a href="https://github.com/angelinaolmedo7">
+        <img src="https://avatars1.githubusercontent.com/u/32281651?s=460&u=18afcd32ea3f7a9fff44c9ad6a05e188399fabee&v=4" width="75px;" alt="Angelina Olmedo"/>
+        <br />
+        <sub><b>Angelina Olmedo</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/TalkativeTree/MinervaFacilities/commits?author=angelinaolmedo7" title="Code">💻</a>
+      <!-- <a href="https://www.linkedin.com/in/angelinaolmedo/" title="LinkedIn"><img src="https://i.stack.imgur.com/gVE0j.png" /></a> -->
+    </td>
+    <td align="center">
+      <a href="https://github.com/Evansdava">
+        <img src="https://avatars1.githubusercontent.com/u/53628042?s=460&u=a6a6f4466ef5073b417e8263db9efb9f549b4201&v=4" width="75px;" alt="David Evans"/>
+        <br />
+        <sub><b>David Evans</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/TalkativeTree/MinervaFacilities/commits?author=Evansdava" title="Code">💻</a>
+      <!-- <a href="https://www.linkedin.com/in/david-a-e/" title="LinkedIn"><img src="https://i.stack.imgur.com/gVE0j.png" /></a> -->
+    </td>
+  </tr>
+  <tr>
+    <th>Contributors</th>
+    <!-- <td align="center">
+      <a href="https://github.com/---ACOUNT/NAME---">
+        <img src="https://avatars1.githubusercontent.com/u/---ACOUNT/NAME---" width="75px;" alt="---ACOUNT/NAME---"/>
+        <br />
+        <sub><b>---ACOUNT/NAME---</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/TalkativeTree/MinervaFacilities/commits?author=---ACOUNT/NAME---" title="Code">💻</a>
+      <!- <a href="https://www.linkedin.com/in/---ACOUNT/NAME---" title="LinkedIn"><img src="https://i.stack.imgur.com/gVE0j.png" /></a> ->
+    </td> -->
+    <!-- <td align="center">
+      <a href="https://github.com/---ACOUNT/NAME---">
+        <img src="https://avatars1.githubusercontent.com/u/---ACOUNT/NAME---" width="75px;" alt="---ACOUNT/NAME---"/>
+        <br />
+        <sub><b>---ACOUNT/NAME---</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/TalkativeTree/MinervaFacilities/commits?author=---ACOUNT/NAME---" title="Code">💻</a>
+      <!- <a href="https://www.linkedin.com/in/---ACOUNT/NAME---" title="LinkedIn"><img src="https://i.stack.imgur.com/gVE0j.png" /></a> ->
+    </td> -->
+    <!-- <td align="center">
+      <a href="https://github.com/---ACOUNT/NAME---">
+        <img src="https://avatars1.githubusercontent.com/u/---ACOUNT/NAME---" width="75px;" alt="---ACOUNT/NAME---"/>
+        <br />
+        <sub><b>---ACOUNT/NAME---</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/TalkativeTree/MinervaFacilities/commits?author=---ACOUNT/NAME---" title="Code">💻</a>
+      <!- <a href="https://www.linkedin.com/in/---ACOUNT/NAME---" title="LinkedIn"><img src="https://i.stack.imgur.com/gVE0j.png" /></a> ->
+    </td> -->
+  </tr>
+</table>
 
-  [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/bangel/)
-  &nbsp;
-  [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/TalkativeTree)
-  &nbsp;
-  [:e-mail: Email](mailto:ben@newharmonycafe.com)
+### Add yourself as a contributor above ^
 
-<!-- ## :pencil: License
+```html
+<td align="center">
+  <a href="https://github.com/---ACOUNT/NAME---">
+    <img src="https://avatars1.githubusercontent.com/u/---ACOUNT/NAME---" width="75px;" alt="---ACOUNT/NAME---"/>
+    <br />
+    <sub><b>---ACOUNT/NAME---</b></sub>
+  </a>
+  <br />
+  <a href="https://github.com/TalkativeTree/MinervaFacilities/commits?author=---ACOUNT/NAME---" title="Code">💻</a>
+  <!-- <a href="https://www.linkedin.com/in/---ACOUNT/NAME---" title="LinkedIn"><img src="https://i.stack.imgur.com/gVE0j.png" /></a> -->
+</td>
+```
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details -->
-
-## :book: EXTRA RESOURCES
+## :book: EXTRA RESOURCES/Acknowledgments :pray:
 
 - [Pull Request Title Checker](https://github.com/marketplace/actions/pr-title-checker)
 - [Pull Request Labeler](https://github.com/marketplace/actions/labeler)
@@ -111,75 +208,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
   <!-- - [Commit Template](https://thoughtbot.com/blog/better-commit-messages-with-a-gitmessage-template) -->
   <!-- - [Customizing Git Configuration](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration) -->
   <!-- - List of Github Badges [1](https://github.com/ClydeDz/emoji-badges-vscode/blob/master/list-of-badges.md) & [2](https://github.com/Naereen/badges) -->
-
-<!-- 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
