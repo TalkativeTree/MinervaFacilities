@@ -1,34 +1,40 @@
 {
-  "name": "minerva",
-  "version": "0.2.0",
+  "name": "minerva_facilities",
+  "homepage": "https://minervafacilities.com/#/",
+  "version": "1.0.0",
+  "description": "This app allows building managers, employees, and maintenance workers/contractors to handle repair requests and office issues while providing a central location to track and store repair/request history.",
+  "main": "index.js",
+  "repository": "https://github.com/TalkativeTree/MinervaFacilities.git",
+  "author": "Christopher Barnes <chris.barnes.2000@me.com>",
+  "license": "MIT",
   "private": true,
   "dependencies": {
-    "@firebase/database": "^0.6.12",
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-brands-svg-icons": "^5.14.0",
-    "@fortawesome/free-regular-svg-icons": "^5.14.0",
-    "@fortawesome/free-solid-svg-icons": "^5.15.0",
-    "@fortawesome/react-fontawesome": "^0.1.11",
-    "@react-native-community/async-storage": "^1.12.0",
-    "@react-native-community/masked-view": "0.1.10",
-    "@react-navigation/native": "^5.7.3",
-    "@react-navigation/stack": "^5.9.0",
-    "bootstrap": "^4.5.2",
-    "expo": "^38.0.10",
-    "expo-status-bar": "^1.0.2",
-    "firebase": "^7.21.1",
-    "local": "^0.3.3",
-    "react": "16.13.1",
-    "react-bootstrap": "^1.3.0",
+    "@firebase/analytics": "^0.6.2",
+    "@firebase/performance": "^0.4.4",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.13",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "bootstrap": "^4.5.3",
+    "firebase": "^8.1.2",
+    "react": "^17.0.1",
     "react-confirm-alert": "^2.6.2",
-    "react-dom": "~16.11.0",
+    "react-dom": "^17.0.1",
     "react-google-places-autocomplete": "^3.0.0",
+<<<<<<< HEAD
     "react-native": "^0.63.3",
     "react-native-dotenv": "^2.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^3.4.3",
+=======
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+>>>>>>> master
     "recompose": "^0.30.0",
-    "storage": "^0.2.0"
+    "web-vitals": "^0.2.4"
   },
   "babel": {
     "presets": [
@@ -49,7 +55,9 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
+<<<<<<< HEAD
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -72,5 +80,31 @@
     "@testing-library/react-native": "^7.0.2",
     "babel-jest": "^26.3.0",
     "react-test-renderer": "^16.14.0"
+=======
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not ie <= 11",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
+>>>>>>> master
   }
 }

@@ -70,11 +70,6 @@ class ReportForm extends Component {
   onAutoFill = () => {
     this.setState({
       isBlocking: true,
-      
-      // companyID: '-MIl88ANUFKxLp_sKsvf',
-      // buildingID: '-MIqkLiTo2qwbo3JkrHL',
-      // floorID: '-MIqkPSUQ7HeoFxXdrW7',
-      // roomID: '-MIqCSAwq5QBti12uqKI',
       companyID: '-MNIVFlXAdfjwAIEslMH',
       buildingID: '-MNIWgqfPJFOqVVPFLCA',
       floorID: '-MNIaKm56aa5l5mHaV5-',
@@ -168,9 +163,11 @@ class ReportForm extends Component {
             />
           </div>
 
-          <div className="btn btn-primary form-input" onClick={this.onAutoFill}>
-            Auto Fill Location
-          </div>
+          {process.env.NODE_ENV !== 'production' && 
+            <div className="btn btn-primary form-input" onClick={this.onAutoFill}>
+              Auto Fill Location
+            </div>
+          }
 
           <div className="form-row">
             <input

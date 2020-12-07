@@ -7,22 +7,28 @@
     display: block !important;
     height: 100vh;
     width: 100vw;
-    background-color: #087cb8;
-    background-image: url('../public/images/background_blue_gradient.jpg');
+    background-color: #046a9e;
+    background-image: url('../src/images/background_blue_gradient.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
   }
   .desktop-banner {
-    margin: auto;
+    margin: 15hv 15vw !important;
     overflow: auto;
     padding: 15vh 5vw;
-    position: fixed;
+    font-size: large;
+    color: white;
+    vertical-align: center;
   }
   .little-square {
     margin: 0 auto;
     width: 40%;
+  }
+  .littler-square {
+    margin: 0 auto;
+    width: 20%;
   }
 
   .directive-card {
@@ -109,7 +115,7 @@ nav {
 
 .usercard {
   background-color: #bebebe;
-  background-image: url('../public/images/trianglify-lowres.png');
+  background-image: url('../src/images/trianglify-lowres.png');
   background-size: 150%;
   background-attachment: fixed;
   background-position: top;
@@ -297,6 +303,7 @@ li.row {
   justify-content: space-evenly;
 }
 .text-center.edit-container {
+  margin-top: 1rem;
   width: 100vw;
   justify-content: space-evenly;
 }
@@ -346,9 +353,9 @@ p.comp-item.report-desc {
 }
 /* ------- Landing ---------- */
 .landing-container {
-  height: 90vh;
+  height: 100vh;
   width: 100vw;
-  background-image: url('https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/BetterGIFs/7c17f0c64b977875a2c0625b406bb0d2.gif?raw=true');
+  background-image: url('../src/images/landing.gif');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -437,6 +444,7 @@ p.comp-item.report-desc {
   background-color: #fff;
   border-radius: 5px;
   padding: 0.5em;
+  margin-top: 0.5rem;
 }
 
 /* company */

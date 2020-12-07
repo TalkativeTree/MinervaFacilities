@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { AuthUserContext } from '../Session';
-import * as ROUTES from '../../routes';
+import { AuthUserContext } from './Session';
+import * as ROUTES from '../routes';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

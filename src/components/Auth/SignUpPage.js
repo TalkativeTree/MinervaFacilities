@@ -6,17 +6,16 @@ import { SignInLink } from './SignInPage';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../routes';
 
+import Logo from '../../images/minerva-transparent-vector.png';
+
 const SignUpPage = () => (
-  <div className='page-bg'>
-    <div className='page-inner'>
-    <img
-      className="signin-logo fade-in" alt="logo"
-      src="https://github.com/ChrisBarnes7404/React-WebBased-MVP/blob/master/public/images/minerva-transparent-vector.png?raw=true"
-    />
-    <h1>Register</h1>
-    <SignUpForm />
-    <SignInLink />
-  </div>
+  <div className="page-bg">
+    <div className="page-inner">
+      <img className="signin-logo fade-in" alt="logo" src={Logo} />
+      <h1>Register</h1>
+      <SignUpForm />
+      <SignInLink />
+    </div>
   </div>
 );
 
