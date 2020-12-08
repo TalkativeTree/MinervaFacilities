@@ -1,8 +1,8 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import App from '../../src/components/App/index'
+import LandingPage from '../../components/Displays/LandingPage'
 
 it('renders correctly', () => {
-  const tree = renderer.create(<App />).toJSON();
+  const tree = renderer.create(<LandingPage />).toJSON();
   expect(tree).toMatchSnapshot();
 })
