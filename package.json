@@ -26,9 +26,21 @@
     "react-google-places-autocomplete": "^3.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-test-renderer": "^17.0.1",
     "recompose": "^0.30.0",
     "web-vitals": "^0.2.4"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-syntax-class-properties"
+    ]
+  },
+  "jest": {},
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

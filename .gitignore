@@ -11,6 +11,21 @@
 # production
 /build
 
+# Bundle artifacts
+*.jsbundle
+
+# CocoaPods
+/ios/Pods/
+
+# Expo
+.expo/*
+web-build/
+
+# vscode 
+.vscode/
+
+# Environment
+.env
 # misc
 .DS_Store
 .eslintcache
